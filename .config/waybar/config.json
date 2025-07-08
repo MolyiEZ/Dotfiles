@@ -1,0 +1,27 @@
+{
+    "layer": "top",
+    "position": "top",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "fixed-center": true,
+    "spacing": 2,
+    "reload_style_on_change": true,
+    "ipc": true,
+
+    "include": ["~/.config/waybar/modules.json", "~/.config/waybar/modulesCustom.json"],
+
+    "modules-left": ["custom/notification", "network", "tray", "privacy"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [
+        "wireplumber",
+        "custom/separator#dot-line",
+        "cpu",
+        "custom/separator#dot-line",
+        "memory",
+        "custom/separator#dot-line",
+        "temperature",
+        "custom/separator#line",
+        "clock"
+    ]
+}

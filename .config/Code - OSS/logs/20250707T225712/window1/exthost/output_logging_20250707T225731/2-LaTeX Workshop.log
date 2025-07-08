@@ -1,0 +1,99 @@
+[23:01:38.465][Logger] New log placeholder %WS1% registered for /home/molyi/Projects .
+[23:01:38.465][Extension] Initializing LaTeX Workshop.
+[23:01:38.731][Build][Recipe] Set $LATEXWORKSHOP_DOCKER_LATEX: ""
+[23:01:38.732][Build][Recipe] Set $LATEXWORKSHOP_DOCKER_PATH: "docker"
+[23:01:38.838][Server] Creating LaTeX Workshop http and websocket server.
+[23:01:39.196][Format][Bib] Bibtex format config: {"tab":"  ","case":"lowercase","left":"{","right":"}","trailingComma":false,"sort":["key"],"alignOnEqual":true,"sortFields":false,"fieldsOrder":[],"firstEntries":["string","xdata"]}
+[23:01:39.509][Server] Server successfully started: {"address":"127.0.0.1","family":"IPv4","port":43547} .
+[23:01:39.606][Extension] Extension root: /home/molyi/.vscode-oss/extensions/james-yu.latex-workshop-10.10.0-universal
+[23:01:39.611][Extension] $PATH: /usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+[23:01:39.611][Extension] $SHELL: /usr/bin/bash
+[23:01:39.612][Extension] $LANG: en_US.UTF-8
+[23:01:39.612][Extension] $LC_ALL: undefined
+[23:01:39.616][Extension] process.platform: linux
+[23:01:39.616][Extension] process.arch: x64
+[23:01:39.616][Extension] vscode.env.appName: Code - OSS
+[23:01:39.617][Extension] vscode.env.remoteName: undefined
+[23:01:39.617][Extension] vscode.env.uiKind: 1
+[23:01:39.976][Extension] Trigger characters for intellisense of LaTeX documents: ["\\",",","{","}"]
+[23:01:39.999][Root] Current workspace folders: ["file://%WS1%"]
+[23:01:40.000][Root] Try finding root from magic comment.
+[23:01:40.008][Extension] LaTeX Workshop initialized.
+[23:01:40.017][Root] Try finding root from active editor.
+[23:01:40.018][Root] Found root file from active editor: %WS1%/Math/Proofs/Proofs.tex
+[23:01:40.021][Root] Root file changed: from %WS1%/Math/Proofs/Proofs.tex to %WS1%/Math/Proofs/Proofs.tex, langID latex . Refresh dependencies
+[23:01:40.023][Event] ROOT_FILE_CHANGED: "%WS1%/Math/Proofs/Proofs.tex"
+[23:01:40.024][Cacher][Watcher] Reset.
+[23:01:40.032][Cacher][Watcher] Reset.
+[23:01:40.032][Cacher][Watcher] Reset.
+[23:01:40.068][Cacher] Adding %WS1%/Math/Proofs/Proofs.tex .
+[23:01:40.070][Cacher][Watcher] Watched file://%WS1%/Math/Proofs/Proofs.tex with a new .* watcher on %WS1%/Math/Proofs .
+[23:01:40.076][Event] FILE_WATCHED: "file://%WS1%/Math/Proofs/Proofs.tex"
+[23:01:40.087][Cacher] Caching %WS1%/Math/Proofs/Proofs.tex .
+[23:01:40.094][Event] ROOT_FILE_SEARCHED
+[23:01:40.178][Server] validOrigin is http://127.0.0.1:43547
+[23:01:40.277][Cacher] Updated inputs of %WS1%/Math/Proofs/Proofs.tex .
+[23:01:40.277][Cacher] Parse LaTeX AST: %WS1%/Math/Proofs/Proofs.tex .
+[23:01:40.640][Cacher] Parsed LaTeX AST in 362.11 ms: %WS1%/Math/Proofs/Proofs.tex .
+[23:01:40.641][File] Calling kpsewhich to resolve article.cls .
+[23:01:40.649][File] kpsewhich returned with non-zero code null.
+[23:01:40.664][Cacher] Updated elements in 23.49 ms: %WS1%/Math/Proofs/Proofs.tex .
+[23:01:40.665][Event] FILE_PARSED: "%WS1%/Math/Proofs/Proofs.tex"
+[23:01:40.675][Structure] Structure force updated with 0 root sections for %WS1%/Math/Proofs/Proofs.tex .
+[23:01:40.676][Event] STRUCTURE_UPDATED
+[23:01:40.685][Cacher] Parsing .fls %WS1%/Math/Proofs/Proofs.fls .
+[23:01:40.805][Cacher] Found .aux %WS1%/Math/Proofs/Proofs.aux from .fls %WS1%/Math/Proofs/Proofs.fls , parsing.
+[23:01:40.807][Cacher] Parsed .aux %WS1%/Math/Proofs/Proofs.aux .
+[23:01:40.808][Cacher] Parsed .fls %WS1%/Math/Proofs/Proofs.fls .
+[23:01:43.864][Event] STRUCTURE_UPDATED
+[23:01:46.006][Event] STRUCTURE_UPDATED
+[23:01:50.517][Viewer][Panel] Internal PDF viewer at http://127.0.0.1:43547/viewer.html?file=pdf..ZmlsZSUzQSUyRiUyRiUyRmhvbWUlMkZtb2x5aSUyRlByb2plY3RzJTJGTWF0aCUyRlByb29mcyUyRlByb29mcy5wZGY .
+[23:01:50.519][Cacher][Watcher] Watched file://%WS1%/Math/Proofs/Proofs.pdf with a new .pdf watcher on %WS1%/Math/Proofs .
+[23:01:50.520][Event] FILE_WATCHED: "file://%WS1%/Math/Proofs/Proofs.pdf"
+[23:01:50.896][Viewer] Handle data type: open
+[23:01:50.897][LiveShare] Sends message {"type":"open","pdfFileUri":"file://%WS1%/Math/Proofs/Proofs.pdf"} to host
+[23:01:51.040][Server] Preview PDF file: file://%WS1%/Math/Proofs/Proofs.pdf
+[23:01:51.365][Viewer] Handle data type: loaded
+[23:01:51.365][Event] VIEWER_PAGE_LOADED
+[23:02:01.786][Event] STRUCTURE_UPDATED
+[23:02:06.790][Commander] BUILD command invoked.
+[23:02:06.792][Build] The document of the active editor: file://%WS1%/Math/Proofs/Proofs.tex
+[23:02:06.793][Build] The languageId of the document: latex
+[23:02:06.794][Root] Current workspace folders: ["file://%WS1%"]
+[23:02:06.795][Root] Try finding root from magic comment.
+[23:02:06.797][Root] Try finding root from active editor.
+[23:02:06.799][Root] Found root file from active editor: %WS1%/Math/Proofs/Proofs.tex
+[23:02:06.800][Root] Keep using the same root file: %WS1%/Math/Proofs/Proofs.tex
+[23:02:06.800][Event] ROOT_FILE_SEARCHED
+[23:02:06.801][Event] STRUCTURE_UPDATED
+[23:02:06.801][Build] Building root file: %WS1%/Math/Proofs/Proofs.tex
+[23:02:06.802][Build][Recipe] Build root file %WS1%/Math/Proofs/Proofs.tex
+[23:02:06.808][Build][Recipe] Preparing to run recipe: latexmk.
+[23:02:06.809][Build][Recipe] Prepared 1 tools.
+[23:02:06.821][Build][Recipe] Cannot run `pdflatex` to determine if we are using MiKTeX. TypeError: Cannot read properties of undefined (reading 'toString')
+[23:02:06.822]TypeError: Cannot read properties of undefined (reading 'toString')
+	at isMikTeX (/home/molyi/.vscode-oss/extensions/james-yu.latex-workshop-10.10.0-universal/out/src/compile/recipe.js:374:80)
+	at /home/molyi/.vscode-oss/extensions/james-yu.latex-workshop-10.10.0-universal/out/src/compile/recipe.js:352:63
+	at Array.forEach (<anonymous>)
+	at populateTools (/home/molyi/.vscode-oss/extensions/james-yu.latex-workshop-10.10.0-universal/out/src/compile/recipe.js:319:16)
+	at createBuildTools (/home/molyi/.vscode-oss/extensions/james-yu.latex-workshop-10.10.0-universal/out/src/compile/recipe.js:165:5)
+	at async build (/home/molyi/.vscode-oss/extensions/james-yu.latex-workshop-10.10.0-universal/out/src/compile/recipe.js:54:19)
+	at async Object.build (/home/molyi/.vscode-oss/extensions/james-yu.latex-workshop-10.10.0-universal/out/src/compile/build.js:152:5)
+	at async Object.build (/home/molyi/.vscode-oss/extensions/james-yu.latex-workshop-10.10.0-universal/out/src/core/commands.js:92:5)
+	at async Xb.h (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:120:41516)
+[23:02:06.824][Build][Recipe] outDir: %WS1%/Math/Proofs .
+[23:02:06.830][Build] Recipe step 1 The command is latexmk:["-synctex=1","-interaction=nonstopmode","-file-line-error","-pdf","-outdir=%WS1%/Math/Proofs","%WS1%/Math/Proofs/Proofs"].
+[23:02:06.830][Build] env: {}
+[23:02:06.830][Build] root: %WS1%/Math/Proofs/Proofs.tex
+[23:02:06.831][Build] cwd: %WS1%/Math/Proofs
+[23:02:06.841][Build] LaTeX build process spawned with PID undefined.
+[23:02:06.843][Build] LaTeX fatal error on PID undefined. Error: spawn latexmk ENOENT
+[23:02:06.844]Error: spawn latexmk ENOENT
+	at ChildProcess._handle.onexit (node:internal/child_process:285:19)
+	at onErrorNT (node:internal/child_process:483:16)
+	at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+[23:02:06.844][Build] Does the executable exist? $PATH: /usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl, $Path: undefined, $SHELL: /usr/bin/bash
+[23:02:06.845][Build] 
+[23:02:35.877][Cacher][Watcher] Reset.
+[23:02:35.878][Cacher][Watcher] Reset.
+[23:02:35.878][Cacher][Watcher] Reset.

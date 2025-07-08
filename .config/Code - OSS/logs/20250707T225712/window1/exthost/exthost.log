@@ -1,0 +1,60 @@
+2025-07-07 22:57:16.437 [info] Extension host with pid 11183 started
+2025-07-07 22:57:16.582 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-07-07 22:57:16.611 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-07-07 22:57:16.706 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-07-07 22:57:16.891 [info] Eager extensions activated
+2025-07-07 22:57:16.897 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-07-07 22:57:16.900 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-07-07 22:57:29.852 [info] Extension host terminating: renderer closed the MessagePort
+2025-07-07 22:57:29.868 [info] Extension host with pid 11183 exiting with code 0
+2025-07-07 22:57:31.664 [info] Extension host with pid 11263 started
+2025-07-07 22:57:31.664 [info] Skipping acquiring lock for /home/molyi/.config/Code - OSS/User/workspaceStorage/259bece6e47a93984bf7f2e695b1c283.
+2025-07-07 22:57:31.724 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2025-07-07 22:57:31.852 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-07-07 22:57:32.023 [info] Eager extensions activated
+2025-07-07 22:57:32.039 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-07-07 22:57:32.044 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-07-07 22:57:33.339 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+2025-07-07 22:57:33.585 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-07-07 22:57:33.844 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-07-07 22:58:26.662 [info] ExtensionService#_doActivateExtension aaron-bond.better-comments, startup: false, activationEvent: 'onStartupFinished'
+2025-07-07 22:58:44.094 [info] ExtensionService#_doActivateExtension littensy.charmed-icons, startup: false, activationEvent: 'onStartupFinished'
+2025-07-07 22:58:49.225 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-07-07 22:58:49.236 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-07-07 22:58:49.370 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-07-07 22:59:10.778 [info] ExtensionService#_doActivateExtension streetsidesoftware.code-spell-checker, startup: false, activationEvent: 'onStartupFinished', root cause: streetsidesoftware.code-spell-checker-spanish
+2025-07-07 22:59:11.328 [info] ExtensionService#_doActivateExtension streetsidesoftware.code-spell-checker-spanish, startup: false, activationEvent: 'onStartupFinished'
+2025-07-07 22:59:41.499 [info] ExtensionService#_doActivateExtension usernamehw.errorlens, startup: false, activationEvent: 'onStartupFinished'
+2025-07-07 23:00:01.198 [info] ExtensionService#_doActivateExtension dbaeumer.vscode-eslint, startup: false, activationEvent: 'onStartupFinished'
+2025-07-07 23:00:05.760 [info] ExtensionService#_doActivateExtension eamodio.gitlens, startup: false, activationEvent: 'onStartupFinished'
+2025-07-07 23:00:38.558 [info] ExtensionService#_doActivateExtension esbenp.prettier-vscode, startup: false, activationEvent: 'onStartupFinished'
+2025-07-07 23:01:38.449 [info] ExtensionService#_doActivateExtension James-Yu.latex-workshop, startup: false, activationEvent: 'onLanguage:latex'
+2025-07-07 23:01:38.703 [warning] DiagnosticCollection with name 'BibTeX' does already exist.
+2025-07-07 23:01:39.386 [warning] DiagnosticCollection with name 'BibTeX' does already exist.
+2025-07-07 23:01:46.094 [warning] Illegal argument: TextEditor(vs.editor.ICodeEditor:3,$model6)
+2025-07-07 23:01:50.433 [warning] TextEditor is closed/disposed
+2025-07-07 23:02:35.850 [info] Extension host terminating: renderer closed the MessagePort
+2025-07-07 23:02:35.877 [error] An error occurred when disposing the subscriptions for extension 'eamodio.gitlens':
+2025-07-07 23:02:35.877 [error] TypeError: Cannot read properties of undefined (reading 'dispose')
+	at Object.dispose (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:147:119959)
+	at I0.<anonymous> (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:115:8921)
+	at I0.dispose (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:115:9017)
+	at Object.dispose (/home/molyi/.vscode-oss/extensions/eamodio.gitlens-17.2.2-universal/dist/gitlens.js:489:29281)
+	at /home/molyi/.vscode-oss/extensions/eamodio.gitlens-17.2.2-universal/dist/gitlens.js:766:16142
+	at Array.forEach (<anonymous>)
+	at Object.dispose (/home/molyi/.vscode-oss/extensions/eamodio.gitlens-17.2.2-universal/dist/gitlens.js:766:16124)
+	at xr (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:25:746)
+	at file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:124:15046
+	at file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:25:1056
+	at Object.dispose (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:8:705)
+	at yY.eb (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:124:11919)
+	at file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:124:9874
+	at Array.map (<anonymous>)
+	at yY.$ (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:124:9862)
+	at yY.terminate (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:124:10105)
+	at zA.terminate (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:126:914)
+	at gs (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:361:5228)
+	at MessagePortMain.<anonymous> (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:361:1775)
+	at MessagePortMain.emit (node:events:518:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:3073)
+2025-07-07 23:02:35.898 [info] Extension host with pid 11263 exiting with code 0

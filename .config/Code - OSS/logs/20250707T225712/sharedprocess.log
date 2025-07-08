@@ -1,0 +1,95 @@
+2025-07-07 22:57:15.806 [info] ComputeTargetPlatform: linux-x64
+2025-07-07 22:57:48.394 [info] ComputeTargetPlatform: linux-x64
+2025-07-07 22:58:10.164 [info] Getting Manifest... ms-vscode.vscode-typescript-next
+2025-07-07 22:58:11.694 [info] Installing extension: ms-vscode.vscode-typescript-next {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 22:58:22.163 [info] Extension signature verification result for ms-vscode.vscode-typescript-next: Success. Executed: true. Duration: 1174ms.
+2025-07-07 22:58:22.654 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/ms-vscode.vscode-typescript-next-5.3.20230808-universal: ms-vscode.vscode-typescript-next
+2025-07-07 22:58:22.671 [info] Renamed to /home/molyi/.vscode-oss/extensions/ms-vscode.vscode-typescript-next-5.3.20230808-universal
+2025-07-07 22:58:22.690 [info] Extension installed successfully: ms-vscode.vscode-typescript-next vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 22:58:24.555 [info] Getting Manifest... aaron-bond.better-comments
+2025-07-07 22:58:24.979 [info] Installing extension: aaron-bond.better-comments {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 22:58:26.384 [info] Extension signature verification result for aaron-bond.better-comments: Success. Executed: true. Duration: 419ms.
+2025-07-07 22:58:26.429 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/aaron-bond.better-comments-3.0.2-universal: aaron-bond.better-comments
+2025-07-07 22:58:26.485 [info] Renamed to /home/molyi/.vscode-oss/extensions/aaron-bond.better-comments-3.0.2-universal
+2025-07-07 22:58:26.501 [info] Extension installed successfully: aaron-bond.better-comments vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 22:58:38.101 [info] Getting Manifest... littensy.charmed-icons
+2025-07-07 22:58:38.529 [info] Installing extension: littensy.charmed-icons {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 22:58:42.763 [info] Extension signature verification result for littensy.charmed-icons: Success. Executed: true. Duration: 992ms.
+2025-07-07 22:58:43.605 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/littensy.charmed-icons-0.10.0-universal: littensy.charmed-icons
+2025-07-07 22:58:43.653 [info] Renamed to /home/molyi/.vscode-oss/extensions/littensy.charmed-icons-0.10.0-universal
+2025-07-07 22:58:43.668 [info] Extension installed successfully: littensy.charmed-icons vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 22:59:02.908 [info] Getting Manifest... streetsidesoftware.code-spell-checker-spanish
+2025-07-07 22:59:03.554 [info] Installing extension: streetsidesoftware.code-spell-checker-spanish {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 22:59:04.082 [info] Getting Manifest... streetsidesoftware.code-spell-checker
+2025-07-07 22:59:04.910 [info] Installing extension: streetsidesoftware.code-spell-checker {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"},"installGivenVersion":false,"context":{"dependecyOrPackExtensionInstall":true}}
+2025-07-07 22:59:08.460 [info] Extension signature verification result for streetsidesoftware.code-spell-checker-spanish: Success. Executed: true. Duration: 889ms.
+2025-07-07 22:59:08.490 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/streetsidesoftware.code-spell-checker-spanish-2.3.5-universal: streetsidesoftware.code-spell-checker-spanish
+2025-07-07 22:59:08.521 [info] Renamed to /home/molyi/.vscode-oss/extensions/streetsidesoftware.code-spell-checker-spanish-2.3.5-universal
+2025-07-07 22:59:09.978 [info] Extension signature verification result for streetsidesoftware.code-spell-checker: Success. Executed: true. Duration: 479ms.
+2025-07-07 22:59:10.430 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/streetsidesoftware.code-spell-checker-4.0.47-universal: streetsidesoftware.code-spell-checker
+2025-07-07 22:59:10.486 [info] Renamed to /home/molyi/.vscode-oss/extensions/streetsidesoftware.code-spell-checker-4.0.47-universal
+2025-07-07 22:59:10.508 [info] Extension installed successfully: streetsidesoftware.code-spell-checker-spanish vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 22:59:10.509 [info] Extension installed successfully: streetsidesoftware.code-spell-checker vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 22:59:11.907 [info] Uninstalling extension from the profile: streetsidesoftware.code-spell-checker-spanish@2.3.5 vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 22:59:11.978 [info] Marked extension as removed streetsidesoftware.code-spell-checker-spanish-2.3.5-universal
+2025-07-07 22:59:12.364 [info] Successfully uninstalled extension from the profile streetsidesoftware.code-spell-checker-spanish@2.3.5 vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 22:59:27.860 [info] Getting Manifest... adpyke.codesnap
+2025-07-07 22:59:28.289 [info] Installing extension: adpyke.codesnap {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 22:59:34.257 [info] Extension signature verification result for adpyke.codesnap: Success. Executed: true. Duration: 991ms.
+2025-07-07 22:59:35.697 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/adpyke.codesnap-1.3.4-universal: adpyke.codesnap
+2025-07-07 22:59:35.763 [info] Renamed to /home/molyi/.vscode-oss/extensions/adpyke.codesnap-1.3.4-universal
+2025-07-07 22:59:35.780 [info] Extension installed successfully: adpyke.codesnap vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 22:59:38.865 [info] Getting Manifest... usernamehw.errorlens
+2025-07-07 22:59:39.281 [info] Installing extension: usernamehw.errorlens {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 22:59:41.136 [info] Extension signature verification result for usernamehw.errorlens: Success. Executed: true. Duration: 863ms.
+2025-07-07 22:59:41.195 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/usernamehw.errorlens-3.26.0-universal: usernamehw.errorlens
+2025-07-07 22:59:41.230 [info] Renamed to /home/molyi/.vscode-oss/extensions/usernamehw.errorlens-3.26.0-universal
+2025-07-07 22:59:41.256 [info] Extension installed successfully: usernamehw.errorlens vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 22:59:49.499 [info] Getting Manifest... eamodio.gitlens
+2025-07-07 22:59:51.171 [info] Installing extension: eamodio.gitlens {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 22:59:58.147 [info] Getting Manifest... dbaeumer.vscode-eslint
+2025-07-07 22:59:58.562 [info] Installing extension: dbaeumer.vscode-eslint {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 23:00:00.883 [info] Extension signature verification result for dbaeumer.vscode-eslint: Success. Executed: true. Duration: 856ms.
+2025-07-07 23:00:00.923 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/dbaeumer.vscode-eslint-3.0.10-universal: dbaeumer.vscode-eslint
+2025-07-07 23:00:00.955 [info] Renamed to /home/molyi/.vscode-oss/extensions/dbaeumer.vscode-eslint-3.0.10-universal
+2025-07-07 23:00:00.975 [info] Extension installed successfully: dbaeumer.vscode-eslint vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 23:00:04.480 [info] Extension signature verification result for eamodio.gitlens: Success. Executed: true. Duration: 511ms.
+2025-07-07 23:00:04.831 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/eamodio.gitlens-17.2.2-universal: eamodio.gitlens
+2025-07-07 23:00:04.889 [info] Renamed to /home/molyi/.vscode-oss/extensions/eamodio.gitlens-17.2.2-universal
+2025-07-07 23:00:04.944 [info] Extension installed successfully: eamodio.gitlens vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 23:00:13.698 [info] Getting Manifest... james-yu.latex-workshop
+2025-07-07 23:00:14.122 [info] Installing extension: james-yu.latex-workshop {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 23:00:26.339 [info] Extension signature verification result for james-yu.latex-workshop: Success. Executed: true. Duration: 1524ms.
+2025-07-07 23:00:27.899 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/james-yu.latex-workshop-10.10.0-universal: james-yu.latex-workshop
+2025-07-07 23:00:28.003 [info] Renamed to /home/molyi/.vscode-oss/extensions/james-yu.latex-workshop-10.10.0-universal
+2025-07-07 23:00:28.046 [info] Extension installed successfully: james-yu.latex-workshop vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 23:00:33.046 [info] Getting Manifest... esbenp.prettier-vscode
+2025-07-07 23:00:33.463 [info] Installing extension: esbenp.prettier-vscode {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 23:00:37.960 [info] Extension signature verification result for esbenp.prettier-vscode: Success. Executed: true. Duration: 856ms.
+2025-07-07 23:00:38.215 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/esbenp.prettier-vscode-11.0.0-universal: esbenp.prettier-vscode
+2025-07-07 23:00:38.224 [info] Renamed to /home/molyi/.vscode-oss/extensions/esbenp.prettier-vscode-11.0.0-universal
+2025-07-07 23:00:38.259 [info] Extension installed successfully: esbenp.prettier-vscode vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 23:00:41.854 [info] Getting Manifest... nightrains.robloxlsp
+2025-07-07 23:00:42.295 [info] Installing extension: nightrains.robloxlsp {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 23:00:45.439 [info] Getting Manifest... fireboltofdeath.vscode-roblox-ts
+2025-07-07 23:00:45.864 [info] Installing extension: fireboltofdeath.vscode-roblox-ts {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 23:00:50.726 [info] Extension signature verification result for nightrains.robloxlsp: Success. Executed: true. Duration: 912ms.
+2025-07-07 23:00:52.121 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/nightrains.robloxlsp-1.6.8-universal: nightrains.robloxlsp
+2025-07-07 23:00:52.178 [info] Renamed to /home/molyi/.vscode-oss/extensions/nightrains.robloxlsp-1.6.8-universal
+2025-07-07 23:00:52.228 [info] Extension installed successfully: nightrains.robloxlsp vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 23:00:54.194 [info] Getting Manifest... evaera.vscode-rojo
+2025-07-07 23:00:54.616 [info] Installing extension: evaera.vscode-rojo {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 23:00:56.165 [info] Extension signature verification result for evaera.vscode-rojo: Success. Executed: true. Duration: 471ms.
+2025-07-07 23:00:56.190 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/evaera.vscode-rojo-2.1.2-universal: evaera.vscode-rojo
+2025-07-07 23:00:56.228 [info] Renamed to /home/molyi/.vscode-oss/extensions/evaera.vscode-rojo-2.1.2-universal
+2025-07-07 23:00:56.259 [info] Extension installed successfully: evaera.vscode-rojo vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 23:01:01.758 [info] Getting Manifest... johnnymorganz.stylua
+2025-07-07 23:01:02.199 [info] Installing extension: johnnymorganz.stylua {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json","path":"/home/molyi/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.101.2","date":"2025-06-25T19:40:00.687Z"}}
+2025-07-07 23:01:04.370 [info] Extension signature verification result for fireboltofdeath.vscode-roblox-ts: Success. Executed: true. Duration: 1560ms.
+2025-07-07 23:01:04.795 [info] Extension signature verification result for johnnymorganz.stylua: Success. Executed: true. Duration: 840ms.
+2025-07-07 23:01:04.832 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/johnnymorganz.stylua-1.7.1-universal: johnnymorganz.stylua
+2025-07-07 23:01:04.880 [info] Renamed to /home/molyi/.vscode-oss/extensions/johnnymorganz.stylua-1.7.1-universal
+2025-07-07 23:01:04.927 [info] Extension installed successfully: johnnymorganz.stylua vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json
+2025-07-07 23:01:06.132 [info] Extracted extension to file:///home/molyi/.vscode-oss/extensions/fireboltofdeath.vscode-roblox-ts-1.6.2-universal: fireboltofdeath.vscode-roblox-ts
+2025-07-07 23:01:06.205 [info] Renamed to /home/molyi/.vscode-oss/extensions/fireboltofdeath.vscode-roblox-ts-1.6.2-universal
+2025-07-07 23:01:06.248 [info] Extension installed successfully: fireboltofdeath.vscode-roblox-ts vscode-userdata:/home/molyi/.vscode-oss/extensions/extensions.json

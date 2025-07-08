@@ -1,0 +1,125 @@
+@define-color mauve    #4D726B;
+@define-color red      #4D726B;
+@define-color lavender #b4c8be;
+@define-color text     #b4c8be;
+@define-color background #1a1a1a;
+@define-color highlight #121212;
+
+* {
+    all: unset;
+    font-family: "CodeNewRoman Nerd Font Mono", monospace;
+    font-size: 18px;
+    color: @text;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Window with Neumorphic Background */
+window {
+    padding: 20px;
+    border-radius: 6px;
+    background: linear-gradient(145deg, @background, @highlight);
+    box-shadow:
+        6px 6px 15px rgba(0, 0, 0, 0.6),
+        -6px -6px 15px rgba(255, 255, 255, 0.04);
+}
+
+/* Outer and Inner Boxes: No borders, full transparency */
+#outer-box,
+#inner-box {
+    margin: 0;
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+}
+
+/* Scroll area: Transparent + no extra padding */
+#scroll {
+    margin: 0;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+/* Input Field: Neumorphic pill */
+#input {
+    margin: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    background: linear-gradient(145deg, @background, @highlight);
+    box-shadow:
+        4px 4px 8px rgba(0, 0, 0, 0.6),
+        -4px -4px 8px rgba(255, 255, 255, 0.05);
+    color: @text;
+    transition: all 0.25s ease;
+}
+
+/* Focused Input: Inset style */
+#input:focus {
+    background: linear-gradient(145deg, @highlight, @background);
+    box-shadow:
+        inset 2px 2px 6px rgba(0, 0, 0, 0.5),
+        inset -2px -2px 6px rgba(255, 255, 255, 0.04);
+    transition: all 0.25s ease;
+}
+
+#input image {
+    margin-right: 12px;
+}
+
+/* Entry Items */
+#entry {
+    margin: 6px 5px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    background: linear-gradient(145deg, @background, @highlight);
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Selected Entry: Pressed in */
+#entry:selected {
+    background: linear-gradient(145deg, @highlight, @background);
+    box-shadow:
+        inset 2px 2px 6px rgba(0, 0, 0, 0.5),
+        inset -2px -2px 6px rgba(255, 255, 255, 0.04);
+    transition: all 0.25s ease;
+}
+
+#entry:selected #text {
+    color: @mauve;
+    transition: all 0.25s ease;
+}
+
+#entry:drop(active) {
+    background-color: @lavender !important;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+/* Arrows and Text */
+#entry arrow {
+    color: @lavender;
+    transition: all 0.25s ease;
+}
+
+#entry image {
+    margin-right: 12px;
+}
+
+#text {
+    margin: 5px;
+    color: @text;
+}
+
+/* Smooth fade for possible animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
