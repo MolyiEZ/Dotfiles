@@ -10,13 +10,16 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    margin: 10px 10px 5px 10px;
-    padding: 7px;
-    border-radius: 2px;
+    margin: 4px 5px 1px 5px;
+    padding: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border: 4px solid transparent;
+    border-image: linear-gradient(160deg, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 1));
+    border-image-slice: 1;
+    border-width: 1px;
+    border-radius: 4px;
     background: linear-gradient(145deg, #1a1a1a, #121212);
-    box-shadow:
-        4px 4px 10px rgba(0, 0, 0, 0.6),
-        -4px -4px 10px rgba(255, 255, 255, 0.08);
 }
 
 .modules-center {
@@ -27,7 +30,7 @@ window#waybar {
 tooltip {
     background: #131315;
     color: #b4c8be;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 
 #privacy:hover,
@@ -55,10 +58,10 @@ tooltip {
 #cpu,
 #memory,
 #temperature,
+#tray,
 #pipewire {
     padding: 0px 5px;
-    border-radius: 2px;
-    color: #b4c8be;
+    color: rgba(225, 225, 225, 1);
 }
 
 #wireplumber.muted {
@@ -91,32 +94,28 @@ tooltip {
 }
 
 #workspaces button.active:hover {
-    color: rgba(230, 230, 230, 1);
+    color: rgba(255, 255, 255, 1);
     border: none;
     text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.5);
     transition: all 0.25s ease;
 }
 
 #workspaces button.active {
-    color: rgba(210, 210, 210, 0.95);
+    color: rgba(225, 225, 225, 1);
     border: none;
     text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 }
 
 #workspaces button.empty.active {
-    color: rgba(210, 210, 210, 0.95);
+    color: rgba(225, 225, 225, 1);
     border: none;
     text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 }
 
 #workspaces button.empty {
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.4);
     border: none;
     text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.2);
-}
-
-#tray {
-    padding: 0px 5px;
 }
 
 #tray menu {
