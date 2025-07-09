@@ -1,6 +1,0 @@
-2025/07/07-22:04:32.961 1116 Reusing MANIFEST /home/molyi/.config/discord/Local Storage/leveldb/MANIFEST-000001
-2025/07/07-22:04:32.977 1116 Recovering log #48
-2025/07/07-22:04:32.978 1116 Reusing old log /home/molyi/.config/discord/Local Storage/leveldb/000048.log 
-2025/07/07-22:08:37.022 1117 Level-0 table #53: started
-2025/07/07-22:08:37.089 1117 Level-0 table #53: 1573505 bytes OK
-2025/07/07-22:08:37.094 1117 Delete type=0 #48

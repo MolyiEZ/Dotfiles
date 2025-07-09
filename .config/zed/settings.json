@@ -41,6 +41,15 @@
         }
     },
 
+    "buffer_font_family": "JetBrains Mono",
+    "buffer_font_features": {
+        "liga": true
+    },
+    "terminal": {
+        "font_family": "JetBrains Mono",
+        "font_size": 15
+    },
+
     "experimental.theme_overrides": {
         "syntax": {
             "enum": { "color": "#b8d7a3" }
