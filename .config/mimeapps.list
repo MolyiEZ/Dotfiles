@@ -12,6 +12,7 @@ application/x-extension-xht=zen.desktop
 application/vnd.ms-publisher=dev.zed.Zed.desktop
 application/json=dev.zed.Zed.desktop
 x-scheme-handler/roblox-studio-auth=org.vinegarhq.Vinegar.studio.desktop
+readest=readest-handler.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen.desktop;
@@ -27,3 +28,4 @@ application/x-extension-xht=zen.desktop;
 video/mp4=vlc.desktop;
 application/vnd.ms-publisher=dev.zed.Zed.desktop;
 application/json=dev.zed.Zed.desktop;
+application/pdf=zen.desktop;
