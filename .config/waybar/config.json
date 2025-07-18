@@ -9,7 +9,10 @@
     "reload_style_on_change": true,
     "ipc": true,
 
-    "include": ["~/.config/waybar/modules.json", "~/.config/waybar/modulesCustom.json"],
+    "include": [
+        "~/.config/waybar/modules.json",
+        "~/.config/waybar/modulesCustom.json"
+    ],
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
@@ -24,6 +27,10 @@
         "custom/separator#dot-line",
         "memory",
         "custom/separator#dot-line",
-        "temperature"
+        "temperature",
+        "custom/separator#line",
+        "custom/configuration",
+        "custom/separator#dot-line",
+        "custom/disk"
     ]
 }

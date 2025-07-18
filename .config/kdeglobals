@@ -4,3 +4,9 @@ ShowDeleteCommand=false
 [PreviewSettings]
 EnableRemoteFolderThumbnail=false
 MaximumRemoteSize=0
+
+[General]
+TerminalApplication=foot
+
+[Icons]
+Theme=Papirus-Light

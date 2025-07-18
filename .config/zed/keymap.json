@@ -89,9 +89,10 @@
         "context": "EmptyPane || SharedScreen",
         "bindings": {
             // Key-bindings for empty pane
-            "space p f": "file_finder::Toggle",
-            "space f p": "projects::OpenRecent",
-            "ctrl-w l": "workspace::ToggleRightDock"
+            "space f": "file_finder::Toggle",
+            "space p f": "projects::OpenRecent",
+            "ctrl-w l": "workspace::ToggleRightDock",
+            "s h": "workspace::ActivatePaneLeft"
         }
     },
     {

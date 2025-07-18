@@ -15,7 +15,11 @@ window#waybar {
     padding-left: 4px;
     padding-right: 4px;
     border: 4px solid transparent;
-    border-image: linear-gradient(160deg, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 1));
+    border-image: linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.5),
+        rgba(0, 0, 0, 1)
+    );
     border-image-slice: 1;
     border-width: 1px;
     border-radius: 4px;
@@ -37,7 +41,8 @@ tooltip {
 #privacy-item:hover,
 #wireplumber:hover,
 #clock:hover,
-#custom-notification:hover,
+#custom-configuration:hover,
+#custom-disk:hover,
 #network:hover,
 #cpu:hover,
 #memory:hover,
@@ -53,7 +58,8 @@ tooltip {
 #privacy-item,
 #wireplumber,
 #clock,
-#custom-notification,
+#custom-configuration,
+#custom-disk,
 #network,
 #cpu,
 #memory,
@@ -67,6 +73,15 @@ tooltip {
 #privacy,
 #privacy-item {
     padding-right: 2px;
+}
+
+#custom-disk {
+    padding-right: 8px;
+}
+
+#clock {
+    padding-right: 6px;
+    padding-left: 6px;
 }
 
 #wireplumber.muted {

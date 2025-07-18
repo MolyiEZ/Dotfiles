@@ -21,6 +21,18 @@
             "*": [1, 2]
         }
     },
+    "custom/configuration": {
+        "tooltip": false,
+        "format": "",
+        "on-click": "nwg-look",
+        "escape": true
+    },
+    "custom/disk": {
+        "tooltip": false,
+        "format": "󰋊",
+        "on-click": "baobab",
+        "escape": true
+    },
     "clock": {
         "format": "{:%A  %d-%m-%Y  %H:%M:%S}",
         "interval": 1,
