@@ -117,5 +117,11 @@
             "x": "tab_switcher::CloseSelectedItem",
             "enter": "menu::Confirm"
         }
+    },
+    {
+        "context": "vim_mode == visual",
+        "bindings": {
+            "shift-s": "vim::PushAddSurrounds"
+        }
     }
 ]

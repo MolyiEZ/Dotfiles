@@ -38,11 +38,12 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
 <details>
 <summary><strong>File & Media</strong></summary>
 
-
 - **[Gimp](https://www.gimp.org/)** - Image editor.
 - **[Papirus Folders](https://github.com/PapirusDevelopmentTeam/papirus-folders)** - Folder icon color changer.
+- **[Stremio](https://www.stremio.com/)** - Media center.  
 - **[Thunar](https://docs.xfce.org/xfce/thunar/start)** - Lightweight file manager.
 - **[VLC](https://www.videolan.org/vlc/)** - Media player.  
+- **[Xournal++](https://github.com/xournalpp/xournalpp)** - Notetaking.
 
 </details>
 
@@ -51,14 +52,16 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
 
 - **[Discord](https://discord.com/)** - It's discord.
 - **[Flatpak](https://flatpak.org/)** - Apps distributions for Linux.
-  - **[Vinegar](https://vinegarhq.org/)** - Roblox Studio for Linux.
-  - **[Sober](https://sober.vinegarhq.org/#introducing-sober)** - Roblox for Linux.
+    - **[Calculator](https://github.com/GNOME/gnome-calculator)** - A Calculator.
+    - **[Vinegar](https://vinegarhq.org/)** - Roblox Studio for Linux.
+    - **[Sober](https://sober.vinegarhq.org/#introducing-sober)** - Roblox for Linux.
 - **[Gopreload](https://github.com/htruong/gopreload)** - For performance tweaks and faster loading.
 - **[Grim](https://github.com/emersion/grim)** + **[Slurp](https://github.com/emersion/slurp)** - For selecting and capturing screenshots.
 - **[Hyprpicker](https://github.com/hyprwm/hyprpicker)** - Wayland color picker.  
 - **[Hyprshot](https://github.com/hyprwm/hyprshot)** - Advanced screenshot utility.  
 - **[Obsidian](https://obsidian.md/)** - Markdown-based note-taking.
 - **[Pavucontrol](https://freedesktop.org/software/pulseaudio/pavucontrol)** - GUI Audio configuration.
+- **[ShowMeTheKey](https://obsidian.md/)** - Shows the keys that you press on a GUI.
 - **[Womic](https://wolicheng.com/womic/wo_mic_linux.html)** - Turns your phone into a wireless mic.
 - **[Zen Browser](https://github.com/zen-browser/desktop)** - Zen Browser is a Firefox-based Browser (yhea, crazy).
 
@@ -87,12 +90,16 @@ hyprshot                   # Screenshot utility
 neovim                     # CLI code editor
 nwg-look                   # GTK settings editor
 obsidian                   # Markdown note-taking
+org.gnome.Calculator       # Calculator
 org.vinegarhq.Sober        # Flatpak Roblox (Sober)
 org.vinegarhq.Vinegar      # Flatpak Roblox Studio (Vinegar)
 papirus-folders            # Folder icon theme manager
 pavucontrol                # GUI audio configuration
+showmethekey               # Shows your keys on a GUI
+stremio                    # Media Center
 thunar                     # File manager
 vlc                        # Media player
+vlc-plugins-all            # Plugins for VLC
 wofi                       # App launcher
 womic                      # Mic via phone
 xdg-user-dirs              # User directory management
