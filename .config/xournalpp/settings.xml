@@ -16,10 +16,10 @@
   <property name="displayDpi" value="72"/>
   <property name="mainWndWidth" value="800"/>
   <property name="mainWndHeight" value="600"/>
-  <property name="maximized" value="false"/>
+  <property name="maximized" value="true"/>
   <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="false"/>
-  <property name="sidebarWidth" value="150"/>
+  <property name="sidebarWidth" value="50"/>
   <property name="sidebarNumberingStyle" value="1"/>
   <property name="sidebarOnRight" value="false"/>
   <property name="scrollbarOnLeft" value="false"/>
@@ -187,7 +187,89 @@
     <attribute name="color08" type="hex" value="ffffffff"/>
     <attribute name="count" type="int" value="9"/>
   </data>
-  <data name="tools"/>
+  <data name="tools">
+    <attribute name="current" type="string" value="pen"/>
+    <data name="drawArrow">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="drawCoordinateSystem">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="drawDoubleArrow">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="drawEllipse">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="drawRect">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="drawSpline">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="eraser">
+      <attribute name="drawingType" type="string" value="default"/>
+      <attribute name="size" type="string" value="MEDIUM"/>
+      <attribute name="type" type="string" value="default"/>
+    </data>
+    <data name="hand">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="highlighter">
+      <attribute name="color" type="hex" value="ffffff00"/>
+      <attribute name="drawingType" type="string" value="default"/>
+      <attribute name="fill" type="int" value="0"/>
+      <attribute name="fillAlpha" type="int" value="128"/>
+      <attribute name="size" type="string" value="MEDIUM"/>
+    </data>
+    <data name="image">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="pen">
+      <attribute name="color" type="hex" value="ff3333cc"/>
+      <attribute name="drawingType" type="string" value="line"/>
+      <attribute name="fill" type="int" value="0"/>
+      <attribute name="fillAlpha" type="int" value="128"/>
+      <attribute name="size" type="string" value="MEDIUM"/>
+      <attribute name="style" type="string" value="plain"/>
+    </data>
+    <data name="playObject">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectMultiLayerRect">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectMultiLayerRegion">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectObject">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectPdfTextLinear">
+      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectPdfTextRect">
+      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectRect">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectRegion">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="showFloatingToolbox">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="text">
+      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="verticalSpace">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+  </data>
   <data name="touch">
     <attribute name="cmdDisable" type="string" value=""/>
     <attribute name="cmdEnable" type="string" value=""/>

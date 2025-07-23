@@ -30,13 +30,15 @@
     "git": {
         "git_gutter": "tracked_files",
         "gutter_debounce": null,
-        "inline_blame": { "enabled": true },
+        "inline_blame": {
+            "enabled": true
+        },
         "hunk_style": null
     },
     "theme": {
         "mode": "system",
         "light": "Gruvbox Dark Hard",
-        "dark": "VSCode Dark Polished"
+        "dark": "One Dark Pro"
     },
     "toolbar": {
         "breadcrumbs": true,
@@ -57,7 +59,6 @@
         "indent_size": 16
     },
     "tab_size": 4,
-
     "languages": {
         "Markdown": {
             "soft_wrap": "editor_width",
@@ -67,7 +68,6 @@
             "soft_wrap": "editor_width"
         }
     },
-
     "buffer_font_family": "JetBrains Mono",
     "buffer_font_features": {
         "liga": true
@@ -76,10 +76,11 @@
         "font_family": "JetBrains Mono",
         "font_size": 15
     },
-
     "experimental.theme_overrides": {
         "syntax": {
-            "enum": { "color": "#b8d7a3" }
+            "enum": {
+                "color": "#b8d7a3"
+            }
         }
     }
 }
