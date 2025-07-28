@@ -1,6 +1,6 @@
 # Dotfiles
 
-These are my personalized dotfiles for **Hyprland**, optimized for performance and simplicity: No blurs, no rounded corners, no frills, just an efficient setup with a *neumorphism-inspired* aesthetic.
+These are my personalized dotfiles for **Hyprland**, optimized for performance and simplicity: No blurs, no rounded corners, no frills, just an efficient black and white setup.
 
 ---
 
@@ -19,10 +19,8 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
 <details>
 <summary><strong>Terminals & Editors</strong></summary>
 
-- **[Alacritty](https://github.com/alacritty/alacritty)** - Terminal. 
 - **[Neovim](https://github.com/neovim/neovim)** - Command-line code editor.
-- **[Visual Studio Code](https://github.com/microsoft/vscode)** - GUI Code editor, Used primarily for its PDF preview support (Zed doesn't have it).
-- **[Zed](https://github.com/zed-industries/zed)** - GUI Code editor.
+- **[Wezterm](https://github.com/wezterm/wezterm)** - Terminal. 
 
 </details>
 
@@ -56,7 +54,6 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
     - **[Vinegar](https://vinegarhq.org/)** - Roblox Studio for Linux.
     - **[Sober](https://sober.vinegarhq.org/#introducing-sober)** - Roblox for Linux.
 - **[Gopreload](https://github.com/htruong/gopreload)** - For performance tweaks and faster loading.
-- **[Grim](https://github.com/emersion/grim)** + **[Slurp](https://github.com/emersion/slurp)** - For selecting and capturing screenshots.
 - **[Hyprpicker](https://github.com/hyprwm/hyprpicker)** - Wayland color picker.  
 - **[Hyprshot](https://github.com/hyprwm/hyprshot)** - Advanced screenshot utility.  
 - **[Obsidian](https://obsidian.md/)** - Markdown-based note-taking.
@@ -72,15 +69,15 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
 ## Selected Packages
 
 ```text
-alacritty                  # Terminal
 baobab                     # Disk usage analyzer
+bat                        # Terminal highlighter
+chafa                      # Terminal graphics
 cliphist                   # Clipboard manager
-code                       # GUI code editor
 discord                    # It's Discord
 flatpak                    # Apps distributions
+fzf                        # Fuzzy finder
 gimp                       # Image editor
 gopreload-git              # Preloader
-grim, slurp                # Screenshot tools
 hyprland                   # Wayland compositor
 hyprlock                   # Screen lock
 hyprpaper                  # Wallpaper manager
@@ -95,16 +92,17 @@ org.vinegarhq.Sober        # Flatpak Roblox (Sober)
 org.vinegarhq.Vinegar      # Flatpak Roblox Studio (Vinegar)
 papirus-folders            # Folder icon theme manager
 pavucontrol                # GUI audio configuration
+poppler-utils              # Command-line utilities
 showmethekey               # Shows your keys on a GUI
 stremio                    # Media Center
 thunar                     # File manager
 vlc                        # Media player
 vlc-plugins-all            # Plugins for VLC
+wezterm                    # Terminal
 wofi                       # App launcher
 womic                      # Mic via phone
 xdg-user-dirs              # User directory management
 xdg-user-dirs-gtk          # GTK integration for user dirs
-zed                        # GUI code editor
 zen-browser-bin            # Browser
 ```
 
@@ -123,9 +121,3 @@ ttf-jetbrains-mono-nerd
 ttf-twemoji
 otf-codenewroman-nerd
 ```
-
-file
-bat
-chafa
-fzf
-poppler-utils

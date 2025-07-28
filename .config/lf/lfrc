@@ -8,7 +8,6 @@ map c cut # Cut
 map C clear # Clear
 
 map t $$SHELL # Terminal
-map e $$EDITOR # Editor
 map T &{{ $$SHELL &>/dev/null & }} # Terminal
 map E ${{ $$SHELL -e nvim "$f" &>/dev/null & }} # Editor
 map R ${{ $$SHELL -e sh -c "cd \"$PWD\" && lf" &>/dev/null & }} # Root
