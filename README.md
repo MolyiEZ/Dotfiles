@@ -38,8 +38,8 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
 <summary><strong>File & Media</strong></summary>
 
 - **[Gimp](https://www.gimp.org/)** - Image editor.
+- **[LF](hhttps://github.com/gokcehan/lf)** - Console File Manager.  
 - **[Papirus Folders](https://github.com/PapirusDevelopmentTeam/papirus-folders)** - Folder icon color changer.
-- **[Ranger](https://github.com/ranger/ranger)** - Console File Manager.  
 - **[Stremio](https://www.stremio.com/)** - Media center.  
 - **[Thunar](https://docs.xfce.org/xfce/thunar/start)** - Lightweight file manager.
 - **[VLC](https://www.videolan.org/vlc/)** - Media player.  
@@ -86,6 +86,7 @@ hyprlock                   # Screen lock
 hyprpaper                  # Wallpaper manager
 hyprpicker                 # Color picker
 hyprshot                   # Screenshot utility
+lf                         # Console File Manager
 neovim                     # CLI code editor
 nwg-look                   # GTK settings editor
 obsidian                   # Markdown note-taking
@@ -94,7 +95,6 @@ org.vinegarhq.Sober        # Flatpak Roblox (Sober)
 org.vinegarhq.Vinegar      # Flatpak Roblox Studio (Vinegar)
 papirus-folders            # Folder icon theme manager
 pavucontrol                # GUI audio configuration
-ranger                     # Console File Manager
 showmethekey               # Shows your keys on a GUI
 stremio                    # Media Center
 thunar                     # File manager
@@ -123,3 +123,9 @@ ttf-jetbrains-mono-nerd
 ttf-twemoji
 otf-codenewroman-nerd
 ```
+
+file
+bat
+chafa
+fzf
+poppler-utils

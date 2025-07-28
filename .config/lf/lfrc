@@ -1,0 +1,142 @@
+# KEYBINDINGS 
+
+cmd mkdir $mkdir $*
+
+map D delete # Delete
+map d push :mkdir<space> # Directory
+map c cut # Cut
+map C clear # Clear
+
+map t $$SHELL # Terminal
+map e $$EDITOR # Editor
+map T &{{ $$SHELL &>/dev/null & }} # Terminal
+map E ${{ $$SHELL -e nvim "$f" &>/dev/null & }} # Editor
+map R ${{ $$SHELL -e sh -c "cd \"$PWD\" && lf" &>/dev/null & }} # Root
+
+
+cmd yank_name ${{
+  set -f
+  basename "$(readlink -f "$f")" | wl-copy
+}}
+map Y yank_name
+
+map , $$EDITOR ~/.config/lf/lfrc # Opens the config file in a pager or editor
+
+map <enter> shell
+
+map zf ${{
+    selected="$(fzf)"
+    [ -d "$selected" ] && cmd=cd || cmd=select
+    lf -remote "send $id $cmd '$selected'"
+}}
+
+map x extract # eXtract
+
+cmd extract ${{
+    set -f
+    case $f in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tar.xz|*.txz) tar xJvf $f;;
+        *.zip) unzip $f;;
+        *.rar) unrar x $f;;
+        *.7z) 7z x $f;;
+    esac
+}}
+
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+cmd zip ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
+}}
+
+
+# OPTIONS
+
+set scrolloff 8
+set icons
+set number
+set relativenumber
+set drawbox
+set ignoredia
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/cleaner
+set period 2
+set hidden
+set sixel true
+set incsearch
+set incfilter
+set dircounts
+set tabstop 4
+set wrapscroll
+set shellopts '-eu'
+set ifs "\n"
+set shell "bash"
+set info 'size'
+
+
+# WEZTERM OSC 7
+cmd on-cd & lf -remote "send $id tty-write \"\033]7;file://$PWD\033\\\""
+on-cd
+cmd on-quit tty‑write "\033]7;\033\\"
+
+
+# VISUALS
+
+# Top Bar
+set promptfmt "
+\033[38;2;255;255;255;48;2;35;38;39m  
+\033[38;2;35;38;39;48;2;40;47;62m
+\033[38;2;255;255;255m %w 
+\033[38;2;40;47;62;48;2;58;67;89m
+\033[38;2;255;255;255m %f
+\033[m"
+
+# Wait
+set waitmsg "\033[1;31m⏎\033[m"
+
+# Border
+set borderfmt "\033[38;2;80;90;100m"
+
+# Cursor
+set cursoractivefmt "\033[7m"
+set cursorparentfmt "\033[7m"
+set cursorpreviewfmt "\033[7m" # Without underline
+
+# Other
+set numberfmt "\033[38;2;75;87;116m" # Grey-ish numbers
+set rulerfmt "  %a|  %p|  \033[7;31m %m \033[0m|  \033[7;33m %c \033[0m|  \033[7;35m %s \033[0m|  \033[7;34m %f \033[0m|  %i/%t"
+set errorfmt "\033[7;31;47m"
+set selectfmt "\033[7;35m"
+set tagfmt "\033[31m"
+set visualfmt "\033[41m"
+
+# Cut/Copy
+set copyfmt "\033[7;33m"
+set cutfmt "\033[7;31m"
+
+# Bottom bar
+set statfmt "
+\033[38;2;255;255;255;48;2;10;10;10m %p
+\033[38;2;10;10;10;48;2;20;20;20m
+\033[38;2;255;255;255;48;2;20;20;20m %u 
+\033[38;2;20;20;20;48;2;30;30;30m
+\033[38;2;255;255;255;48;2;30;30;30m %S 
+\033[38;2;30;30;30;48;2;40;40;40m
+\033[38;2;255;255;255m %t
+\033[0m"
+
+# Time
+set timefmt 'Monday  02/01/2006  15:04:05'
+set infotimefmtnew '02/01 15:04'
+set infotimefmtold '02/01/04'
