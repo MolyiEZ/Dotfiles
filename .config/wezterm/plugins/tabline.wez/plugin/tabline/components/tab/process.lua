@@ -74,16 +74,24 @@ return {
 		local tab_title = tab.tab_title
 
 		if active_pane and active_pane.foreground_process_name then
-			local args = wezterm.mux.get_pane(active_pane.pane_id):get_foreground_process_info()
+			foreground_process_info = active_pane.foreground_process_name:match("([^/\\]+)[/\\]?$")
+			if foreground_process_info == "yazi" then
+				local args = wezterm.mux.get_pane(active_pane.pane_id):get_foreground_process_info()
 
-			foreground_process_info = util.pick_argv_with_icon(args, opts.process_to_icon)
-				or active_pane.foreground_process_name
+				foreground_process_info = util.pick_argv_with_icon(args, opts.process_to_icon)
+					or foreground_process_info
+			end
 		end
 
 		name = tab_title == "" and foreground_process_info or tab_title
 
 		if opts.icons_enabled then
-			util.overwrite_icon(opts, opts.process_to_icon[foreground_process_info] or opts.process_to_icon["default"])
+			util.overwrite_icon(
+				opts,
+				opts.process_to_icon[name]
+					or opts.process_to_icon[foreground_process_info]
+					or opts.process_to_icon["default"]
+			)
 		end
 
 		return name

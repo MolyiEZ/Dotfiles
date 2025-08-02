@@ -1,0 +1,11 @@
+[mgr]
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+show_hidden = true
+linemode = "size"
+show_symlink = true
+scrolloff = 8
+
+[input]
+cursor_blink = false

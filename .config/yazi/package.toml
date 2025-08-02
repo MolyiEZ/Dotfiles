@@ -1,0 +1,27 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "de53d90"
+hash = "3996fc74044bc44144b323686f887e1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "de53d90"
+hash = "d2f04875bbd4ed3dd5696e8c4b094fde"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "de53d90"
+hash = "d6f60c24d8c0cf57a855bf46115b2502"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "de53d90"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
+[[plugin.deps]]
+use = "sohanemon/flash"
+rev = "ca2406c"
+hash = "87219ab92cbae01b317a0aa9f5494b27"
+
+[flavor]
+deps = []

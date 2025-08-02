@@ -193,6 +193,7 @@ return {
 		--  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
 		--  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
+		local util = require("lspconfig.util")
 
 		-- Enable the following language servers
 		--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -205,6 +206,15 @@ return {
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
 			ts_ls = {},
+
+			qmlls = {
+				cmd = { "qmlls" },
+				filetypes = { "qml", "qmljs" },
+				root_markers = { ".qmlls.ini" },
+				single_file_support = true,
+			},
+
+			tinymist = {},
 
 			lua_ls = {
 				-- cmd = { ... },

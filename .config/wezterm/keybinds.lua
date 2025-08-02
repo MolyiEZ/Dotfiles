@@ -4,9 +4,21 @@ local act = wezterm.action
 local module = {}
 
 local apps = {
-	["lf"] = true,
+	["yazi"] = true,
 	["nvim"] = true,
 }
+
+local function scroll_unless_alt_screen(action, key, mods)
+	return wezterm.action_callback(function(win, pane)
+		if pane:is_alt_screen_active() then
+			-- In Vim or other full-screen TUI: send the key to the app
+			win:perform_action(act.SendKey({ key = key, mods = mods or "CTRL" }), pane)
+		else
+			-- Otherwise: scroll the terminal viewport by a page
+			win:perform_action(action, pane)
+		end
+	end)
+end
 
 local function pick_argv_app(proc_info)
 	if not proc_info then
@@ -58,6 +70,16 @@ function module.apply_to_config(config)
 	config.disable_default_key_bindings = true
 	config.leader = { key = "a", mods = "CTRL" }
 	config.keys = {
+		{
+			key = "u",
+			mods = "CTRL",
+			action = scroll_unless_alt_screen(act.ScrollByPage(-1), "u", "CTRL"),
+		},
+		{
+			key = "d",
+			mods = "CTRL",
+			action = scroll_unless_alt_screen(act.ScrollByPage(1), "d", "CTRL"),
+		},
 		{
 			key = "h",
 			mods = "LEADER|CTRL",
@@ -145,18 +167,14 @@ function module.apply_to_config(config)
 			mods = "LEADER|CTRL|ALT",
 			action = wezterm.action_callback(function(window, pane)
 				local cwd_dir = pane:get_current_working_dir()
-				local proc = pane:get_foreground_process_name()
-				local args = nil
-				if proc then
-					args = { proc }
-				end
+				local proc_info = pane:get_foreground_process_info()
+				local arg = pick_argv_app(proc_info)
 
 				window:perform_action(
 					act.SpawnCommandInNewTab({
 						domain = "CurrentPaneDomain",
-						cwd = cwd_dir.path,
-						args = args,
-						set_environment_variables = { TERM = "screen-256color" },
+						cwd = cwd_dir.file_path,
+						args = arg,
 					}),
 					pane
 				)

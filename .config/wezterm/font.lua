@@ -7,7 +7,7 @@ function module.apply_to_config(config)
 		{ family = "JetBrainsMono Nerd Font", weight = "Regular" },
 		{ family = "JetBrainsMono Nerd Font", weight = "Bold" },
 	})
-	config.font_size = 15
+	config.font_size = 16
 	config.font_rules = {
 		{
 			intensity = "Bold",

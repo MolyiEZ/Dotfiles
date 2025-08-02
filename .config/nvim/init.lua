@@ -20,26 +20,44 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	end
 end
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 
 require("lazy").setup({
-	require("plugins.multiple_cursors"),
-	require("plugins.theme"),
-	require("plugins.lualine"),
-	require("plugins.treesitter"),
-	require("plugins.lsp"),
+	require("plugins.conform"),
+	require("plugins.flash"),
 	require("plugins.lazyDev"),
+	require("plugins.lsp"),
+	require("plugins.lualine"),
+	require("plugins.matchup"),
+	require("plugins.rainbow_delimiters"),
+	require("plugins.indent"),
+	require("plugins.smart_splits"),
+	require("plugins.surround"),
 	require("plugins.telescope"),
-	require("plugins.autocompletion"),
-	require("plugins.autoformatter"),
-	require("plugins.todo-comments"),
-	require("plugins.smart-splits"),
+	require("plugins.theme"),
+	require("plugins.todo_comments"),
+	require("plugins.treesitter"),
+	require("plugins.typst_preview"),
+	require("plugins.tpipeline"),
+	require("plugins.tabout"),
+	require("plugins.blink"),
+	require("plugins.startup"),
+	require("plugins.gitsigns"),
+	require("plugins.which_key"),
+	require("plugins.yazi"),
+	require("plugins.noice"),
+	require("plugins.trouble"),
+	require("plugins.comment"),
+	require("plugins.obsidian"),
+	require("plugins.cheatsheet"),
+	require("plugins.multiple_cursors"),
 })
 
 -- [[ Requires ]]
 require("keymaps")
 require("options")
-
-

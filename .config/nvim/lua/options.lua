@@ -4,7 +4,6 @@ vim.o.confirm = true
 vim.o.incsearch = true
 vim.wo.number = true -- Make line numbers default
 vim.o.mouse = "a" -- Enable mouse mode
-vim.o.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim.
 vim.o.breakindent = true -- Enable break indent
 vim.o.undofile = true -- Save undo history
 vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search
@@ -17,7 +16,7 @@ vim.o.writebackup = false -- if a file is being edited by another program (or wa
 vim.o.completeopt = "menuone,noselect" -- Set completeopt to have a better completion experience
 vim.opt.termguicolors = true -- set termguicolors to enable highlight groups
 vim.o.whichwrap = "bs<>[]hl" -- which "horizontal" keys are allowed to travel to prev/next line
-vim.o.wrap = true -- display lines as one long line
+vim.o.wrap = false -- display lines as one long line
 vim.o.linebreak = true -- companion to wrap don't split words
 vim.o.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor
 vim.o.sidescrolloff = 8 -- minimal number of screen columns either side of cursor if wrap is `false`
@@ -33,14 +32,26 @@ vim.o.splitright = true -- force all vertical splits to go to the right of curre
 vim.o.swapfile = false -- creates a swapfile
 vim.o.smartindent = true -- make indenting smarter again
 vim.o.showmode = false -- we don't need to see things like -- INSERT -- anymore
-vim.o.showtabline = 2 -- always show tabs
+vim.o.showtabline = 1
 vim.o.backspace = "indent,eol,start" -- allow backspace on
 vim.o.pumheight = 10 -- pop up menu height
-vim.o.conceallevel = 0 -- so that `` is visible in markdown files
-vim.o.fileencoding = "utf-8" -- the encoding written to a file
+vim.o.conceallevel = 1 -- so that `` is visible in markdown files
 vim.o.cmdheight = 1 -- more space in the neovim command line for displaying messages
 vim.o.autoindent = true -- copy indent from current line when starting new one
 vim.opt.shortmess:append("c") -- don't give |ins-completion-menu| messages
 vim.opt.iskeyword:append("-") -- hyphenated words recognized by searches
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
+
+-- Disable relative numbers on command mode
+local cmdgroup = vim.api.nvim_create_augroup("CmdLineNumberToggle", { clear = true })
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+	group = cmdgroup,
+	pattern = "*",
+	command = "set norelativenumber | redraw",
+})
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+	group = cmdgroup,
+	pattern = "*",
+	command = "set relativenumber",
+})

@@ -24,7 +24,7 @@ smart_splits.apply_to_config(config, {
 require("font").apply_to_config(config)
 
 -- Appearance
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.90
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
@@ -103,10 +103,31 @@ tabline.setup({
 		icons_enabled = true,
 		theme = config.colors,
 		tabs_enabled = true,
-		theme_overrides = {},
+		theme_overrides = {
+			normal_mode = {
+				a = { fg = "rgb(55% 55% 55%)", bg = "#0f0f0f" },
+				b = { fg = "#141414", bg = "rgba(0% 0% 0% 0%)" },
+				c = { fg = "#ffffff", bg = "rgba(0% 0% 0% 0%)" },
+			},
+			copy_mode = {
+				a = { fg = "rgba(0% 0% 0% 0%)", bg = "#141414" },
+				b = { fg = "#141414", bg = "rgba(0% 0% 0% 0%)" },
+				c = { fg = "#ffffff", bg = "rgba(0% 0% 0% 0%)" },
+			},
+			search_mode = {
+				a = { fg = "rgba(0% 0% 0% 0%)", bg = "#141414" },
+				b = { fg = "#141414", bg = "rgba(0% 0% 0% 0%)" },
+				c = { fg = "#ffffff", bg = "rgba(0% 0% 0% 0%)" },
+			},
+			tab = {
+				active = { fg = "rgb(100% 100% 100%)", bg = "rgba(0% 0% 0% 0%)" },
+				inactive = { fg = "rgb(50% 50% 50%)", bg = "rgba(0% 0% 0% 0%)" },
+				inactive_hover = { fg = "rgb(75% 75% 75%)", bg = "rgba(0% 0% 0% 0%)" },
+			},
+		},
 		section_separators = {
-			left = wezterm.nerdfonts.pl_left_hard_divider,
-			right = wezterm.nerdfonts.pl_right_hard_divider,
+			left = wezterm.nerdfonts.ple_upper_left_triangle,
+			right = wezterm.nerdfonts.ple_upper_right_triangle,
 		},
 		component_separators = {
 			left = wezterm.nerdfonts.pl_left_soft_divider,
@@ -118,20 +139,20 @@ tabline.setup({
 		},
 	},
 	sections = {
-		tabline_a = { "mode" },
+		tabline_a = { { Attribute = { Intensity = "Normal" } }, "mode" },
 		tabline_b = {},
 		tabline_c = {},
 		tab_active = {
 			"index",
-			{ "processl", padding = { left = 0, right = 0 } },
+			{ "process", padding = { left = 0, right = 0 } },
 		},
 		tab_inactive = {
 			"index",
-			{ "processl", padding = { left = 0, right = 0 } },
+			{ "process", padding = { left = 0, right = 0 } },
 		},
 		tabline_x = {},
 		tabline_y = {},
-		tabline_z = { "datetime" },
+		tabline_z = { { Attribute = { Intensity = "Normal" } }, "datetime" },
 	},
 	extensions = {},
 })
