@@ -54,6 +54,11 @@ require("lazy").setup({
 	require("plugins.trouble"),
 	require("plugins.comment"),
 	require("plugins.obsidian"),
+	require("plugins.autopair"),
+	require("plugins.golf"),
+	require("plugins.vimbegood"),
+	require("plugins.fugitive"),
+	require("plugins.undotree"),
 	require("plugins.cheatsheet"),
 	require("plugins.multiple_cursors"),
 })

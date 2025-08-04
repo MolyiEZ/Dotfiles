@@ -36,9 +36,9 @@ return {
 
 		local kw = escape(cands[idx].on)
 		if changed(kw) then
-			ya.emit("find_do", { "^" .. kw, previous = prev })
+			ya.emit("find_do", { "^" .. kw, previous = prev, insensitive = true })
 		else
-			ya.emit("find_arrow", { "^" .. kw, previous = prev })
+			ya.emit("find_arrow", { "^" .. kw, previous = prev, insensitive = true })
 		end
 	end,
 }

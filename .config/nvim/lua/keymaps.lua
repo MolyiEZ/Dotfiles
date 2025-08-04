@@ -49,10 +49,14 @@ vim.keymap.set("n", "<CR>", "m`o<Esc>``", { silent = true, desc = "New line belo
 vim.keymap.set("n", "<C-CR>", "m`O<Esc>``", { silent = true, desc = "New line above, no move" })
 
 vim.keymap.set("n", "<C-w>", ":set wrap!<CR>", { desc = "Toggle wrap" })
-vim.keymap.set({ "n", "v" }, "<C-i>", "<C-a>", { noremap = true })
 vim.keymap.set({ "n", "v" }, "g<C-I>", "g<C-A>", { noremap = true })
 
 vim.keymap.set({ "n", "v" }, "gy", '"+y', { noremap = true, desc = "Yank to system clipboard" })
 
 vim.keymap.set({ "n", "v" }, "gp", '"+p', { noremap = true, desc = "Paste from system clipboard" })
 vim.keymap.set({ "n", "v" }, "gP", '"+P', { noremap = true, desc = "Paste before from system clipboard" })
+
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")

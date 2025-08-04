@@ -1,6 +1,6 @@
 # Dotfiles
 
-These are my personalized dotfiles for **Hyprland**, optimized for performance and simplicity: No blurs, no rounded corners, no frills, just an efficient black and white setup.
+These are my personalized dotfiles for **Hyprland**, optimized for performance and simplicity with focus on the terminal.
 
 ---
 
