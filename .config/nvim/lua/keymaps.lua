@@ -56,7 +56,51 @@ vim.keymap.set({ "n", "v" }, "gy", '"+y', { noremap = true, desc = "Yank to syst
 vim.keymap.set({ "n", "v" }, "gp", '"+p', { noremap = true, desc = "Paste from system clipboard" })
 vim.keymap.set({ "n", "v" }, "gP", '"+P', { noremap = true, desc = "Paste before from system clipboard" })
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-M-u>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-M-d>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+vim.keymap.set("i", "<C-n>", "ñ")
+
+vim.keymap.set("n", "[s", "[s<cmd>WhichKey<cr>z=", { desc = "Prev mispelled word and spelling suggestions" })
+vim.keymap.set("n", "]s", "]s<cmd>WhichKey<cr>z=", { desc = "Next mispelled word and spelling suggestions" })
+
+vim.keymap.set("n", "<leader>rr", ":RunCode<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rft", ":RunFile tab<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rp", ":RunProject<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rc", ":RunClose<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent = false })
+
+function Rename()
+	-- when rename opens the prompt, this autocommand will trigger
+	-- it will "press" CTRL-F to enter the command-line window `:h cmdwin`
+	-- in this window I can use normal mode keybindings
+	local cmdId
+	cmdId = vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
+		callback = function()
+			local key = vim.api.nvim_replace_termcodes("<C-f>", true, false, true)
+			vim.api.nvim_feedkeys(key, "c", false)
+			vim.api.nvim_feedkeys("0", "n", false)
+			-- autocmd was triggered and so we can remove the ID and return true to delete the autocmd
+			cmdId = nil
+			return true
+		end,
+	})
+	vim.lsp.buf.rename()
+	-- if LPS couldn't trigger rename on the symbol, clear the autocmd
+	vim.defer_fn(function()
+		-- the cmdId is not nil only if the LSP failed to rename
+		if cmdId then
+			vim.api.nvim_del_autocmd(cmdId)
+		end
+	end, 500)
+end
+
+vim.keymap.set("n", "<leader>rn", Rename, { desc = "Rename" })
+vim.keymap.set("n", "grn", Rename, { desc = "Rename" })
+
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Buffer Delete" })
+vim.keymap.set("n", "<leader>bq", ":bd<CR>", { desc = "Buffer Quit" })

@@ -58,10 +58,6 @@ return {
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
-				-- Rename the variable under your cursor.
-				--  Most Language Servers support renaming across files, etc.
-				map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
-
 				-- Execute a code action, usually your cursor needs to be on top of an error
 				-- or a suggestion from your LSP for this to activate.
 				map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
@@ -205,7 +201,7 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
-			ts_ls = {},
+			vtsls = {},
 
 			qmlls = {
 				cmd = { "qmlls" },
@@ -213,6 +209,8 @@ return {
 				root_markers = { ".qmlls.ini" },
 				single_file_support = true,
 			},
+
+			pyright = {},
 
 			tinymist = {},
 
@@ -230,6 +228,8 @@ return {
 					},
 				},
 			},
+
+			luau_lsp = {},
 		}
 
 		-- Ensure the servers and tools above are installed
@@ -252,6 +252,9 @@ return {
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
+			automatic_enable = {
+				exclude = { "luau_lsp" },
+			},
 			ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
 			automatic_installation = false,
 			handlers = {

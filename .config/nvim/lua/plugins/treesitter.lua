@@ -36,6 +36,7 @@ return {
 				"css",
 				"html",
 				"qmljs",
+				"latex",
 			},
 
 			-- Autoinstall languages that are not installed

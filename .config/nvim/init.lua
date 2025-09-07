@@ -28,10 +28,12 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 
 require("lazy").setup({
+	require("plugins.vimtex"),
 	require("plugins.conform"),
 	require("plugins.flash"),
 	require("plugins.lazyDev"),
 	require("plugins.lsp"),
+	require("plugins.blink"),
 	require("plugins.lualine"),
 	require("plugins.matchup"),
 	require("plugins.rainbow_delimiters"),
@@ -45,8 +47,6 @@ require("lazy").setup({
 	require("plugins.typst_preview"),
 	require("plugins.tpipeline"),
 	require("plugins.tabout"),
-	require("plugins.blink"),
-	require("plugins.startup"),
 	require("plugins.gitsigns"),
 	require("plugins.which_key"),
 	require("plugins.yazi"),
@@ -55,12 +55,16 @@ require("lazy").setup({
 	require("plugins.comment"),
 	require("plugins.obsidian"),
 	require("plugins.autopair"),
-	require("plugins.golf"),
-	require("plugins.vimbegood"),
 	require("plugins.fugitive"),
 	require("plugins.undotree"),
+	require("plugins.code_runner"),
+	require("plugins.codedocs"),
+	-- require("plugins.ai"),
+	require("plugins.autotag"),
+	require("plugins.project"),
 	require("plugins.cheatsheet"),
 	require("plugins.multiple_cursors"),
+	require("plugins.luau_lsp"),
 })
 
 -- [[ Requires ]]

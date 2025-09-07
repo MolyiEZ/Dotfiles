@@ -34,6 +34,7 @@ return {
 					n = {
 						["q"] = actions.close,
 						["<Esc>"] = actions.close,
+						["l"] = actions.select_default,
 					},
 				},
 			},
@@ -49,6 +50,7 @@ return {
 					mappings = {
 						n = {
 							["d"] = actions.delete_buffer,
+							["x"] = actions.delete_buffer,
 							["l"] = actions.select_default,
 						},
 					},

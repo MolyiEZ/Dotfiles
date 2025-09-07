@@ -16,16 +16,16 @@ return {
 		end)
 
 		-- Add or skip adding a new cursor by matching word/selection
-		set({ "n", "x" }, "<leader>n", function()
+		set({ "n", "x" }, "<A-n>", function()
 			mc.matchAddCursor(1)
 		end)
-		set({ "n", "x" }, "<leader>s", function()
+		set({ "n", "x" }, "<A-s>", function()
 			mc.matchSkipCursor(1)
 		end)
-		set({ "n", "x" }, "<leader>N", function()
+		set({ "n", "x" }, "<A-N>", function()
 			mc.matchAddCursor(-1)
 		end)
-		set({ "n", "x" }, "<leader>S", function()
+		set({ "n", "x" }, "<A-S>", function()
 			mc.matchSkipCursor(-1)
 		end)
 
@@ -35,17 +35,17 @@ return {
 		set("n", "<c-leftrelease>", mc.handleMouseRelease)
 
 		-- Disable and enable cursors.
-		set({ "n", "x" }, "<c-q>", mc.toggleCursor)
+		set({ "n", "x" }, "<A-c>", mc.toggleCursor)
 
 		-- Mappings defined in a keymap layer only apply when there are
 		-- multiple cursors. This lets you have overlapping mappings.
 		mc.addKeymapLayer(function(layerSet)
 			-- Select a different cursor as the main one.
-			layerSet({ "n", "x" }, "<left>", mc.prevCursor)
-			layerSet({ "n", "x" }, "<right>", mc.nextCursor)
+			layerSet({ "n", "x" }, "<A-u>", mc.prevCursor)
+			layerSet({ "n", "x" }, "<A-d>", mc.nextCursor)
 
 			-- Delete the main cursor.
-			layerSet({ "n", "x" }, "<leader>x", mc.deleteCursor)
+			layerSet({ "n", "x" }, "<A-x>", mc.deleteCursor)
 
 			-- Enable and clear cursors using escape.
 			layerSet("n", "<esc>", function()

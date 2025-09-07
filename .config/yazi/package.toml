@@ -23,5 +23,10 @@ use = "sohanemon/flash"
 rev = "ca2406c"
 hash = "87219ab92cbae01b317a0aa9f5494b27"
 
+[[plugin.deps]]
+use = "boydaihungst/restore"
+rev = "2a2ba2f"
+hash = "12d8576d0cb8355a7e15d622913eb250"
+
 [flavor]
 deps = []
