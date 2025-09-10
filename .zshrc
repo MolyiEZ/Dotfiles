@@ -55,5 +55,3 @@ alias y='yazi'
 bindkey -v
 bindkey -M vicmd -r ":"
 export KEYTIMEOUT=1
-
-

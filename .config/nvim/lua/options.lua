@@ -36,13 +36,12 @@ vim.o.showmode = false -- we don't need to see things like -- INSERT -- anymore
 vim.o.showtabline = 1
 vim.o.backspace = "indent,eol,start" -- allow backspace on
 vim.o.pumheight = 10 -- pop up menu height
-vim.o.conceallevel = 1 -- so that `` is visible in markdown files
+vim.o.conceallevel = 0 -- so that `` is visible in markdown files
 vim.o.cmdheight = 1 -- more space in the neovim command line for displaying messages
 vim.o.autoindent = true -- copy indent from current line when starting new one
 vim.opt.shortmess:append("c") -- don't give |ins-completion-menu| messages
 vim.opt.iskeyword:append("-") -- hyphenated words recognized by searches
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
-vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
 vim.opt.spelllang = { "en_us", "es" }
 vim.opt.spell = true
 

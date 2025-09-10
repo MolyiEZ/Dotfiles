@@ -28,7 +28,7 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 
 require("lazy").setup({
-	require("plugins.vimtex"),
+	require("plugins.treesitter"),
 	require("plugins.conform"),
 	require("plugins.flash"),
 	require("plugins.lazyDev"),
@@ -43,8 +43,6 @@ require("lazy").setup({
 	require("plugins.telescope"),
 	require("plugins.theme"),
 	require("plugins.todo_comments"),
-	require("plugins.treesitter"),
-	require("plugins.typst_preview"),
 	require("plugins.tpipeline"),
 	require("plugins.tabout"),
 	require("plugins.gitsigns"),
@@ -59,12 +57,15 @@ require("lazy").setup({
 	require("plugins.undotree"),
 	require("plugins.code_runner"),
 	require("plugins.codedocs"),
-	-- require("plugins.ai"),
 	require("plugins.autotag"),
 	require("plugins.project"),
 	require("plugins.cheatsheet"),
 	require("plugins.multiple_cursors"),
 	require("plugins.luau_lsp"),
+	-- Don't using latex/typst or ai right now.
+	-- require("plugins.typst_preview"),
+	-- require("plugins.vimtex"),
+	-- require("plugins.ai"),
 })
 
 -- [[ Requires ]]

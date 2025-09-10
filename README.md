@@ -9,20 +9,18 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
 <details>
 <summary><strong>Terminal</strong></summary>
 
-- **[Btop](https://github.com/aristocratos/btop)** - Terminal monitor of resources.
 - **[Eza](https://github.com/eza-community/eza)** - Modern alternative of ls.
-- **[Foot](https://codeberg.org/dnkl/foot)** - Terminal emulator. 
-- **[GDU](https://github.com/dundee/gdu)** - Terminal disk usage analyzer.
+- **[Foot](https://codeberg.org/dnkl/foot)** - Terminal emulator.
 - **[Neovim](https://github.com/neovim/neovim)** - Terminal text editor.
 - **[Tmux](https://github.com/tmux/tmux)** - Terminal multiplexer.
-- **[Yazi](https://github.com/sxyazi/yazi)** - Terminal File Manager.  
+- **[Yazi](https://github.com/sxyazi/yazi)** - Terminal File Manager.
 
 </details>
 
 <details>
 <summary><strong>Other</strong></summary>
 
-- **[Cliphist](https://github.com/sentriz/cliphist)** - Keeps a history of your clipboard entries.
+- **[Aseprite](https://github.com/aseprite/aseprite)** - Sprite editor.
 - **[Discord](https://discord.com/)** - It's discord.
 - **[Flatpak](https://flatpak.org/)** - Apps distributions for Linux.
     - **[Calculator](https://github.com/GNOME/gnome-calculator)** - A Calculator.
@@ -31,18 +29,17 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
 - **[Gimp](https://www.gimp.org/)** - Image editor.
 - **[Hyprlock](https://github.com/hyprwm/hyprlock)** - Locks your screen.
 - **[Hyprpaper](https://github.com/hyprwm/hyprpaper)** - Manages Wayland wallpapers.
-- **[Hyprpicker](https://github.com/hyprwm/hyprpicker)** - Wayland color picker.  
-- **[Hyprshot](https://github.com/hyprwm/hyprshot)** - Advanced screenshot utility.  
-- **[Obsidian](https://obsidian.md/)** - Markdown-based note-taking.
+- **[Hyprpicker](https://github.com/hyprwm/hyprpicker)** - Wayland color picker.
+- **[Hyprshot](https://github.com/hyprwm/hyprshot)** - Advanced screenshot utility.
+- **[nwg-look](https://github.com/nwg-piotr/nwg-look)** - GTK3 Settings editor.
 - **[Papirus Folders](https://github.com/PapirusDevelopmentTeam/papirus-folders)** - Folder icon color changer.
 - **[Pavucontrol](https://freedesktop.org/software/pulseaudio/pavucontrol)** - GUI Audio configuration.
-- **[ShowMeTheKey](https://obsidian.md/)** - Shows the keys that you press on a GUI.
-- **[Stremio](https://www.stremio.com/)** - Media center.  
+- **[Stremio](https://www.stremio.com/)** - Media center.
 - **[Thunar](https://docs.xfce.org/xfce/thunar/start)** - Lightweight file manager.
-- **[VLC](https://www.videolan.org/vlc/)** - Media player.  
+- **[VLC](https://www.videolan.org/vlc/)** - Media player.
 - **[Wofi](https://github.com/SimplyCEO/wofi)** - Minimalist Wayland application launcher and menu.
 - **[Xournal++](https://github.com/xournalpp/xournalpp)** - Notetaking.
-- **[Zen Browser](https://github.com/zen-browser/desktop)** - Zen Browser is a Firefox-based Browser (yhea, crazy).
+- **[Zen Browser](https://github.com/zen-browser/desktop)** - Zen Browser is a Firefox-based 'Browser' (yhea, crazy).
 
 </details>
 
@@ -51,48 +48,47 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
 ## Selected Packages
 
 ```text
-bat                        # Terminal highlighter
-btop                       # Monitor of resources
-cliphist                   # Clipboard manager
-discord                    # It's Discord
-flatpak                    # Apps distributions
-fzf                        # Fuzzy finder
-gimp                       # Image editor
-hyprlock                   # Screen lock
-hyprpaper                  # Wallpaper manager
-hyprpicker                 # Color picker
-hyprshot                   # Screenshot utility
-nwg-look                   # GTK settings editor
-obsidian                   # Markdown note-taking
-org.gnome.Calculator       # Calculator
-org.vinegarhq.Sober        # Flatpak Roblox (Sober)
-org.vinegarhq.Vinegar      # Flatpak Roblox Studio (Vinegar)
-papirus-folders            # Folder icon theme manager
-pavucontrol                # GUI audio configuration
-poppler-utils              # Command-line utilities
-showmethekey               # Shows your keys on a GUI
-stremio                    # Media Center
-thunar                     # File manager
-vlc                        # Media player
-vlc-plugins-all            # Plugins for VLC
-wofi                       # App launcher
-xdg-user-dirs              # User directory management
-xdg-user-dirs-gtk          # GTK integration for user dirs
-zen-browser-bin            # Browser
+aseprite                    # Sprite editor.
+baobab                      # Disk usage analyzer.
+cargo                       # Rust package manager.
+discord                     # It's Discord.
+eza                         # Modern ls.
+fd                          # Finder.
+flatpak                     # Apps distributions.
+fzf                         # Fuzzy finder.
+gimp                        # Image editor.
+hyprlock                    # Screen locker.
+hyprpaper                   # Wallpaper manager.
+hyprpicker                  # Color picker.
+hyprshot                    # Screenshot tool.
+nwg-look                    # GTK settings editor.
+org.gnome.Calculator        # Calculator (Flatpak).
+org.vinegarhq.Sober         # Roblox Client (Flatpak).
+org.vinegarhq.Vinegar       # Roblox Studio (Flatpak).
+papirus-folders             # Folder icon theme tool.
+pavucontrol                 # GUI audio configuration.
+ripgrep                     # Text searcher.
+stremio                     # Media Center.
+thunar                      # File manager.
+vlc                         # Media player.
+vlc-plugins-all             # Plugins for VLC.
+wofi                        # App launcher.
+xdg-user-dirs               # User directories + icons.
+xournalpp                   # Note-taking.
+yay                         # AUR helper.
+yazi                        # Terminal file manager.
+zen-browser-bin             # Web browser.
+zsh                         # Shell.
+zsh-syntax-highlighting     # zsh syntax highlighting.
+zsh-theme-powerlevel10k-git # zsh theme.
 ```
 
-## Tex/Fonts
+## Fonts
 
 ```text
-texlive-basic
-texlive-binextra
-texlive-fontsextra
-texlive-fontsrecommended
-texlive-latex
-texlive-latexextra
-texlive-mathscience
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
-ttf-twemoji
 otf-codenewroman-nerd
+vim-spell-en
+vim-spell-es
 ```
