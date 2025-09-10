@@ -11,9 +11,13 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
 
 - **[Eza](https://github.com/eza-community/eza)** - Modern alternative of ls.
 - **[Foot](https://codeberg.org/dnkl/foot)** - Terminal emulator.
+- **[fzf](https://github.com/junegunn/fzf)** - Fuzzy finder.
 - **[Neovim](https://github.com/neovim/neovim)** - Terminal text editor.
 - **[Tmux](https://github.com/tmux/tmux)** - Terminal multiplexer.
 - **[Yazi](https://github.com/sxyazi/yazi)** - Terminal File Manager.
+- **[zsh](https://github.com/zsh-users/zsh)** - Shell.
+- **[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)** - Syntax highlighting.
+- **[zsh-theme-powerlevel10k-git](https://github.com/romkatv/powerlevel10k)** - Theme.
 
 </details>
 
@@ -61,6 +65,7 @@ hyprlock                    # Screen locker.
 hyprpaper                   # Wallpaper manager.
 hyprpicker                  # Color picker.
 hyprshot                    # Screenshot tool.
+nvim                        # Terminal text editor. 
 nwg-look                    # GTK settings editor.
 org.gnome.Calculator        # Calculator (Flatpak).
 org.vinegarhq.Sober         # Roblox Client (Flatpak).
