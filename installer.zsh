@@ -1,0 +1,168 @@
+#!/usr/bin/env bash
+# Arch Linux one-shot installer for MolyiEZ/Dotfiles
+# - Installs pacman + AUR packages (yay)
+# - Installs Flatpaks (Flathub)
+# - Clones your repo and syncs dotfiles into $HOME
+# - Sets Zsh as default shell
+set -euo pipefail
+# Errors
+trap 'echo -e "\n[x] Error on line $LINENO: $BASH_COMMAND" >&2' ERR
+
+REPO_URL="https://github.com/MolyiEZ/Dotfiles"
+
+# ---------------------------
+# Helpers
+# ---------------------------
+need_root() {
+  if [[ $EUID -ne 0 ]]; then
+    sudo -v || { echo "Need sudo to continue."; exit 1; }
+  fi
+}
+have_cmd() { command -v "$1" >/dev/null 2>&1; }
+say() { printf "\033[1;32m[*]\033[0m %s\n" "$*"; }
+
+# ---------------------------
+# Preconditions
+# ---------------------------
+[[ -f /etc/arch-release ]] || { echo "This script is for Arch Linux."; exit 1; }
+need_root
+
+# Refresh mirrors & system (parallel downloads)
+sudo sed -i 's/^#\?ParallelDownloads = .*/ParallelDownloads = 10/' /etc/pacman.conf || true
+sudo pacman -Sy --needed --noconfirm archlinux-keyring
+sudo pacman -Syyu --needed --noconfirm
+
+# Essentials (git, build tools, rsync, etc.)
+sudo pacman -S --needed --noconfirm base-devel git curl wget rsync unzip tar xz xdg-user-dirs
+
+# ---------------------------
+# yay (AUR helper)
+# ---------------------------
+if ! have_cmd yay; then
+  say "Installing yay (AUR helper)…"
+  tmpdir="$(mktemp -d)"
+  pushd "$tmpdir" >/dev/null
+  git clone https://aur.archlinux.org/yay-bin.git
+  cd yay-bin
+  makepkg -si --noconfirm
+  popd >/dev/null
+  rm -rf "$tmpdir"
+fi
+
+# ---------------------------
+# Packages (pacman + AUR via yay)
+# Pulled from your list; AUR-only stuff is in AURPKGS.
+# ---------------------------
+AURPKGS=(
+  # zsh theme
+  zsh-theme-powerlevel10k-git
+
+  # ---
+  # Optional
+  # ---
+  # aseprite
+  # stremio
+  # papirus-folders
+
+  # -- Browser -- #
+  # zen-browser-bin
+)
+
+PKGS=(
+  # Core CLI
+  7zip eza fd fzf ripgrep yq tmux nvim yazi git npm
+  # Shell + zsh goodies
+  zsh zsh-syntax-highlighting
+  # Fonts / spelling
+  ttf-jetbrains-mono ttf-jetbrains-mono-nerd vim-spell-en vim-spell-es
+  # Hyprland ecosystem
+  hyprland hyprlock hyprpaper hyprpicker hyprshot
+  # Wayland apps / theming
+  foot wofi waybar nwg-look
+
+  # ---
+  # Optional
+  # ---
+  # -- Media & graphics -- #
+  # vlc vlc-plugins-all gimp
+  # -- Files & desktop -- #
+  # thunar tumbler baobab pavucontrol
+  # -- Dev / misc -- #
+  # cargo discord
+)
+
+say "Installing packages via pacman…"
+sudo pacman -S --needed --noconfirm "${PKGS[@]}"
+
+say "Installing packages via yay (AUR)…"
+if ((${#AURPKGS[@]})); then
+  yay -S --needed --noconfirm "${AURPKGS[@]}"
+fi
+
+# -- Optional -- #
+# say "Installing rojo via cargo..."
+# cargo install rojo --version ^7
+
+# ---------------------------
+# Flatpak & apps
+# ---------------------------
+if ! have_cmd flatpak; then
+  sudo pacman -S --needed --noconfirm flatpak
+fi
+
+FLATPAKS=(
+  org.gnome.Calculator
+  org.vinegarhq.Vinegar
+  org.vinegarhq.Sober
+)
+
+say "Installing Flatpaks…"
+for app in "${FLATPAKS[@]}"; do
+  flatpak install -y flathub "$app" || true
+done
+
+# ---------------------------
+# Remove ~/.config and clone everything onto $HOME
+# ---------------------------
+say "Removing ~/.config …"
+rm -rf "$HOME/.config"
+
+say "Cloning repo and laying files into \$HOME …"
+TMP_CLONE="$(mktemp -d)"
+git clone --depth=1 "$REPO_URL" "$TMP_CLONE"
+
+# Copy repo contents into $HOME (no .git/.github, no README/LIC)
+rsync -a \
+  --exclude ".git/" --exclude ".github/" \
+  --exclude "LICENSE" --exclude "README.md" \
+  "$TMP_CLONE"/ "$HOME"/
+
+rm -rf "$TMP_CLONE"
+
+# Ensure XDG user dirs exist
+xdg-user-dirs-update || true
+
+# ---------------------------
+# Default shell → zsh
+# ---------------------------
+if [[ "${SHELL:-}" != *zsh ]]; then
+  chsh -s "$(command -v zsh)" "$USER" || true
+fi
+
+# ---------------------------
+# RELOAD HYPRLAND
+# ---------------------------
+if have_cmd hyprctl && pgrep -x Hyprland >/dev/null 2>&1; then
+  say "Reloading Hyprland…"
+  hyprctl reload || true
+fi
+
+# ---------------------------
+# ASK TO REBOOT
+# ---------------------------
+read -r -p "Everything done. Reboot now? [y/N] " ans
+case "${ans:-N}" in
+  y|Y) systemctl reboot ;;
+  *)   say "Done. You can reboot later." ;;
+esac
+

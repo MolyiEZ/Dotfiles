@@ -66,6 +66,7 @@ hyprlock                    # Screen locker.
 hyprpaper                   # Wallpaper manager.
 hyprpicker                  # Color picker.
 hyprshot                    # Screenshot tool.
+npm                         # Package manager.
 nvim                        # Terminal text editor. 
 nwg-look                    # GTK settings editor.
 org.gnome.Calculator        # Calculator (Flatpak).
