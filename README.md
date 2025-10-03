@@ -52,6 +52,7 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
 ## Selected Packages
 
 ```text
+7zip                        # Compressor.
 aseprite                    # Sprite editor.
 baobab                      # Disk usage analyzer.
 cargo                       # Rust package manager.
@@ -75,6 +76,7 @@ pavucontrol                 # GUI audio configuration.
 ripgrep                     # Text searcher.
 stremio                     # Media Center.
 thunar                      # File manager.
+tumbler                     # Images preview for thunar.
 vlc                         # Media player.
 vlc-plugins-all             # Plugins for VLC.
 wofi                        # App launcher.
@@ -82,6 +84,7 @@ xdg-user-dirs               # User directories + icons.
 xournalpp                   # Note-taking.
 yay                         # AUR helper.
 yazi                        # Terminal file manager.
+yq                          # Properties processor.
 zen-browser-bin             # Web browser.
 zsh                         # Shell.
 zsh-syntax-highlighting     # zsh syntax highlighting.

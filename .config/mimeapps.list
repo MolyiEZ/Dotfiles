@@ -13,6 +13,8 @@ application/x-extension-xhtml=zen.desktop
 application/x-extension-xht=zen.desktop
 image/png=aseprite.desktop;zen.desktop;
 image/jpeg=aseprite.desktop;zen.desktop;
+x-scheme-handler/discord-1216669957799018608=discord-1216669957799018608.desktop
+x-scheme-handler/nxm=com.nexusmods.app.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen.desktop;

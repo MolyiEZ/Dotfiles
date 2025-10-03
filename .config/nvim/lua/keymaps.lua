@@ -56,10 +56,18 @@ vim.keymap.set({ "n", "v" }, "gy", '"+y', { noremap = true, desc = "Yank to syst
 vim.keymap.set({ "n", "v" }, "gp", '"+p', { noremap = true, desc = "Paste from system clipboard" })
 vim.keymap.set({ "n", "v" }, "gP", '"+P', { noremap = true, desc = "Paste before from system clipboard" })
 
-vim.keymap.set("n", "<C-M-u>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-M-d>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+vim.keymap.set("n", "vv", "0v$", { noremap = true, desc = "Copy entire line" })
+
+-- Diagnostic navigation
+vim.keymap.set("n", "<leader>j", function()
+	vim.diagnostic.jump({ count = 1 })
+	vim.cmd("normal! zz")
+end, { desc = "Next diagnostic" })
+
+vim.keymap.set("n", "<leader>k", function()
+	vim.diagnostic.jump({ count = -1 })
+	vim.cmd("normal! zz")
+end, { desc = "Previous diagnostic" })
 
 vim.keymap.set("i", "<C-n>", "ñ")
 

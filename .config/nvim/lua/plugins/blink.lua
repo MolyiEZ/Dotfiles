@@ -27,11 +27,11 @@ return { -- Autocompletion
 		},
 		"folke/lazydev.nvim",
 	},
-	--- @module 'blink.cmp'
-	--- @type blink.cmp.Config
 	config = function()
 		require("blink.cmp").setup({
 			keymap = {
+				preset = "none",
+
 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 				["<C-h>"] = { "hide" },
 				["<C-y>"] = { "select_and_accept" },
@@ -51,6 +51,8 @@ return { -- Autocompletion
 
 			cmdline = {
 				keymap = {
+					preset = "none",
+
 					["<Tab>"] = { "show", "select_next" },
 					["<S-Tab>"] = { "show", "select_prev" },
 
