@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
-# - Installs pacman + AUR packages (yay)
-# - Installs Flatpaks (Flathub)
-# - Clones repo and syncs dotfiles into $HOME
-# - Sets Zsh as default shell
-# - Sets optional configs
 set -euo pipefail
-# Errors
 trap 'echo -e "\n[x] Error on line $LINENO: $BASH_COMMAND" >&2' ERR
 
 REPO_URL="https://github.com/MolyiEZ/Dotfiles"
@@ -27,15 +21,15 @@ say() { printf "\033[1;32m[*]\033[0m %s\n" "$*"; }
 [[ -f /etc/arch-release ]] || { echo "This script is for Arch Linux."; exit 1; }
 need_root
 
-# Refresh mirrors & system (parallel downloads)
+# Refresh mirrors & system
 sudo sed -i 's/^#\?ParallelDownloads = .*/ParallelDownloads = 10/' /etc/pacman.conf || true
 sudo pacman -Sy --needed --noconfirm archlinux-keyring
 sudo pacman -Syyu --needed --noconfirm
 
-# Essentials (git, build tools, rsync, etc.)
+# Essentials
 sudo pacman -S --needed --noconfirm base-devel git curl wget rsync unzip tar xz xdg-user-dirs
 
-# Uninstalling old things
+# Uninstalling old apps
 sudo pacman -Rns kitty dolphin
 
 # ---------------------------
@@ -54,28 +48,21 @@ fi
 
 # ---------------------------
 # Packages (pacman + AUR via yay)
-# Pulled from your list; AUR-only stuff is in AURPKGS.
 # ---------------------------
 AURPKGS=(
   # zsh theme
   zsh-theme-powerlevel10k-git
-
-  # ---
-  # Optional
-  # ---
-  # aseprite
-  # stremio
-  # papirus-folders
-  # awatcher-bundle-bin
-
-  # -- Browser -- #
-  # zen-browser-bin
+  aseprite
+  stremio
+  papirus-folders
+  awatcher-bundle-bin
+  zen-browser-bin
 )
 
 PKGS=(
   # Core CLI
   7zip eza fd fzf ripgrep yq tmux nvim yazi git npm unrar
-  # Shell + zsh goodies
+  # Shell + zsh
   zsh zsh-syntax-highlighting
   # Fonts / spelling
   ttf-jetbrains-mono ttf-jetbrains-mono-nerd vim-spell-en vim-spell-es
@@ -83,18 +70,13 @@ PKGS=(
   hyprland hypridle hyprlock hyprpaper hyprpicker hyprshot
   # Wayland apps / theming
   foot wofi waybar nwg-look
-
-  # ---
-  # Optional
-  # ---
-  # -- Media & graphics -- #
-  # vlc vlc-plugins-all gimp
-  # -- Files & desktop -- #
-  # thunar tumbler baobab pavucontrol
-  # -- Dev / misc -- #
-  # cargo discord
-  # -- Games -- #
-  # steam
+  # Media
+  vlc vlc-plugins-all
+  # Others
+  gimp
+  thunar tumbler baobab pavucontrol
+  cargo discord
+  steam
 )
 
 say "Installing packages via pacman…"
@@ -105,9 +87,8 @@ if ((${#AURPKGS[@]})); then
   yay -S --needed --noconfirm "${AURPKGS[@]}"
 fi
 
-# -- Optional -- #
-# say "Installing rojo via cargo..."
-# cargo install rojo --version ^7
+say "Installing rojo via cargo..."
+cargo install rojo --version ^7
 
 # ---------------------------
 # Flatpak & apps
@@ -137,10 +118,9 @@ say "Cloning repo and laying files into \$HOME …"
 TMP_CLONE="$(mktemp -d)"
 git clone --depth=1 "$REPO_URL" "$TMP_CLONE"
 
-# Copy repo contents into $HOME (no .git/.github, no README/LIC)
+# Copy repo contents into $HOME
 rsync -a \
-  --exclude ".git/" --exclude ".github/" \
-  --exclude "LICENSE" --exclude "README.md" \
+  --exclude "README.md" --exclude "installer.zsh" \
   "$TMP_CLONE"/ "$HOME"/
 
 rm -rf "$TMP_CLONE"
@@ -154,14 +134,6 @@ xdg-user-dirs-update || true
 if [[ "${SHELL:-}" != *zsh ]]; then
   chsh -s "$(command -v zsh)" "$USER" || true
 fi
-
-
-# ---
-# Optional configs
-# ---
-
-# Save credentials
-git config --global credential.helper store
 
 # Papirus dark folders
 papirus-folders -C black --theme Papirus-Dark
