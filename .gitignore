@@ -15,3 +15,6 @@
 **/.config/Thunar/
 **/.config/xournalpp/
 **/.config/Electron/
+**/.config/session/
+**/.config/activitywatch/
+**/.config/dconf/

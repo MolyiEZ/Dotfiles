@@ -18,10 +18,14 @@ return { -- Autoformat
 		},
 		formatters_by_ft = {
 			lua = { "stylua" },
+			luau = { "stylua" },
 			typescript = { "prettier" },
 			typescriptreact = { "prettier" },
 			qml = { "qmlformat" },
 			python = { "ruff_format" },
+			json = { "prettierd", "prettier", "jq" }, -- fast → standard → rock-solid
+			json5 = { "prettierd", "prettier" }, -- jq doesn’t support JSON5
+			jsonc = { "deno_fmt_jsonc", "dprint", "prettier" },
 		},
 		formatters = {
 			qmlformat = {
@@ -35,6 +39,11 @@ return { -- Autoformat
 					"--functions-spacing", -- clearer spacing for JS functions
 					"$FILENAME",
 				},
+			},
+			jq = {
+				command = "jq",
+				args = { "--indent", "4", "." }, -- 4 spaces, sort keys
+				stdin = true,
 			},
 		},
 

@@ -31,6 +31,7 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
     - **[Vinegar](https://vinegarhq.org/)** - Roblox Studio for Linux.
     - **[Sober](https://sober.vinegarhq.org/#introducing-sober)** - Roblox for Linux.
 - **[Gimp](https://www.gimp.org/)** - Image editor.
+- **[Hypridle](https://github.com/hyprwm/hypridle)** - Idle daemon.
 - **[Hyprlock](https://github.com/hyprwm/hyprlock)** - Locks your screen.
 - **[Hyprpaper](https://github.com/hyprwm/hyprpaper)** - Manages Wayland wallpapers.
 - **[Hyprpicker](https://github.com/hyprwm/hyprpicker)** - Wayland color picker.
@@ -62,6 +63,7 @@ fd                          # Finder.
 flatpak                     # Apps distributions.
 fzf                         # Fuzzy finder.
 gimp                        # Image editor.
+hypridle                    # Idle daemon.
 hyprlock                    # Screen locker.
 hyprpaper                   # Wallpaper manager.
 hyprpicker                  # Color picker.
@@ -75,9 +77,11 @@ org.vinegarhq.Vinegar       # Roblox Studio (Flatpak).
 papirus-folders             # Folder icon theme tool.
 pavucontrol                 # GUI audio configuration.
 ripgrep                     # Text searcher.
+steam                       # Steam.
 stremio                     # Media Center.
 thunar                      # File manager.
 tumbler                     # Images preview for thunar.
+unrar                       # Unrar.
 vlc                         # Media player.
 vlc-plugins-all             # Plugins for VLC.
 wofi                        # App launcher.

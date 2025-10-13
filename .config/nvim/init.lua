@@ -62,10 +62,7 @@ require("lazy").setup({
 	require("plugins.multiple_cursors"),
 	require("plugins.luau_lsp"),
 	require("plugins.codedocs"),
-	-- Don't using latex/typst or ai right now.
-	-- require("plugins.typst_preview"),
-	-- require("plugins.vimtex"),
-	-- require("plugins.ai"),
+	require("plugins.awatcher"),
 })
 
 -- [[ Requires ]]

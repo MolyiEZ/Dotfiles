@@ -10,6 +10,7 @@ return {
 			-- Add languages to be installed here that you want installed for treesitter
 			ensure_installed = {
 				"lua",
+				"luau",
 				"python",
 				"javascript",
 				"typescript",
@@ -37,6 +38,7 @@ return {
 				"css",
 				"html",
 				"c_sharp",
+				"rust",
 				"xml",
 			},
 

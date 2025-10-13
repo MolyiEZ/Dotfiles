@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Arch Linux one-shot installer for MolyiEZ/Dotfiles
 # - Installs pacman + AUR packages (yay)
 # - Installs Flatpaks (Flathub)
-# - Clones your repo and syncs dotfiles into $HOME
+# - Clones repo and syncs dotfiles into $HOME
 # - Sets Zsh as default shell
+# - Sets optional configs
 set -euo pipefail
 # Errors
 trap 'echo -e "\n[x] Error on line $LINENO: $BASH_COMMAND" >&2' ERR
@@ -35,6 +35,9 @@ sudo pacman -Syyu --needed --noconfirm
 # Essentials (git, build tools, rsync, etc.)
 sudo pacman -S --needed --noconfirm base-devel git curl wget rsync unzip tar xz xdg-user-dirs
 
+# Uninstalling old things
+sudo pacman -Rns kitty dolphin
+
 # ---------------------------
 # yay (AUR helper)
 # ---------------------------
@@ -63,6 +66,7 @@ AURPKGS=(
   # aseprite
   # stremio
   # papirus-folders
+  # awatcher-bundle-bin
 
   # -- Browser -- #
   # zen-browser-bin
@@ -70,13 +74,13 @@ AURPKGS=(
 
 PKGS=(
   # Core CLI
-  7zip eza fd fzf ripgrep yq tmux nvim yazi git npm
+  7zip eza fd fzf ripgrep yq tmux nvim yazi git npm unrar
   # Shell + zsh goodies
   zsh zsh-syntax-highlighting
   # Fonts / spelling
   ttf-jetbrains-mono ttf-jetbrains-mono-nerd vim-spell-en vim-spell-es
   # Hyprland ecosystem
-  hyprland hyprlock hyprpaper hyprpicker hyprshot
+  hyprland hypridle hyprlock hyprpaper hyprpicker hyprshot
   # Wayland apps / theming
   foot wofi waybar nwg-look
 
@@ -89,6 +93,8 @@ PKGS=(
   # thunar tumbler baobab pavucontrol
   # -- Dev / misc -- #
   # cargo discord
+  # -- Games -- #
+  # steam
 )
 
 say "Installing packages via pacman…"
@@ -148,6 +154,17 @@ xdg-user-dirs-update || true
 if [[ "${SHELL:-}" != *zsh ]]; then
   chsh -s "$(command -v zsh)" "$USER" || true
 fi
+
+
+# ---
+# Optional configs
+# ---
+
+# Save credentials
+git config --global credential.helper store
+
+# Papirus dark folders
+papirus-folders -C black --theme Papirus-Dark
 
 # ---------------------------
 # RELOAD HYPRLAND

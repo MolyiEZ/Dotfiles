@@ -14,4 +14,4 @@ export SAVEHIST=10000
 export PATH="$PATH:/home/molyi/.local/bin"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-
+export PATH="$PATH:$HOME/.pesde/bin"

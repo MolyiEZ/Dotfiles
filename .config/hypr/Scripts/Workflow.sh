@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
+# ERRORS
+trap 'echo -e "\n[x] Error on line $LINENO: $BASH_COMMAND" >&2' ERR
 
 # App commands from your variables
 BROWSER="zen-browser"
@@ -66,6 +68,7 @@ if ! tmux has-session -t notes 2>/dev/null; then
   tmux new-session -d -s notes -n todo "nvim ~/Vault/Notes/To-Do"
   tmux new-window  -t notes -n done "nvim ~/Vault/Notes/Things-Done"
 fi
+
 # …then attach it on ws9
 hypr_exec_ws 9 "$TERM -D \"$HOME/Projects\" -e tmux attach -t notes"&
 
