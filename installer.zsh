@@ -65,7 +65,7 @@ PKGS=(
   # Shell + zsh
   zsh zsh-syntax-highlighting
   # Fonts / spelling
-  ttf-jetbrains-mono ttf-jetbrains-mono-nerd vim-spell-en vim-spell-es
+  ttf-jetbrains-mono ttf-jetbrains-mono-nerd otf-codenewroman-nerd vim-spell-en vim-spell-es
   # Hyprland ecosystem
   hyprland hypridle hyprlock hyprpaper hyprpicker hyprshot
   # Wayland apps / theming

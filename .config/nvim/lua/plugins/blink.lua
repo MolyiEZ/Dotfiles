@@ -4,42 +4,42 @@ return { -- Autocompletion
 	dependencies = {
 		-- Snippet Engine
 		{
-			"L3MON4D3/LuaSnip",
-			version = "2.*",
-			build = (function()
-				-- Build Step is needed for regex support in snippets.
-				-- This step is not supported in many windows environments.
-				-- Remove the below condition to re-enable on windows.
-				if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-					return
-				end
-				return "make install_jsregexp"
-			end)(),
-			dependencies = {
-				{
-					"rafamadriz/friendly-snippets",
-				},
-			},
-			config = function()
-				local ls = require("luasnip")
-
-				-- make Luau reuse Lua snippets
-				ls.filetype_extend("luau", { "lua" })
-				-- (optional) if you use composite fts like "luau.rojo"
-				ls.filetype_extend("luau.rojo", { "luau", "lua" })
-
-				-- load VSCode-format snippets (friendly-snippets)
-				require("luasnip.loaders.from_vscode").lazy_load()
-
-				ls.config.setup({
-					history = true,
-					updateevents = "TextChanged,TextChangedI",
-					-- If cursor leaves the snippet, stop treating it as active:
-					region_check_events = "CursorMoved,CursorMovedI,InsertEnter",
-					-- If snippet text was edited/deleted, clean it up:
-					delete_check_events = "TextChanged,TextChangedI",
-				})
-			end,
+			-- "L3MON4D3/LuaSnip",
+			-- version = "2.*",
+			-- build = (function()
+			-- 	-- Build Step is needed for regex support in snippets.
+			-- 	-- This step is not supported in many windows environments.
+			-- 	-- Remove the below condition to re-enable on windows.
+			-- 	if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
+			-- 		return
+			-- 	end
+			-- 	return "make install_jsregexp"
+			-- end)(),
+			-- dependencies = {
+			-- 	{
+			-- 		"rafamadriz/friendly-snippets",
+			-- 	},
+			-- },
+			-- config = function()
+			-- 	local ls = require("luasnip")
+			--
+			-- 	-- make Luau reuse Lua snippets
+			-- 	ls.filetype_extend("luau", { "lua" })
+			-- 	-- (optional) if you use composite fts like "luau.rojo"
+			-- 	ls.filetype_extend("luau.rojo", { "luau", "lua" })
+			--
+			-- 	-- load VSCode-format snippets (friendly-snippets)
+			-- 	require("luasnip.loaders.from_vscode").lazy_load()
+			--
+			-- 	ls.config.setup({
+			-- 		history = true,
+			-- 		updateevents = "TextChanged,TextChangedI",
+			-- 		-- If cursor leaves the snippet, stop treating it as active:
+			-- 		region_check_events = "CursorMoved,CursorMovedI,InsertEnter",
+			-- 		-- If snippet text was edited/deleted, clean it up:
+			-- 		delete_check_events = "TextChanged,TextChangedI",
+			-- 	})
+			-- end,
 		},
 		"folke/lazydev.nvim",
 	},

@@ -56,7 +56,8 @@ vim.keymap.set({ "n", "v" }, "gy", '"+y', { noremap = true, desc = "Yank to syst
 vim.keymap.set({ "n", "v" }, "gp", '"+p', { noremap = true, desc = "Paste from system clipboard" })
 vim.keymap.set({ "n", "v" }, "gP", '"+P', { noremap = true, desc = "Paste before from system clipboard" })
 
-vim.keymap.set("n", "vv", "0v$", { noremap = true, desc = "Copy entire line" })
+vim.keymap.set("n", "vv", "0v$", { noremap = true, desc = "Select entire line" })
+vim.keymap.set("n", "V", "v$", { noremap = true, desc = "Select from cursor to end" })
 
 -- Diagnostic navigation
 vim.keymap.set("n", "<leader>j", function()
