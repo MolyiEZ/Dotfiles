@@ -31,6 +31,7 @@ sudo pacman -S --needed --noconfirm base-devel git curl wget rsync unzip tar xz 
 
 # Uninstalling old apps
 sudo pacman -Rns kitty dolphin
+sudo pacman -Rns alacritty fuzzy
 
 # ---------------------------
 # yay (AUR helper)
@@ -66,17 +67,26 @@ PKGS=(
   zsh zsh-syntax-highlighting
   # Fonts / spelling
   ttf-jetbrains-mono ttf-jetbrains-mono-nerd otf-codenewroman-nerd vim-spell-en vim-spell-es
-  # Hyprland ecosystem
-  hyprland hypridle hyprlock hyprpaper hyprpicker hyprshot
+
+
   # Wayland apps / theming
   foot wofi waybar nwg-look
   # Media
   vlc vlc-plugins-all
   # Others
+  wl-clipboard
   gimp
   thunar tumbler baobab pavucontrol
   cargo discord
   steam
+
+  # - SELECT ONE -
+
+  # Hyprland
+  # hyprland hypridle hyprlock hyprpaper hyprshot
+  
+  # Niri
+  # blueman
 )
 
 say "Installing packages via pacman…"

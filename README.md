@@ -1,6 +1,6 @@
 # Dotfiles
 
-These are my personalized dotfiles for **Hyprland**, optimized for performance and simplicity with focus on the terminal.
+These are my personalized dotfiles for **Hyprland** and **Niri**, optimized for performance and simplicity with focus on the terminal.
 
 ---
 
@@ -31,11 +31,6 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
     - **[Vinegar](https://vinegarhq.org/)** - Roblox Studio for Linux.
     - **[Sober](https://sober.vinegarhq.org/#introducing-sober)** - Roblox for Linux.
 - **[Gimp](https://www.gimp.org/)** - Image editor.
-- **[Hypridle](https://github.com/hyprwm/hypridle)** - Idle daemon.
-- **[Hyprlock](https://github.com/hyprwm/hyprlock)** - Locks your screen.
-- **[Hyprpaper](https://github.com/hyprwm/hyprpaper)** - Manages Wayland wallpapers.
-- **[Hyprpicker](https://github.com/hyprwm/hyprpicker)** - Wayland color picker.
-- **[Hyprshot](https://github.com/hyprwm/hyprshot)** - Advanced screenshot utility.
 - **[nwg-look](https://github.com/nwg-piotr/nwg-look)** - GTK3 Settings editor.
 - **[Papirus Folders](https://github.com/PapirusDevelopmentTeam/papirus-folders)** - Folder icon color changer.
 - **[Pavucontrol](https://freedesktop.org/software/pulseaudio/pavucontrol)** - GUI Audio configuration.
@@ -43,19 +38,41 @@ These are my personalized dotfiles for **Hyprland**, optimized for performance a
 - **[Thunar](https://docs.xfce.org/xfce/thunar/start)** - Lightweight file manager.
 - **[VLC](https://www.videolan.org/vlc/)** - Media player.
 - **[Wofi](https://github.com/SimplyCEO/wofi)** - Minimalist Wayland application launcher and menu.
+- **[wl-clipboard]()** - Copy/paste utilities.
 - **[Xournal++](https://github.com/xournalpp/xournalpp)** - Notetaking.
 - **[Zen Browser](https://github.com/zen-browser/desktop)** - Zen Browser is a Firefox-based 'Browser' (yhea, crazy).
 
 </details>
 
+
+<details>
+<summary><strong>Hyprland Only</strong></summary>
+
+- **[Hypridle](https://github.com/hyprwm/hypridle)** - Idle daemon.
+- **[Hyprlock](https://github.com/hyprwm/hyprlock)** - Locks your screen.
+- **[Hyprpaper](https://github.com/hyprwm/hyprpaper)** - Manages Wayland wallpapers.
+- **[Hyprpicker](https://github.com/hyprwm/hyprpicker)** - Wayland color picker.
+- **[Hyprshot](https://github.com/hyprwm/hyprshot)** - Advanced screenshot utility.
+
+</details>
+
+
+<details>
+<summary><strong>Niri Only</strong></summary>
+
+- **[Blueman](https://github.com/blueman-project/blueman)** - Bluetooth manager.
+
+</details>
+
 ---
 
-## Selected Packages
+## Selected Packages [hypr and niri]
 
 ```text
 7zip                        # Compressor.
 aseprite                    # Sprite editor.
 baobab                      # Disk usage analyzer.
+blueman                     # Bluetooth manager.
 cargo                       # Rust package manager.
 discord                     # It's Discord.
 eza                         # Modern ls.
@@ -85,6 +102,7 @@ unrar                       # Unrar.
 vlc                         # Media player.
 vlc-plugins-all             # Plugins for VLC.
 wofi                        # App launcher.
+wl-clipboard                # Copy/paste utilities.
 xdg-user-dirs               # User directories + icons.
 xournalpp                   # Note-taking.
 yay                         # AUR helper.
@@ -96,7 +114,7 @@ zsh-syntax-highlighting     # zsh syntax highlighting.
 zsh-theme-powerlevel10k-git # zsh theme.
 ```
 
-## Fonts
+## Fonts / Spell
 
 ```text
 ttf-jetbrains-mono

@@ -1,103 +1,138 @@
 {
-  "hyprland/workspaces": {
-    "on-scroll-up": "hyprctl dispatch workspace r-1",
-    "on-scroll-down": "hyprctl dispatch workspace r+1",
-    "on-click": "activate",
-    "active-only": false,
-    "all-outputs": true,
-    "format": "{id}",
-    "format-icons": {
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-      "6": "6",
-      "7": "7",
-      "8": "8",
-      "9": "9"
+    "hyprland/workspaces": {
+        "on-scroll-up": "hyprctl dispatch workspace r-1",
+        "on-scroll-down": "hyprctl dispatch workspace r+1",
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon} {windows}",
+        "format-window-separator": "",
+        "workspace-taskbar": {
+            "enable": true,
+            "update-active-window": true,
+            "format": "{icon}",
+            "icon-size": 15,
+            "on-click-window": "~/.config/hypr/Scripts/FocusWindows.sh {address} {button}"
+        }
     },
-    "persistent-workspaces": {
-      "*": [
-        1,
-        2
-      ]
+    "niri/workspaces": {
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9"
+        }
+    },
+    "custom/configuration": {
+        "tooltip": false,
+        "format": "",
+        "on-click": "nwg-look",
+        "escape": true
+    },
+    "custom/disk": {
+        "tooltip": false,
+        "format": "󰋊",
+        "on-click": "baobab",
+        "escape": true
+    },
+    "clock": {
+        "format": "{:%A  %d-%m-%Y  %H:%M:%S}",
+        "interval": 1,
+        "tooltip-format": "{:%A, %B %d, %Y}\n<tt><small>{calendar}</small></tt>",
+        "tooltip": true,
+        "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "scroll-step": 2.0,
+        "on-click-right": "pavucontrol",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
+    },
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "󰍬",
+        "format-muted": "󰍭",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "scroll-step": 0
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "interval": 1
+    },
+    "memory": {
+        "format": "{}% ",
+        "interval": 1
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    },
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+        ],
+        "ignore-monitor": true,
+        "ignore": [
+            {
+                "type": "audio-in",
+                "name": "cava"
+            },
+            {
+                "type": "screenshare",
+                "name": "obs"
+            }
+        ]
     }
-  },
-  "custom/configuration": {
-    "tooltip": false,
-    "format": "",
-    "on-click": "nwg-look",
-    "escape": true
-  },
-  "custom/disk": {
-    "tooltip": false,
-    "format": "󰋊",
-    "on-click": "baobab",
-    "escape": true
-  },
-  "clock": {
-    "format": "{:%A  %d-%m-%Y  %H:%M:%S}",
-    "interval": 1,
-    "tooltip-format": "{:%A, %B %d, %Y}\n<tt><small>{calendar}</small></tt>",
-    "tooltip": true,
-    "timezone": "America/Argentina/Buenos_Aires"
-  },
-  "wireplumber": {
-    "format": "{volume}% {icon}",
-    "format-muted": "",
-    "scroll-step": 2.0,
-    "tooltip-format": "Volume",
-    "on-click-right": "pavucontrol",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ]
-  },
-  "cpu": {
-    "format": "{usage}% ",
-    "interval": 1
-  },
-  "memory": {
-    "format": "{}% ",
-    "interval": 1
-  },
-  "tray": {
-    "icon-size": 14,
-    "spacing": 10
-  },
-  "privacy": {
-    "icon-spacing": 4,
-    "icon-size": 18,
-    "transition-duration": 250,
-    "modules": [
-      {
-        "type": "screenshare",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-out",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-in",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      }
-    ],
-    "ignore-monitor": true,
-    "ignore": [
-      {
-        "type": "audio-in",
-        "name": "cava"
-      },
-      {
-        "type": "screenshare",
-        "name": "obs"
-      }
-    ]
-  }
 }

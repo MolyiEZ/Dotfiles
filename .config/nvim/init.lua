@@ -49,7 +49,9 @@ require("lazy").setup({
 	require("plugins.multiple_cursors"),
 	require("plugins.luau_lsp"),
 	require("plugins.autopair"),
-	require("plugins.awatcher"),
+
+	-- for some reason awatcher is making nvim lag.
+	-- require("plugins.awatcher"),
 
 	-- require("plugins.lazyDev"),
 	-- require("plugins.flash"),
