@@ -31,6 +31,7 @@ These are my personalized dotfiles for **Hyprland** and **Niri**, optimized for 
     - **[Vinegar](https://vinegarhq.org/)** - Roblox Studio for Linux.
     - **[Sober](https://sober.vinegarhq.org/#introducing-sober)** - Roblox for Linux.
 - **[Fuzzel](https://codeberg.org/dnkl/fuzzel)** - App launcher.
+- **[gamemode](https://github.com/FeralInteractive/gamemode)** - Games optimizer.
 - **[Gimp](https://www.gimp.org/)** - Image editor.
 - **[nwg-look](https://github.com/nwg-piotr/nwg-look)** - GTK3 Settings editor.
 - **[Papirus Folders](https://github.com/PapirusDevelopmentTeam/papirus-folders)** - Folder icon color changer.
@@ -49,8 +50,8 @@ These are my personalized dotfiles for **Hyprland** and **Niri**, optimized for 
 <summary><strong>Hyprland Only</strong></summary>
 
 - **[Hypridle](https://github.com/hyprwm/hypridle)** - Idle daemon.
-- **[Hyprlock](https://github.com/hyprwm/hyprlock)** - Locks your screen.
-- **[Hyprpaper](https://github.com/hyprwm/hyprpaper)** - Manages Wayland wallpapers.
+- **[Hyprlock](https://github.com/hyprwm/hyprlock)** - Screenlocker.
+- **[Hyprpaper](https://github.com/hyprwm/hyprpaper)** - Wayland wallpapers.
 - **[Hyprpicker](https://github.com/hyprwm/hyprpicker)** - Wayland color picker.
 - **[Hyprshot](https://github.com/hyprwm/hyprshot)** - Advanced screenshot utility.
 
@@ -61,6 +62,9 @@ These are my personalized dotfiles for **Hyprland** and **Niri**, optimized for 
 <summary><strong>Niri Only</strong></summary>
 
 - **[Blueman](https://github.com/blueman-project/blueman)** - Bluetooth manager.
+- **[swayidle](https://github.com/swaywm/swayidle)** - Idle daemon.
+- **[swaylock-effects](https://github.com/mortie/swaylock-effects)** - Screenlocker.
+- **[swww](https://github.com/LGFae/swww)** - Wayland wallpapers.
 
 </details>
 
@@ -80,6 +84,7 @@ fd                          # Finder.
 flatpak                     # Apps distributions.
 fuzzel                      # App launcher.
 fzf                         # Fuzzy finder.
+gamemode                    # Games optimizer.
 gimp                        # Image editor.
 hypridle                    # Idle daemon.
 hyprlock                    # Screen locker.
@@ -97,6 +102,9 @@ pavucontrol                 # GUI audio configuration.
 ripgrep                     # Text searcher.
 steam                       # Steam.
 stremio                     # Media Center.
+swayidle                    # Idle daemon.
+swaylock                    # Swaylock with effects.
+swww                        # Wayland wallpapers.
 thunar                      # File manager.
 tumbler                     # Images preview for thunar.
 unrar                       # Unrar.
