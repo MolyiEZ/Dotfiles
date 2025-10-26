@@ -3,10 +3,6 @@
 // Wiki: https://yalter.github.io/niri/Configuration:-Input
 input {
     keyboard {
-        xkb {
-            // layout "es"
-        }
-
         repeat-delay 300
         repeat-rate 75
     }
@@ -28,7 +24,7 @@ input {
 
 cursor {
     xcursor-theme "Adwaita"
-    xcursor-size 24
+    xcursor-size 20
 }
 
 hotkey-overlay {
@@ -69,6 +65,20 @@ clipboard {
 
 prefer-no-csd
 
+// Monitors
+output "HDMI-A-1" {
+    mode "1920x1080@60"
+    scale 1
+    position x=1360 y=0
+    focus-at-startup
+}
+
+output "VGA-1" {
+    mode "1360x768@60"
+    scale 1
+    position x=0 y=0
+}
+
 // Environment
 environment {
     // Theme
@@ -87,7 +97,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // Animations
 // Wiki: https://yalter.github.io/niri/Configuration:-Animations
 animations {
-    // off
+    off
 }
 
 // Window Rules
@@ -103,23 +113,23 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Super+T hotkey-overlay-title="Open foot" { spawn "foot"; }
-    Super+B hotkey-overlay-title="Open chrome" { spawn "google-chrome-stable"; }
-    Super+E hotkey-overlay-title="Open nvim" { spawn "foot" "-e" "tmux" "new-session" "nvim"; }
-    Super+R hotkey-overlay-title="Open yazi" { spawn "foot" "-e" "tmux" "new-session" "yazi"; }
-    Super+Shift+R hotkey-overlay-title="Open thunar" { spawn "thunar"; }
-    Super+F hotkey-overlay-title="Open fuzzel (Find)" { spawn "fuzzel"; }
-    Super+W hotkey-overlay-title="Toggle waybar" { spawn "pkill" "-SIGUSR1" "waybar"; }
-    Super+M hotkey-overlay-title="Exit" { quit; }
-    Super+A { maximize-column; }
-    Super+Shift+A { fullscreen-window; }
-    Super+Q repeat=false { close-window; }
-    Super+O repeat=false { toggle-overview; }
-    Super+N hotkey-overlay-title="Lock screen" { spawn "swaylock"; }
+    Mod+T repeat=false hotkey-overlay-title="Open foot" { spawn "foot"; }
+    Mod+B repeat=false hotkey-overlay-title="Open zen" { spawn "zen-browser"; }
+    Mod+E repeat=false hotkey-overlay-title="Open nvim" { spawn "foot" "-e" "tmux" "new-session" "nvim"; }
+    Mod+R repeat=false hotkey-overlay-title="Open yazi" { spawn "foot" "-e" "tmux" "new-session" "yazi"; }
+    Mod+Shift+R repeat=false hotkey-overlay-title="Open thunar" { spawn "thunar"; }
+    Mod+F repeat=false hotkey-overlay-title="Open fuzzel (Find)" { spawn-sh "fuzzel --config ~/.config/fuzzel/fuzzel.ini"; }
+    Mod+W repeat=false hotkey-overlay-title="Toggle waybar" { spawn "pkill" "-SIGUSR1" "waybar"; }
+    Mod+M repeat=false hotkey-overlay-title="Exit" { quit; }
+    Mod+A repeat=false { maximize-column; }
+    Mod+Shift+A repeat=false { fullscreen-window; }
+    Mod+Q repeat=false repeat=false { close-window; }
+    Mod+O repeat=false repeat=false { toggle-overview; }
+    Mod+N repeat=false hotkey-overlay-title="Lock screen" { spawn "swaylock"; }
 
-    Super+Shift+S { screenshot; }
-    Super+Shift+O { screenshot-screen; }
-    Super+Shift+W { screenshot-window; }
+    Mod+Shift+S repeat=false { screenshot; }
+    Mod+Shift+O repeat=false { screenshot-screen; }
+    Mod+Shift+W repeat=false { screenshot-window; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -129,24 +139,23 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
+    Mod+Left  { focus-column-or-monitor-left; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
+    Mod+Right { focus-column-or-monitor-right; }
+    Mod+H     { focus-column-or-monitor-left; }
     Mod+J     { focus-window-or-workspace-down; }
     Mod+K     { focus-window-or-workspace-up; }
-    Mod+L     { focus-column-right; }
+    Mod+L     { focus-column-or-monitor-right; }
 
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
+    Mod+Ctrl+Left  { move-column-left-or-to-monitor-left; }
+    Mod+Ctrl+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+Up    { move-window-up-or-to-workspace-up; }
+    Mod+Ctrl+Right { move-column-right-or-to-monitor-right; }
+    Mod+Ctrl+H     { move-column-left-or-to-monitor-left; }
     Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
     Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
-    Mod+Ctrl+L     { move-column-right; }
-
+    Mod+Ctrl+L     { move-column-right-or-to-monitor-right; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
@@ -179,20 +188,20 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
+    Mod+D              { focus-workspace-down; }
+    Mod+U              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+    Mod+Ctrl+D         { move-column-to-workspace-down; }
+    Mod+Ctrl+U         { move-column-to-workspace-up; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
 
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    Mod+Shift+D         { move-workspace-down; }
+    Mod+Shift+U         { move-workspace-up; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
@@ -270,11 +279,10 @@ binds {
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
-    Mod+R { switch-preset-column-width; }
-    // Cycling through the presets in reverse order is also possible.
-    // Mod+R { switch-preset-column-width-back; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
+    Mod+P { switch-preset-column-width; }
+    Mod+Alt+P { switch-preset-column-width-back; }
+    Mod+Shift+P { switch-preset-window-height; }
+    Mod+Ctrl+P { reset-window-height; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
@@ -307,7 +315,7 @@ binds {
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
-    Mod+W { toggle-column-tabbed-display; }
+    // Mod+W { toggle-column-tabbed-display; }
 
     // Actions to switch layouts.
     // Note: if you uncomment these, make sure you do NOT have
@@ -327,14 +335,13 @@ binds {
     // The allow-inhibiting=false property can be applied to other binds as well,
     // which ensures niri always processes them, even when an inhibitor is active.
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-
-    // Powers off the monitors. To turn them back on, do any input like
-    // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
 }
 
 // Startup
-spawn-at-startup "waybar" "--config" "/home/sashi/.config/waybar/configNiri.json"
+spawn-sh-at-startup "waybar --config ~/.config/waybar/configNiri.json"
+spawn-at-startup "swww-daemon"
+spawn-sh-at-startup "swww img ~/.config/Wallpaper.jpg"
+spawn-at-startup "swayidle" "-w" "timeout" "600"  "swaylock -fel" "timeout" "900" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "before-sleep" "swaylock -fel"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Adwaita-dark"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "color-scheme" "prefer-dark"
 spawn-at-startup "awatcher"

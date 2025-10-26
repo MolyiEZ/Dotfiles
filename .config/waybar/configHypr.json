@@ -23,6 +23,8 @@
         "clock"
     ],
     "modules-right": [
+        "gamemode",
+        "custom/separator#dot-line",
         "wireplumber",
         "custom/separator#dot-line",
         "wireplumber#source",

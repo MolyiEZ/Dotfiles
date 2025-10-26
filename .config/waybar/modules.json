@@ -17,7 +17,6 @@
     },
     "niri/workspaces": {
         "on-click": "activate",
-        "active-only": false,
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
@@ -66,7 +65,7 @@
         "node-type": "Audio/Source",
         "format": "󰍬",
         "format-muted": "󰍭",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
         "scroll-step": 0
     },
     "cpu": {
@@ -97,6 +96,16 @@
             "warning": 30,
             "critical": 15
         }
+    },
+    "gamemode": {
+        "format": "{glyph}",
+        "format-alt": "{glyph}",
+        "hide-not-running": true,
+        "use-icon": true,
+        "icon-name": "input-gaming-symbolic",
+        "icon-spacing": 0,
+        "tooltip": true,
+        "tooltip-format": "Games: {count}"
     },
     "tray": {
         "icon-size": 14,

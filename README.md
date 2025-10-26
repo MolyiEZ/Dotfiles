@@ -30,6 +30,7 @@ These are my personalized dotfiles for **Hyprland** and **Niri**, optimized for 
     - **[Calculator](https://github.com/GNOME/gnome-calculator)** - A Calculator.
     - **[Vinegar](https://vinegarhq.org/)** - Roblox Studio for Linux.
     - **[Sober](https://sober.vinegarhq.org/#introducing-sober)** - Roblox for Linux.
+- **[Fuzzel](https://codeberg.org/dnkl/fuzzel)** - App launcher.
 - **[Gimp](https://www.gimp.org/)** - Image editor.
 - **[nwg-look](https://github.com/nwg-piotr/nwg-look)** - GTK3 Settings editor.
 - **[Papirus Folders](https://github.com/PapirusDevelopmentTeam/papirus-folders)** - Folder icon color changer.
@@ -37,7 +38,6 @@ These are my personalized dotfiles for **Hyprland** and **Niri**, optimized for 
 - **[Stremio](https://www.stremio.com/)** - Media center.
 - **[Thunar](https://docs.xfce.org/xfce/thunar/start)** - Lightweight file manager.
 - **[VLC](https://www.videolan.org/vlc/)** - Media player.
-- **[Wofi](https://github.com/SimplyCEO/wofi)** - Minimalist Wayland application launcher and menu.
 - **[wl-clipboard]()** - Copy/paste utilities.
 - **[Xournal++](https://github.com/xournalpp/xournalpp)** - Notetaking.
 - **[Zen Browser](https://github.com/zen-browser/desktop)** - Zen Browser is a Firefox-based 'Browser' (yhea, crazy).
@@ -78,6 +78,7 @@ discord                     # It's Discord.
 eza                         # Modern ls.
 fd                          # Finder.
 flatpak                     # Apps distributions.
+fuzzel                      # App launcher.
 fzf                         # Fuzzy finder.
 gimp                        # Image editor.
 hypridle                    # Idle daemon.
@@ -101,7 +102,6 @@ tumbler                     # Images preview for thunar.
 unrar                       # Unrar.
 vlc                         # Media player.
 vlc-plugins-all             # Plugins for VLC.
-wofi                        # App launcher.
 wl-clipboard                # Copy/paste utilities.
 xdg-user-dirs               # User directories + icons.
 xournalpp                   # Note-taking.

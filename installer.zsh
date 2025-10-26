@@ -7,31 +7,23 @@ REPO_URL="https://github.com/MolyiEZ/Dotfiles"
 # ---------------------------
 # Helpers
 # ---------------------------
-need_root() {
-  if [[ $EUID -ne 0 ]]; then
-    sudo -v || { echo "Need sudo to continue."; exit 1; }
-  fi
-}
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
 say() { printf "\033[1;32m[*]\033[0m %s\n" "$*"; }
 
-# ---------------------------
-# Preconditions
-# ---------------------------
-[[ -f /etc/arch-release ]] || { echo "This script is for Arch Linux."; exit 1; }
-need_root
+# Check root
+if [[ $EUID -ne 0 ]]; then
+    sudo -v || { echo "Need sudo to continue."; exit 1; }
+fi
 
 # Refresh mirrors & system
-sudo sed -i 's/^#\?ParallelDownloads = .*/ParallelDownloads = 10/' /etc/pacman.conf || true
-sudo pacman -Sy --needed --noconfirm archlinux-keyring
-sudo pacman -Syyu --needed --noconfirm
+sudo pacman -Syyu --needed --noconfirm archlinux-keyring
 
 # Essentials
 sudo pacman -S --needed --noconfirm base-devel git curl wget rsync unzip tar xz xdg-user-dirs
 
 # Uninstalling old apps
-sudo pacman -Rns kitty dolphin
-sudo pacman -Rns alacritty fuzzy
+sudo pacman -Rns kitty dolphin # Hyprland
+sudo pacman -Rns alacritty swaylock # Niri
 
 # ---------------------------
 # yay (AUR helper)
@@ -57,12 +49,13 @@ AURPKGS=(
   stremio
   papirus-folders
   awatcher-bundle-bin
+  swaylock-effects
   zen-browser-bin
 )
 
 PKGS=(
   # Core CLI
-  7zip eza fd fzf ripgrep yq tmux nvim yazi git npm unrar
+  7zip eza fd fzf ripgrep yq tmux nvim yazi git npm unrar unzip
   # Shell + zsh
   zsh zsh-syntax-highlighting
   # Fonts / spelling
@@ -70,15 +63,16 @@ PKGS=(
 
 
   # Wayland apps / theming
-  foot wofi waybar nwg-look
+  foot fuzzel waybar nwg-look
   # Media
   vlc vlc-plugins-all
   # Others
   wl-clipboard
   gimp
+  xournalpp
   thunar tumbler baobab pavucontrol
   cargo discord
-  steam
+  steam gamemode
 
   # - SELECT ONE -
 
@@ -86,7 +80,7 @@ PKGS=(
   # hyprland hypridle hyprlock hyprpaper hyprshot
   
   # Niri
-  # blueman
+  # blueman swww xwayland-satellite
 )
 
 say "Installing packages via pacman…"
@@ -135,9 +129,6 @@ rsync -a \
 
 rm -rf "$TMP_CLONE"
 
-# Ensure XDG user dirs exist
-xdg-user-dirs-update || true
-
 # ---------------------------
 # Default shell → zsh
 # ---------------------------
@@ -151,10 +142,10 @@ papirus-folders -C black --theme Papirus-Dark
 # ---------------------------
 # RELOAD HYPRLAND
 # ---------------------------
-if have_cmd hyprctl && pgrep -x Hyprland >/dev/null 2>&1; then
-  say "Reloading Hyprland…"
-  hyprctl reload || true
-fi
+# if have_cmd hyprctl && pgrep -x Hyprland >/dev/null 2>&1; then
+#   say "Reloading Hyprland…"
+#   hyprctl reload || true
+# fi
 
 # ---------------------------
 # ASK TO REBOOT
