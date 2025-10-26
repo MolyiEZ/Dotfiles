@@ -4,9 +4,7 @@ trap 'echo -e "\n[x] Error on line $LINENO: $BASH_COMMAND" >&2' ERR
 
 REPO_URL="https://github.com/MolyiEZ/Dotfiles"
 
-# ---------------------------
 # Helpers
-# ---------------------------
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
 say() { printf "\033[1;32m[*]\033[0m %s\n" "$*"; }
 
@@ -25,9 +23,7 @@ sudo pacman -S --needed --noconfirm base-devel git curl wget rsync unzip tar xz 
 sudo pacman -Rns kitty dolphin # Hyprland
 sudo pacman -Rns alacritty swaylock # Niri
 
-# ---------------------------
 # yay (AUR helper)
-# ---------------------------
 if ! have_cmd yay; then
   say "Installing yay (AUR helper)…"
   tmpdir="$(mktemp -d)"
@@ -39,9 +35,7 @@ if ! have_cmd yay; then
   rm -rf "$tmpdir"
 fi
 
-# ---------------------------
 # Packages (pacman + AUR via yay)
-# ---------------------------
 AURPKGS=(
   # zsh theme
   zsh-theme-powerlevel10k-git
@@ -94,9 +88,7 @@ fi
 say "Installing rojo via cargo..."
 cargo install rojo --version ^7
 
-# ---------------------------
 # Flatpak & apps
-# ---------------------------
 if ! have_cmd flatpak; then
   sudo pacman -S --needed --noconfirm flatpak
 fi
@@ -112,9 +104,7 @@ for app in "${FLATPAKS[@]}"; do
   flatpak install -y flathub "$app" || true
 done
 
-# ---------------------------
 # Remove ~/.config and clone everything onto $HOME
-# ---------------------------
 say "Removing ~/.config …"
 rm -rf "$HOME/.config"
 
@@ -129,9 +119,12 @@ rsync -a \
 
 rm -rf "$TMP_CLONE"
 
-# ---------------------------
-# Default shell → zsh
-# ---------------------------
+# Tmux plugin manager
+say "Installing tmux plugin manager..."
+git clone "https://github.com/tmux-plugins/tpm" "~/.config/tmux/plugins/tpm"
+say "Tmux plugin manager installed, please use 'prefix+I' when using tmux for the first time to install the plugins."
+
+# Default shell -> zsh
 if [[ "${SHELL:-}" != *zsh ]]; then
   chsh -s "$(command -v zsh)" "$USER" || true
 fi
@@ -139,17 +132,13 @@ fi
 # Papirus dark folders
 papirus-folders -C black --theme Papirus-Dark
 
-# ---------------------------
 # RELOAD HYPRLAND
-# ---------------------------
 # if have_cmd hyprctl && pgrep -x Hyprland >/dev/null 2>&1; then
 #   say "Reloading Hyprland…"
 #   hyprctl reload || true
 # fi
 
-# ---------------------------
 # ASK TO REBOOT
-# ---------------------------
 read -r -p "Everything done. Reboot now? [y/N] " ans
 case "${ans:-N}" in
   y|Y) systemctl reboot ;;
