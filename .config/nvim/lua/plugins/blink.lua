@@ -1,52 +1,10 @@
 return { -- Autocompletion
 	"saghen/blink.cmp",
 	event = "VimEnter",
-	dependencies = {
-		-- Snippet Engine
-		{
-			-- "L3MON4D3/LuaSnip",
-			-- version = "2.*",
-			-- build = (function()
-			-- 	-- Build Step is needed for regex support in snippets.
-			-- 	-- This step is not supported in many windows environments.
-			-- 	-- Remove the below condition to re-enable on windows.
-			-- 	if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-			-- 		return
-			-- 	end
-			-- 	return "make install_jsregexp"
-			-- end)(),
-			-- dependencies = {
-			-- 	{
-			-- 		"rafamadriz/friendly-snippets",
-			-- 	},
-			-- },
-			-- config = function()
-			-- 	local ls = require("luasnip")
-			--
-			-- 	-- make Luau reuse Lua snippets
-			-- 	ls.filetype_extend("luau", { "lua" })
-			-- 	-- (optional) if you use composite fts like "luau.rojo"
-			-- 	ls.filetype_extend("luau.rojo", { "luau", "lua" })
-			--
-			-- 	-- load VSCode-format snippets (friendly-snippets)
-			-- 	require("luasnip.loaders.from_vscode").lazy_load()
-			--
-			-- 	ls.config.setup({
-			-- 		history = true,
-			-- 		updateevents = "TextChanged,TextChangedI",
-			-- 		-- If cursor leaves the snippet, stop treating it as active:
-			-- 		region_check_events = "CursorMoved,CursorMovedI,InsertEnter",
-			-- 		-- If snippet text was edited/deleted, clean it up:
-			-- 		delete_check_events = "TextChanged,TextChangedI",
-			-- 	})
-			-- end,
-		},
-		"folke/lazydev.nvim",
-	},
 	config = function()
 		require("blink.cmp").setup({
 			keymap = {
-				preset = "none",
+				preset = "super-tab",
 
 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 				["<C-h>"] = { "hide" },
@@ -130,17 +88,14 @@ return { -- Autocompletion
 			},
 
 			sources = {
-				default = { "lsp", "path", "snippets", "lazydev", "buffer" },
+				default = { "lsp", "path", "snippets", "buffer" },
 				providers = {
-					lazydev = { module = "lazydev.integrations.blink", score_offset = 0 },
 					lsp = { score_offset = 100 },
 					snippets = { score_offset = 9 },
 					path = { score_offset = 8 },
 					buffer = { score_offset = 8 },
 				},
 			},
-
-			snippets = { preset = "luasnip" },
 
 			-- Blink.cmp includes an optional, recommended rust fuzzy matcher,
 			-- which automatically downloads a prebuilt binary when enabled.

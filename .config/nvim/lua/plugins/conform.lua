@@ -23,23 +23,13 @@ return { -- Autoformat
 			typescriptreact = { "prettier" },
 			qml = { "qmlformat" },
 			python = { "ruff_format" },
-			json = { "prettierd", "prettier", "jq" }, -- fast → standard → rock-solid
-			json5 = { "prettierd", "prettier" }, -- jq doesn’t support JSON5
+			json = { "prettierd", "prettier", "jq" },
+			json5 = { "prettierd", "prettier" },
 			jsonc = { "deno_fmt_jsonc", "dprint", "prettier" },
+			rust = { "rustfmt" },
+			markdown = { "prettier" },
 		},
 		formatters = {
-			qmlformat = {
-				command = "/usr/lib/qt6/bin/qmlformat",
-				args = {
-					"-w",
-					"2", -- indent with 2 spaces
-					"-W",
-					"100", -- wrap lines at 100 characters
-					"--objects-spacing", -- newline around object blocks
-					"--functions-spacing", -- clearer spacing for JS functions
-					"$FILENAME",
-				},
-			},
 			jq = {
 				command = "jq",
 				args = { "--indent", "4", "." }, -- 4 spaces, sort keys

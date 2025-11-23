@@ -1,3 +1,4 @@
+;; ~/.config/nvim/queries/luau/highlights.scm
 ; Preproc
 (hash_bang_line) @keyword.directive
 
@@ -139,9 +140,6 @@
 
 (builtin_type) @type.builtin
 
-((identifier) @type
-  (#lua-match? @type "^[a-z]"))
-
 ; Typedefs
 (type_definition
   "type"
@@ -158,12 +156,14 @@
   (#eq? @constant.builtin "_VERSION"))
 
 ((identifier) @variable.builtin
-  (#eq? @variable.builtin "self"))
+  (#eq? @variable.builtin "self")
+  (#set! "priority" 130))
 
 "..." @variable.builtin
 
 ((identifier) @module.builtin
-  (#any-of? @module.builtin "_G" "debug" "io" "jit" "math" "os" "package" "string" "table" "utf8"))
+  (#any-of? @module.builtin "_G" "debug" "io" "jit" "math" "os" "package" "string" "table" "utf8" "game")
+  (#set! "priority" 130))
 
 ((identifier) @keyword.coroutine
   (#eq? @keyword.coroutine "coroutine"))
@@ -303,4 +303,5 @@
     .
     (string
       content: _ @string.regexp)))
+
 

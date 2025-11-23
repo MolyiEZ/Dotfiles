@@ -4,6 +4,7 @@ return {
 	build = ":TSUpdate",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		-- "nvim-treesitter/playground",
 	},
 	config = function()
 		require("nvim-treesitter.configs").setup({
@@ -11,34 +12,19 @@ return {
 			ensure_installed = {
 				"lua",
 				"luau",
-				"python",
 				"javascript",
 				"typescript",
-				"vimdoc",
-				"vim",
 				"regex",
-				"terraform",
-				"sql",
-				"dockerfile",
 				"toml",
 				"json",
-				"java",
-				"jsdoc",
-				"groovy",
-				"go",
 				"gitignore",
-				"graphql",
 				"yaml",
-				"make",
-				"cmake",
 				"markdown",
 				"markdown_inline",
 				"bash",
 				"tsx",
 				"css",
 				"html",
-				"c_sharp",
-				"rust",
 				"xml",
 			},
 
@@ -106,11 +92,5 @@ return {
 				include_match_words = false,
 			},
 		})
-
-		-- Register additional file extensions
-		vim.filetype.add({ extension = { tf = "terraform" } })
-		vim.filetype.add({ extension = { tfvars = "terraform" } })
-		vim.filetype.add({ extension = { pipeline = "groovy" } })
-		vim.filetype.add({ extension = { multibranch = "groovy" } })
 	end,
 }

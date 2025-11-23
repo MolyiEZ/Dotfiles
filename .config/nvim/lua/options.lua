@@ -1,10 +1,9 @@
-vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
+vim.opt.numberwidth = 4 -- set number column width to 4 {default 4}
 vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4 -- insert n spaces for a tab
 vim.opt.softtabstop = 4 -- Number of spaces that a tab counts for while performing editing operations
 vim.opt.expandtab = true -- convert tabs to spaces
 
-vim.opt.guifont = "JetBrainsMono Nerd Font"
 vim.o.hlsearch = true -- Set highlight on search
 vim.o.confirm = true
 vim.o.incsearch = true
@@ -15,8 +14,8 @@ vim.o.undofile = true -- Save undo history
 vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.smartcase = true -- smart case
 vim.wo.signcolumn = "yes" -- Keep signcolumn on by default
-vim.o.updatetime = 250 -- Decrease update time
-vim.o.timeoutlen = 750 -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.o.updatetime = 250
+vim.o.timeoutlen = 500 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.o.backup = false -- creates a backup file
 vim.o.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.o.completeopt = "menuone,noselect" -- Set completeopt to have a better completion experience

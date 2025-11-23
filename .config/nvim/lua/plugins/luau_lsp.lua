@@ -23,8 +23,9 @@ return {
 				rojo_project_file = "default.project.json",
 				sourcemap_file = "sourcemap.json",
 			},
-			plugin = {
-				enabled = true,
+			fflags = {
+                enable_new_solver = true,
+				sync = true,
 			},
 		})
 	end,
