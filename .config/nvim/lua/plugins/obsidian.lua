@@ -18,7 +18,7 @@ return {
 		workspaces = {
 			{
 				name = "Notes",
-				path = "~/Vaults/Notes",
+				path = "/mnt/HDD/Vaults/Notes",
 			},
 		},
 		ui = {
