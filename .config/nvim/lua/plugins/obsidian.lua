@@ -27,11 +27,11 @@ return {
 			max_file_length = 5000, -- disable UI features for files with more than this many lines
 			-- Define how various check-boxes are displayed
 			checkboxes = {
-				[" "] = { char = "☐", hl_group = "ObsidianTodo" },
-				["x"] = { char = "✔", hl_group = "ObsidianDone" },
-				[">"] = { char = "", hl_group = "ObsidianRightArrow" },
-				["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
-				["!"] = { char = "", hl_group = "ObsidianImportant" },
+				[" "] = { char = "□", hl_group = "ObsidianTodo" },
+				["x"] = { char = "✅", hl_group = "ObsidianDone" },
+				[">"] = { char = "❯", hl_group = "ObsidianRightArrow" },
+				["~"] = { char = "❎", hl_group = "ObsidianTilde" },
+				["!"] = { char = "❗", hl_group = "ObsidianImportant" },
 			},
 			-- Use bullet marks for non-checkbox lists.
 			bullets = { char = "•", hl_group = "ObsidianBullet" },

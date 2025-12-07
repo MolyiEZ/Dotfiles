@@ -71,7 +71,7 @@ PKGS=(
   # - SELECT ONE -
 
   # Hyprland
-  # hyprland hypridle hyprlock hyprpaper hyprshot
+  # hyprland hypridle hyprlock hyprpaper hyprshot meson cpio
   
   # Niri
   # blueman swww xwayland-satellite
