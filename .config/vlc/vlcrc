@@ -769,11 +769,6 @@ qt-privacy-ask=0
 # Scaling mode (integer)
 #swscale-mode=2
 
-[svg] # svg
-
-# SVG template file (string)
-#svg-template-file=
-
 [freetype] # Freetype2 font renderer
 
 # Font (string)
@@ -829,6 +824,11 @@ qt-privacy-ask=0
 
 # Text direction (integer)
 #freetype-text-direction=0
+
+[svg] # svg
+
+# SVG template file (string)
+#svg-template-file=
 
 [stream_out_chromecast] # Chromecast stream output
 
@@ -1961,23 +1961,6 @@ qt-privacy-ask=0
 # Preload clusters (boolean)
 #mkv-preload-clusters=0
 
-[avformat] # Avformat demuxer
-
-# Format name (string)
-#avformat-format=
-
-# Advanced options (string)
-#avformat-options=
-
-# Avformat mux (string)
-#sout-avformat-mux=
-
-# Advanced options (string)
-#sout-avformat-options=
-
-# Reset timestamps (boolean)
-#sout-avformat-reset-ts=1
-
 [ts] # MPEG Transport Stream demuxer
 
 # Digital TV Standard (string)
@@ -2018,6 +2001,23 @@ qt-privacy-ask=0
 
 # Try to fix too early PCR (or late DTS) (boolean)
 #ts-pcr-offsetfix=1
+
+[avformat] # Avformat demuxer
+
+# Format name (string)
+#avformat-format=
+
+# Advanced options (string)
+#avformat-options=
+
+# Avformat mux (string)
+#sout-avformat-mux=
+
+# Advanced options (string)
+#sout-avformat-options=
+
+# Reset timestamps (boolean)
+#sout-avformat-reset-ts=1
 
 [vc1] # VC1 video demuxer
 
@@ -2315,6 +2315,118 @@ qt-privacy-ask=0
 
 # Presentation Level (integer)
 #vbi-level=3
+
+[qsv] # Intel QuickSync Video encoder for MPEG4-Part10/MPEG2 (aka H.264/H.262)
+
+# Enable software mode (boolean)
+#sout-qsv-software=0
+
+# Codec Profile (string)
+#sout-qsv-h264-profile=unspecified
+
+# Codec Level (string)
+#sout-qsv-h264-level=unspecified
+
+# Codec Profile (string)
+#sout-qsv-mpeg2-profile=unspecified
+
+# Codec Level (string)
+#sout-qsv-mpeg2-level=unspecified
+
+# Group of Picture size (integer)
+#sout-qsv-gop-size=32
+
+# Group of Picture Reference Distance (integer)
+#sout-qsv-gop-refdist=4
+
+# IDR interval (integer)
+#sout-qsv-idr-interval=0
+
+# Target Usage (string)
+#sout-qsv-target-usage=quality
+
+# Rate Control Method (string)
+#sout-qsv-rc-method=vbr
+
+# Quantization parameter (integer)
+#sout-qsv-qp=0
+
+# Quantization parameter for I-frames (integer)
+#sout-qsv-qpi=0
+
+# Quantization parameter for P-frames (integer)
+#sout-qsv-qpp=0
+
+# Quantization parameter for B-frames (integer)
+#sout-qsv-qpb=0
+
+# Maximum Bitrate (integer)
+#sout-qsv-bitrate-max=0
+
+# Accuracy of RateControl (integer)
+#sout-qsv-accuracy=0
+
+# Convergence time of 'avbr' RateControl (integer)
+#sout-qsv-convergence=0
+
+# Number of slices per frame (integer)
+#sout-qsv-num-slice=0
+
+# Number of reference frames (integer)
+#sout-qsv-num-ref-frame=0
+
+# Number of parallel operations (integer)
+#sout-qsv-async-depth=4
+
+[kate] # Kate overlay decoder
+
+# Formatted Subtitles (boolean)
+#kate-formatted=1
+
+# Use Tiger for rendering (boolean)
+#kate-use-tiger=1
+
+# Rendering quality (float)
+#kate-tiger-quality=1.000000
+
+# Default font description (string)
+#kate-tiger-default-font-desc=
+
+# Default font effect (integer)
+#kate-tiger-default-font-effect=0
+
+# Default font effect strength (float)
+#kate-tiger-default-font-effect-strength=0.500000
+
+# Default font color (integer)
+#kate-tiger-default-font-color=16777215
+
+# Default font alpha (integer)
+#kate-tiger-default-font-alpha=255
+
+# Default background color (integer)
+#kate-tiger-default-background-color=16777215
+
+# Default background alpha (integer)
+#kate-tiger-default-background-alpha=0
+
+[dca] # DTS Coherent Acoustics audio decoder
+
+# DTS dynamic range compression (boolean)
+#dts-dynrng=1
+
+[libass] # Subtitle renderers using libass
+
+# Additional fonts directory (string)
+#ssa-fontsdir=
+
+[aribsub] # ARIB subtitles decoder
+
+# Ignore ruby (furigana) (boolean)
+#aribsub-ignore-ruby=0
+
+# Use Core Text renderer (boolean)
+#aribsub-use-coretext=0
 
 [x264] # H.264/MPEG-4 Part 10/AVC encoder (x264)
 
@@ -2787,100 +2899,6 @@ sout-x264-tune=film
 # Scale factor (float)
 #svg-scale=-1.000000
 
-[qsv] # Intel QuickSync Video encoder for MPEG4-Part10/MPEG2 (aka H.264/H.262)
-
-# Enable software mode (boolean)
-#sout-qsv-software=0
-
-# Codec Profile (string)
-#sout-qsv-h264-profile=unspecified
-
-# Codec Level (string)
-#sout-qsv-h264-level=unspecified
-
-# Codec Profile (string)
-#sout-qsv-mpeg2-profile=unspecified
-
-# Codec Level (string)
-#sout-qsv-mpeg2-level=unspecified
-
-# Group of Picture size (integer)
-#sout-qsv-gop-size=32
-
-# Group of Picture Reference Distance (integer)
-#sout-qsv-gop-refdist=4
-
-# IDR interval (integer)
-#sout-qsv-idr-interval=0
-
-# Target Usage (string)
-#sout-qsv-target-usage=quality
-
-# Rate Control Method (string)
-#sout-qsv-rc-method=vbr
-
-# Quantization parameter (integer)
-#sout-qsv-qp=0
-
-# Quantization parameter for I-frames (integer)
-#sout-qsv-qpi=0
-
-# Quantization parameter for P-frames (integer)
-#sout-qsv-qpp=0
-
-# Quantization parameter for B-frames (integer)
-#sout-qsv-qpb=0
-
-# Maximum Bitrate (integer)
-#sout-qsv-bitrate-max=0
-
-# Accuracy of RateControl (integer)
-#sout-qsv-accuracy=0
-
-# Convergence time of 'avbr' RateControl (integer)
-#sout-qsv-convergence=0
-
-# Number of slices per frame (integer)
-#sout-qsv-num-slice=0
-
-# Number of reference frames (integer)
-#sout-qsv-num-ref-frame=0
-
-# Number of parallel operations (integer)
-#sout-qsv-async-depth=4
-
-[kate] # Kate overlay decoder
-
-# Formatted Subtitles (boolean)
-#kate-formatted=1
-
-# Use Tiger for rendering (boolean)
-#kate-use-tiger=1
-
-# Rendering quality (float)
-#kate-tiger-quality=1.000000
-
-# Default font description (string)
-#kate-tiger-default-font-desc=
-
-# Default font effect (integer)
-#kate-tiger-default-font-effect=0
-
-# Default font effect strength (float)
-#kate-tiger-default-font-effect-strength=0.500000
-
-# Default font color (integer)
-#kate-tiger-default-font-color=16777215
-
-# Default font alpha (integer)
-#kate-tiger-default-font-alpha=255
-
-# Default background color (integer)
-#kate-tiger-default-background-color=16777215
-
-# Default background alpha (integer)
-#kate-tiger-default-background-alpha=0
-
 [gstdecode] # GStreamer Based Decoder
 
 # Use DecodeBin (boolean)
@@ -3030,24 +3048,6 @@ sout-x264-tune=film
 
 # Advanced options (string)
 #sout-avcodec-options=
-
-[dca] # DTS Coherent Acoustics audio decoder
-
-# DTS dynamic range compression (boolean)
-#dts-dynrng=1
-
-[libass] # Subtitle renderers using libass
-
-# Additional fonts directory (string)
-#ssa-fontsdir=
-
-[aribsub] # ARIB subtitles decoder
-
-# Ignore ruby (furigana) (boolean)
-#aribsub-ignore-ruby=0
-
-# Use Core Text renderer (boolean)
-#aribsub-use-coretext=0
 
 [ttml] # TTML subtitles decoder
 
@@ -3242,7 +3242,7 @@ sout-x264-tune=film
 #alsa-audio-channels=6
 
 # Software gain (float)
-alsa-gain=0.970299
+alsa-gain=0.421875
 
 [xcb_screen] # Screen capture (with X11/XCB)
 
@@ -3452,17 +3452,6 @@ alsa-gain=0.970299
 #  SRT Stream ID (string)
 #streamid=
 
-[smb] # SMB input
-
-# Username (string)
-#smb-user=
-
-# Password (string)
-#smb-pwd=
-
-# SMB domain (string)
-#smb-domain=
-
 [sftp] # SFTP input
 
 # SFTP port (integer)
@@ -3510,22 +3499,6 @@ alsa-gain=0.970299
 
 # RTSP frame buffer size (integer)
 #rtsp-frame-buffer-size=250000
-
-[access_jack] # JACK audio input
-
-# Pace (boolean)
-#jack-input-use-vlc-pace=0
-
-# Auto connection (boolean)
-#jack-input-auto-connect=0
-
-[avio] # libavformat AVIO access
-
-# Advanced options (string)
-#avio-options=
-
-# Advanced options (string)
-#sout-avio-options=
 
 [dvdread] # DVDRead Input (no menu support)
 
@@ -3575,6 +3548,33 @@ alsa-gain=0.970299
 
 # Region code (string)
 #bluray-region=B
+
+[smb] # SMB input
+
+# Username (string)
+#smb-user=
+
+# Password (string)
+#smb-pwd=
+
+# SMB domain (string)
+#smb-domain=
+
+[access_jack] # JACK audio input
+
+# Pace (boolean)
+#jack-input-use-vlc-pace=0
+
+# Auto connection (boolean)
+#jack-input-auto-connect=0
+
+[avio] # libavformat AVIO access
+
+# Advanced options (string)
+#avio-options=
+
+# Advanced options (string)
+#sout-avio-options=
 
 [vdr] # VDR recordings
 

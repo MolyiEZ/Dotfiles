@@ -17,11 +17,11 @@ fi
 sudo pacman -Syyu --needed --noconfirm archlinux-keyring
 
 # Essentials
-sudo pacman -S --needed --noconfirm base-devel git curl wget rsync unzip tar xz xdg-user-dirs
+sudo pacman -S --needed --noconfirm base-devel git curl wget rsync unzip tar xz xdg-user-dirs fbset
 
 # Uninstalling old apps
 sudo pacman -Rns kitty dolphin # Hyprland
-sudo pacman -Rns alacritty swaylock # Niri
+sudo pacman -Rns alacritty swaylock # Niri or Sway
 
 # yay (AUR helper)
 if ! have_cmd yay; then
@@ -49,7 +49,7 @@ AURPKGS=(
 
 PKGS=(
   # Core CLI
-  7zip eza fd fzf ripgrep yq tmux nvim yazi git npm unrar unzip
+  7zip eza fd fzf ripgrep yq tmux nvim yazi git npm unrar gvfs
   # Shell + zsh
   zsh zsh-syntax-highlighting
   # Fonts / spelling
@@ -75,6 +75,9 @@ PKGS=(
   
   # Niri
   # blueman swww xwayland-satellite
+  
+  # Sway
+  # swww
 )
 
 say "Installing packages via pacman…"
