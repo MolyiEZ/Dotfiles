@@ -1,6 +1,6 @@
 # Dotfiles
 
-These are my personalized dotfiles for **Hyprland** and **Niri**, optimized for performance and simplicity with focus on the terminal.
+These are my personalized dotfiles for **Hyprland**/**Niri**/**Sway**, optimized for performance and simplicity with focus on the terminal.
 
 ---
 
@@ -45,7 +45,6 @@ These are my personalized dotfiles for **Hyprland** and **Niri**, optimized for 
 
 </details>
 
-
 <details>
 <summary><strong>Hyprland Only</strong></summary>
 
@@ -57,11 +56,9 @@ These are my personalized dotfiles for **Hyprland** and **Niri**, optimized for 
 
 </details>
 
-
 <details>
-<summary><strong>Niri Only</strong></summary>
+<summary><strong>Niri and Sway Only</strong></summary>
 
-- **[Blueman](https://github.com/blueman-project/blueman)** - Bluetooth manager.
 - **[swayidle](https://github.com/swaywm/swayidle)** - Idle daemon.
 - **[swaylock-effects](https://github.com/mortie/swaylock-effects)** - Screenlocker.
 - **[swww](https://github.com/LGFae/swww)** - Wayland wallpapers.
@@ -70,13 +67,12 @@ These are my personalized dotfiles for **Hyprland** and **Niri**, optimized for 
 
 ---
 
-## Selected Packages [hypr and niri]
+## Selected Packages [hypr/niri/sway]
 
 ```text
 7zip                        # Compressor.
 aseprite                    # Sprite editor.
 baobab                      # Disk usage analyzer.
-blueman                     # Bluetooth manager.
 cargo                       # Rust package manager.
 discord                     # It's Discord.
 eza                         # Modern ls.

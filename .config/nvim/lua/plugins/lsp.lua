@@ -144,6 +144,8 @@ return {
 
 			jsonls = {},
 
+			bashls = {},
+
 			-- marksman = {},
 		}
 

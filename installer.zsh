@@ -25,100 +25,98 @@ sudo pacman -Rns alacritty swaylock # Niri or Sway
 
 # yay (AUR helper)
 if ! have_cmd yay; then
-  say "Installing yay (AUR helper)…"
-  tmpdir="$(mktemp -d)"
-  pushd "$tmpdir" >/dev/null
-  git clone https://aur.archlinux.org/yay-bin.git
-  cd yay-bin
-  makepkg -si --noconfirm
-  popd >/dev/null
-  rm -rf "$tmpdir"
+    say "Installing yay (AUR helper)…"
+    tmpdir="$(mktemp -d)"
+    pushd "$tmpdir" >/dev/null
+    git clone https://aur.archlinux.org/yay-bin.git
+    cd yay-bin
+    makepkg -si --noconfirm
+    popd >/dev/null
+    rm -rf "$tmpdir"
 fi
 
-# Packages (pacman + AUR via yay)
+# Packages (pacman + Flatpak + AUR via yay)
 AURPKGS=(
-  # zsh theme
-  zsh-theme-powerlevel10k-git
-  aseprite
-  stremio
-  papirus-folders
-  awatcher-bundle-bin
-  swaylock-effects
-  zen-browser-bin
+    zsh-theme-powerlevel10k-git
+    aseprite
+    papirus-folders
+    awatcher-bundle-bin
+    swaylock-effects
+    zen-browser-bin
+)
+
+FLATPAKS=(
+    org.gnome.Calculator
+    org.vinegarhq.Vinegar
+    org.vinegarhq.Sober
+    com.stremio.Stremio
 )
 
 PKGS=(
-  # Core CLI
-  7zip eza fd fzf ripgrep yq tmux nvim yazi git npm unrar gvfs
-  # Shell + zsh
-  zsh zsh-syntax-highlighting
-  # Fonts / spelling
-  ttf-jetbrains-mono ttf-jetbrains-mono-nerd otf-codenewroman-nerd vim-spell-en vim-spell-es
+    # Core CLI
+    7zip eza fd fzf ripgrep yq tmux nvim yazi git npm unrar gvfs
+    # Shell + zsh
+    zsh zsh-syntax-highlighting
+    # Fonts / spelling
+    ttf-jetbrains-mono ttf-jetbrains-mono-nerd otf-codenewroman-nerd vim-spell-en vim-spell-es
 
+    # Wayland apps / theming
+    foot fuzzel waybar nwg-look
+    # Media
+    vlc vlc-plugins-all
+    # Others
+    wl-clipboard
+    gimp
+    xournalpp
+    cargo
+    thunar tumbler baobab pavucontrol
+    discord steam gamemode
 
-  # Wayland apps / theming
-  foot fuzzel waybar nwg-look
-  # Media
-  vlc vlc-plugins-all
-  # Others
-  wl-clipboard
-  gimp
-  xournalpp
-  thunar tumbler baobab pavucontrol
-  cargo discord
-  steam gamemode
+    # - SELECT ONE -
 
-  # - SELECT ONE -
+    # Hyprland
+    # hyprland hypridle hyprlock hyprpaper hyprshot meson cpio
 
-  # Hyprland
-  # hyprland hypridle hyprlock hyprpaper hyprshot meson cpio
-  
-  # Niri
-  # blueman swww xwayland-satellite
-  
-  # Sway
-  # swww
+    # Niri
+    # swww xwayland-satellite
+
+    # Sway
+    # swww
 )
 
-say "Installing packages via pacman…"
+say "Installing packages via pacman..."
 sudo pacman -S --needed --noconfirm "${PKGS[@]}"
 
-say "Installing packages via yay (AUR)…"
+say "Installing packages via yay (AUR)..."
 if ((${#AURPKGS[@]})); then
-  yay -S --needed --noconfirm "${AURPKGS[@]}"
+    yay -S --needed --noconfirm "${AURPKGS[@]}"
 fi
+
+# Check for flatpak
+if ! have_cmd flatpak; then
+    sudo pacman -S --needed --noconfirm flatpak
+fi
+
+say "Installing Flatpaks..."
+for app in "${FLATPAKS[@]}"; do
+    flatpak install -y flathub "$app" || true
+done
 
 say "Installing rojo via cargo..."
 cargo install rojo --version ^7
 
-# Flatpak & apps
-if ! have_cmd flatpak; then
-  sudo pacman -S --needed --noconfirm flatpak
-fi
-
-FLATPAKS=(
-  org.gnome.Calculator
-  org.vinegarhq.Vinegar
-  org.vinegarhq.Sober
-)
-
-say "Installing Flatpaks…"
-for app in "${FLATPAKS[@]}"; do
-  flatpak install -y flathub "$app" || true
-done
-
 # Remove ~/.config and clone everything onto $HOME
-say "Removing ~/.config …"
+say "Removing ~/.config ..."
 rm -rf "$HOME/.config"
 
-say "Cloning repo and laying files into \$HOME …"
+say "Cloning repo and laying files into \$HOME ..."
 TMP_CLONE="$(mktemp -d)"
 git clone --depth=1 "$REPO_URL" "$TMP_CLONE"
 
 # Copy repo contents into $HOME
 rsync -a \
-  --exclude "README.md" --exclude "installer.zsh" \
-  "$TMP_CLONE"/ "$HOME"/
+    --exclude "README.md" --exclude "installer.zsh" \
+    "$TMP_CLONE"/ "$HOME"/
 
 rm -rf "$TMP_CLONE"
 
@@ -129,22 +127,15 @@ say "Tmux plugin manager installed, please use 'prefix+I' when using tmux for th
 
 # Default shell -> zsh
 if [[ "${SHELL:-}" != *zsh ]]; then
-  chsh -s "$(command -v zsh)" "$USER" || true
+    chsh -s "$(command -v zsh)" "$USER" || true
 fi
 
 # Papirus dark folders
 papirus-folders -C black --theme Papirus-Dark
 
-# RELOAD HYPRLAND
-# if have_cmd hyprctl && pgrep -x Hyprland >/dev/null 2>&1; then
-#   say "Reloading Hyprland…"
-#   hyprctl reload || true
-# fi
-
 # ASK TO REBOOT
-read -r -p "Everything done. Reboot now? [y/N] " ans
+read -r -p "Everything done. Reboot now? [Y/n] " ans
 case "${ans:-N}" in
-  y|Y) systemctl reboot ;;
-  *)   say "Done. You can reboot later." ;;
+    n|N)   say "Done. You can reboot later." ;;
+    *) systemctl reboot ;;
 esac
-

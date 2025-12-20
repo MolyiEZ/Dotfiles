@@ -28,6 +28,9 @@ return { -- Autoformat
 			jsonc = { "deno_fmt_jsonc", "dprint", "prettier" },
 			rust = { "rustfmt" },
 			markdown = { "prettier" },
+			bash = { "beautysh" },
+			zsh = { "beautysh" },
+			sh = { "beautysh" },
 		},
 		formatters = {
 			jq = {
