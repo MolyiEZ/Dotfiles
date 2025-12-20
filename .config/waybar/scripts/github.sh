@@ -17,9 +17,7 @@ RETRIES=0
 
 # Wait for internet connection
 while ! ping -c 1 -W 1 8.8.8.8 &> /dev/null; do
-    # Check if we have waited too long
     if [ "$RETRIES" -ge "$INTERNET_MAX_RETRIES" ]; then
-        # TIMEOUT REACHED: Die silently (or you can echo an error icon)
         echo "{\"text\": \"OFFLINE\", \"tooltip\": \"Internet connection timed out (60s)\", \"class\": \"error\"}"
         exit 0
     fi
@@ -45,25 +43,41 @@ TOOLTIP=""
 
 # Loop = 2 days ago -> 1 day ago -> Today
 for i in 2 1 0; do
-    DATE=$(date -d "$i days ago" '+%d-%m-%Y')
+    # Github uses YYYY-MM-DD
+    DATE=$(date -d "$i days ago" '+%Y-%m-%d')
     
-    COUNT=$(grep "data-date=\"$DATE\"" "$CACHE" 2>/dev/null | \
-            grep -o 'data-count="[0-9]*"' | \
-            grep -o '[0-9]*')
+    BLOCK=$(grep -A 2 "data-date=\"$DATE\"" "$CACHE")
+    
+    LEVEL=$(echo "$BLOCK" | grep -o 'data-level="[0-9]"' | head -n1 | grep -o '[0-9]')
+    
+    if [ -z "$LEVEL" ]; then LEVEL=0; fi
 
-    if [ -z "$COUNT" ]; then COUNT=0; fi
+    case "$LEVEL" in
+        0) COL=$COLOR_0 ;;
+        1) COL=$COLOR_1 ;;
+        2) COL=$COLOR_2 ;;
+        3) COL=$COLOR_3 ;;
+        4) COL=$COLOR_4 ;;
+        *) COL=$COLOR_0 ;;
+    esac
 
-    if [ "$COUNT" -eq 0 ]; then COL=$COLOR_0
-    elif [ "$COUNT" -le 3 ]; then COL=$COLOR_1
-    elif [ "$COUNT" -le 6 ]; then COL=$COLOR_2
-    elif [ "$COUNT" -le 9 ]; then COL=$COLOR_3
-    else COL=$COLOR_4
+    if echo "$BLOCK" | grep -q "No contributions"; then
+        COUNT=0
+    else
+        COUNT=$(echo "$BLOCK" | grep -o '[0-9]* contribution' | head -n1 | grep -o '[0-9]*')
+        if [ -z "$COUNT" ]; then COUNT=0; fi
     fi
 
+    DATE_TOOLTIP=$(date -d "$i days ago" '+%d-%m-%Y')
+
     OUTPUT="$OUTPUT<span color='$COL'>■</span> "
-    TOOLTIP="${TOOLTIP}${DATE}: ${COUNT} commits\r"
+    TOOLTIP="${TOOLTIP}${DATE_TOOLTIP}: ${COUNT} commits\r"
 done
+
+# Remove the last \r
+TOOLTIP=${TOOLTIP%\\r}
 
 FINAL_TEXT=$(echo "$OUTPUT" | sed 's/ $//')
 SAFE_TOOLTIP=$(echo "$TOOLTIP" | sed 's/"/\\"/g')
+
 echo "{\"text\": \"$FINAL_TEXT\", \"tooltip\": \"$SAFE_TOOLTIP\"}"

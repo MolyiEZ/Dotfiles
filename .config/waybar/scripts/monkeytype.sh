@@ -23,9 +23,7 @@ RETRIES=0
 
 # Wait for internet connection
 while ! ping -c 1 -W 1 8.8.8.8 &> /dev/null; do
-    # Check if we have waited too long
     if [ "$RETRIES" -ge "$INTERNET_MAX_RETRIES" ]; then
-        # TIMEOUT REACHED: Die silently (or you can echo an error icon)
         echo "{\"text\": \"OFFLINE\", \"tooltip\": \"Internet connection timed out (60s)\", \"class\": \"error\"}"
         exit 0
     fi
@@ -82,10 +80,16 @@ for i in 2 1 0; do
     else COL=$COLOR_4
     fi
 
+    DATE_TOOLTIP=$(date -d "$i days ago" '+%d-%m-%Y')
+     
     OUTPUT="$OUTPUT<span color='$COL'>■</span> "
-    TOOLTIP="${TOOLTIP}${TARGET_DATE}: ${COUNT} tests\r"
+    TOOLTIP="${TOOLTIP}${DATE_TOOLTIP}: ${COUNT} tests\r"
 done
+
+# Remove the last \r
+TOOLTIP=${TOOLTIP%\\r}
 
 FINAL_TEXT=$(echo "$OUTPUT" | sed 's/ $//')
 SAFE_TOOLTIP=$(echo "$TOOLTIP" | sed 's/"/\\"/g')
+
 echo "{\"text\": \"$FINAL_TEXT\", \"tooltip\": \"$SAFE_TOOLTIP\"}"

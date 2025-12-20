@@ -17,8 +17,8 @@
         "custom/separator#line",
         "tray",
         "custom/separator#line",
-        "privacy",
-        "gamemode"
+        "gamemode",
+        "privacy"
     ],
     "modules-center": [
         "clock"

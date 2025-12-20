@@ -76,12 +76,21 @@ tooltip {
 #memory,
 #tray,
 #battery,
-#pipewire 
-#custom-github
-#custom-monkeytype
+#pipewire,
+#custom-github,
+#custom-monkeytype,
 #gamemode {
     padding: 0px 4px;
     color: rgba(225, 225, 225, 1);
+}
+
+#custom-github,
+#custom-monkeytype {
+    margin-left: 2px;
+}
+
+#privacy {
+    margin-right: 2px;
 }
 
 #privacy,
