@@ -8,5 +8,25 @@
         "format": "|",
         "interval": "once",
         "tooltip": false
+    },
+    "custom/github": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 1200,
+        "exec": "~/.config/waybar/scripts/github.sh",
+        "on-click": "xdg-open https://github.com/MolyiEZ",
+        "on-click-right": "pkill -SIGRTMIN+8 waybar",
+        "tooltip": true,
+        "signal": 8
+    },
+    "custom/monkeytype": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 1200,
+        "exec": "~/.config/waybar/scripts/monkeytype.sh",
+        "on-click": "xdg-open https://monkeytype.com",
+        "on-click-right": "pkill -SIGRTMIN+8 waybar",
+        "tooltip": true,
+        "signal": 8
     }
 }

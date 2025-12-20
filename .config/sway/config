@@ -6,6 +6,7 @@ set $terminalFileManager $terminal -e tmux new-session yazi
 set $fileManager thunar
 set $browser zen-browser
 set $terminalEditor $terminal -e tmux new-session nvim
+set $waybar waybar --config ~/.config/waybar/configSway.json
 
 ### Input
 # Keyboard
@@ -190,6 +191,9 @@ exec systemctl --user import-environment GTK_THEME MOZ_ENABLE_WAYLAND VISUAL EDI
     # Reload the configuration file
     bindsym $mainMod+Shift+c reload
 
+    # Reload waybar indicators
+    bindsym $mainMod+Shift+i exec pkill -SIGRTMIN+8 waybar
+
 ### Startup
 # Wallpaper
 exec swww-daemon
@@ -212,9 +216,6 @@ exec_always {
 
 # Awatcher
 exec awatcher
-
-# DigitalZen
-exec /home/molyi/.local/bin/DigitalZen.AppImage
 
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=scroll

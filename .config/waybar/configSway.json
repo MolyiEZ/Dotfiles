@@ -17,13 +17,16 @@
         "custom/separator#line",
         "tray",
         "custom/separator#line",
-        "privacy"
+        "privacy",
+        "gamemode"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
-        "gamemode",
+        "custom/monkeytype",
+        "custom/separator#dot-line",
+        "custom/github",
         "custom/separator#dot-line",
         "wireplumber",
         "custom/separator#dot-line",

@@ -44,6 +44,7 @@ tooltip {
     border-radius: 6px;
 }
 
+
 #privacy:hover,
 #privacy-item:hover,
 #wireplumber:hover,
@@ -54,6 +55,8 @@ tooltip {
 #cpu:hover,
 #battery:hover,
 #memory:hover,
+#custom-github:hover,
+#custom-monkeytype:hover,
 #gamemode:hover {
     transition: all 0.25s ease;
     box-shadow:
@@ -74,6 +77,8 @@ tooltip {
 #tray,
 #battery,
 #pipewire 
+#custom-github
+#custom-monkeytype
 #gamemode {
     padding: 0px 4px;
     color: rgba(225, 225, 225, 1);

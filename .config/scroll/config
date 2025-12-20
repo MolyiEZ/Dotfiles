@@ -225,9 +225,6 @@ exec_always {
 # Awatcher
 exec awatcher
 
-# DigitalZen
-exec /home/molyi/.local/bin/DigitalZen.AppImage
-
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=scroll
 
