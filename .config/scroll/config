@@ -202,6 +202,9 @@ exec systemctl --user import-environment GTK_THEME MOZ_ENABLE_WAYLAND VISUAL EDI
     # Reload the configuration file
     bindsym $mainMod+Shift+c reload
 
+    # Reload waybar indicators
+    bindsym $mainMod+Shift+i exec pkill -SIGRTMIN+8 waybar
+
 ### Startup
 # Wallpaper
 exec swww-daemon

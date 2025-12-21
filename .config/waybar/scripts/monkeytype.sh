@@ -1,13 +1,13 @@
 #!/bin/bash
 
-USER="MolyiEZ" 
+USER="MolyiEZ"
 CACHE="/tmp/monkeytype_stats_$$"
 INTERNET_MAX_RETRIES=30
 
-COLOR_0="#ffffff" 
+COLOR_0="#ffffff"
 COLOR_1="#fff9c4"
-COLOR_2="#fff176" 
-COLOR_3="#fbc02d" 
+COLOR_2="#fff176"
+COLOR_3="#fbc02d"
 COLOR_4="#ffeb3b"
 
 # Cleanup on exit
@@ -27,14 +27,14 @@ while ! ping -c 1 -W 1 8.8.8.8 &> /dev/null; do
         echo "{\"text\": \"OFFLINE\", \"tooltip\": \"Internet connection timed out (60s)\", \"class\": \"error\"}"
         exit 0
     fi
-    
+
     sleep 2
     ((RETRIES++))
 done
 
 # Get data
 if ! curl -s -H "Authorization: ApeKey $MONKEYTYPE_API_KEY" \
-     "https://api.monkeytype.com/users/currentTestActivity" > "$CACHE"; then
+    "https://api.monkeytype.com/users/currentTestActivity" > "$CACHE"; then
     echo "{\"text\": \"ERROR 🐵\", \"tooltip\": \"Offline or Bad Key\", \"class\": \"error\"}"
     exit 0
 fi
@@ -51,21 +51,21 @@ TOOLTIP=""
 # Loop = 2 days ago -> 1 day ago -> Today
 for i in 2 1 0; do
     TARGET_DATE=$(date -d "$i days ago" '+%Y-%m-%d')
-    
+
     COUNT=$(jq -r --arg TARGET "$TARGET_DATE" '
         .data as $d |
         $d.testsByDays as $arr |
         ($d.lastDay / 1000) as $last_ts |
-        
+
         # Iterate indices of the array
-        range(0; $arr | length) | 
+        range(0; $arr | length) |
         . as $idx |
-        
+
         # Calculate date for this index
         # Date = LastDay - (ArrayLength - 1 - Index) days
-        ($last_ts - (($arr|length) - 1 - $idx) * 86400) | 
+        ($last_ts - (($arr|length) - 1 - $idx) * 86400) |
         strftime("%Y-%m-%d") as $date_str |
-        
+
         # Select if matches target
         select($date_str == $TARGET) |
         $arr[$idx]
@@ -81,8 +81,14 @@ for i in 2 1 0; do
     fi
 
     DATE_TOOLTIP=$(date -d "$i days ago" '+%d-%m-%Y')
-     
-    OUTPUT="$OUTPUT<span color='$COL'>■</span> "
+
+    # Line for today square
+    if [ "$i" -eq 0 ]; then
+        OUTPUT="$OUTPUT<span color='$COL' underline='single'>■</span> "
+    else
+        OUTPUT="$OUTPUT<span color='$COL'>■</span> "
+    fi
+
     TOOLTIP="${TOOLTIP}${DATE_TOOLTIP}: ${COUNT} tests\r"
 done
 

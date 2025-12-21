@@ -4,7 +4,7 @@ USER="MolyiEZ"
 CACHE="/tmp/github_streak_${USER}_$$"
 INTERNET_MAX_RETRIES=30
 
-COLOR_0="#2d333b" 
+COLOR_0="#2d333b"
 COLOR_1="#0e4429"
 COLOR_2="#006d32"
 COLOR_3="#26a641"
@@ -21,7 +21,7 @@ while ! ping -c 1 -W 1 8.8.8.8 &> /dev/null; do
         echo "{\"text\": \"OFFLINE\", \"tooltip\": \"Internet connection timed out (60s)\", \"class\": \"error\"}"
         exit 0
     fi
-    
+
     sleep 2
     ((RETRIES++))
 done
@@ -45,11 +45,11 @@ TOOLTIP=""
 for i in 2 1 0; do
     # Github uses YYYY-MM-DD
     DATE=$(date -d "$i days ago" '+%Y-%m-%d')
-    
+
     BLOCK=$(grep -A 2 "data-date=\"$DATE\"" "$CACHE")
-    
+
     LEVEL=$(echo "$BLOCK" | grep -o 'data-level="[0-9]"' | head -n1 | grep -o '[0-9]')
-    
+
     if [ -z "$LEVEL" ]; then LEVEL=0; fi
 
     case "$LEVEL" in
@@ -70,7 +70,13 @@ for i in 2 1 0; do
 
     DATE_TOOLTIP=$(date -d "$i days ago" '+%d-%m-%Y')
 
-    OUTPUT="$OUTPUT<span color='$COL'>■</span> "
+    # Line for today square
+    if [ "$i" -eq 0 ]; then
+        OUTPUT="$OUTPUT<span color='$COL' underline='single'>■</span> "
+    else
+        OUTPUT="$OUTPUT<span color='$COL'>■</span> "
+    fi
+
     TOOLTIP="${TOOLTIP}${DATE_TOOLTIP}: ${COUNT} commits\r"
 done
 

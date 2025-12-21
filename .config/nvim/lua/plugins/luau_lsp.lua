@@ -19,7 +19,7 @@ return {
 		require("luau-lsp").setup({
 			sourcemap = {
 				enabled = true,
-				autogenerate = true, -- automatic generation when the server is initialized
+				autogenerate = false,
 				rojo_project_file = "default.project.json",
 				sourcemap_file = "sourcemap.json",
 			},
