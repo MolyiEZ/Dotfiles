@@ -24,7 +24,17 @@
         "return-type": "json",
         "interval": 1200,
         "exec": "~/.config/waybar/scripts/monkeytype.sh",
-        "on-click": "xdg-open https://monkeytype.com",
+        "on-click": "xdg-open https://monkeytype.com/profile/Molyi",
+        "on-click-right": "pkill -SIGRTMIN+8 waybar",
+        "tooltip": true,
+        "signal": 8
+    },
+    "custom/leetcode": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 1200,
+        "exec": "~/.config/waybar/scripts/leetcode.sh",
+        "on-click": "xdg-open https://leetcode.com/u/Molyi/",
         "on-click-right": "pkill -SIGRTMIN+8 waybar",
         "tooltip": true,
         "signal": 8

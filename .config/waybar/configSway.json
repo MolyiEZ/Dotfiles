@@ -24,6 +24,8 @@
         "clock"
     ],
     "modules-right": [
+        "custom/leetcode",
+        "custom/separator#dot-line",
         "custom/monkeytype",
         "custom/separator#dot-line",
         "custom/github",

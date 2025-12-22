@@ -57,6 +57,7 @@ tooltip {
 #memory:hover,
 #custom-github:hover,
 #custom-monkeytype:hover,
+#custom-leetcode:hover,
 #gamemode:hover {
     transition: all 0.25s ease;
     box-shadow:
@@ -79,13 +80,15 @@ tooltip {
 #pipewire,
 #custom-github,
 #custom-monkeytype,
+#custom-leetcode,
 #gamemode {
     padding: 0px 4px;
     color: rgba(225, 225, 225, 1);
 }
 
 #custom-github,
-#custom-monkeytype {
+#custom-monkeytype,
+#custom-leetcode {
     margin-left: 2px;
 }
 

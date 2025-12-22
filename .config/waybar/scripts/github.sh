@@ -5,10 +5,10 @@ CACHE="/tmp/github_streak_${USER}_$$"
 INTERNET_MAX_RETRIES=30
 
 COLOR_0="#2d333b"
-COLOR_1="#0e4429"
-COLOR_2="#006d32"
-COLOR_3="#26a641"
-COLOR_4="#39d353"
+COLOR_1="#033a16"
+COLOR_2="#196c2e"
+COLOR_3="#2ea043"
+COLOR_4="#56d364"
 
 # Cleanup on exit
 trap "rm -f $CACHE" EXIT

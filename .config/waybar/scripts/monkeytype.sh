@@ -4,11 +4,11 @@ USER="MolyiEZ"
 CACHE="/tmp/monkeytype_stats_$$"
 INTERNET_MAX_RETRIES=30
 
-COLOR_0="#ffffff"
-COLOR_1="#fff9c4"
-COLOR_2="#fff176"
-COLOR_3="#fbc02d"
-COLOR_4="#ffeb3b"
+COLOR_0="#323437"
+COLOR_1="#5E552E"
+COLOR_2="#8A7626"
+COLOR_3="#B6961D"
+COLOR_4="#E2B714"
 
 # Cleanup on exit
 trap "rm -f $CACHE" EXIT
