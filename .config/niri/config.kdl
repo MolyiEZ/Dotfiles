@@ -127,6 +127,7 @@ binds {
     Mod+Shift+R repeat=false hotkey-overlay-title="Open thunar" { spawn "thunar"; }
     Mod+F repeat=false hotkey-overlay-title="Open fuzzel (Find)" { spawn-sh "fuzzel --config ~/.config/fuzzel/fuzzel.ini"; }
     Mod+W repeat=false hotkey-overlay-title="Toggle waybar" { spawn "pkill" "-SIGUSR1" "waybar"; }
+    Mod+Shift+I repeat=false hotkey-overlay-title="Reload Indicators" { spawn "pkill" "-SIGRTMIN+8" "waybar"; }
     Mod+M repeat=false hotkey-overlay-title="Exit" { quit; }
     Mod+A repeat=false { maximize-column; }
     Mod+Shift+A repeat=false { fullscreen-window; }

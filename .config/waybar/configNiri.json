@@ -17,13 +17,18 @@
         "custom/separator#line",
         "tray",
         "custom/separator#line",
+        "gamemode",
         "privacy"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
-        "gamemode",
+        "custom/leetcode",
+        "custom/separator#dot-line",
+        "custom/monkeytype",
+        "custom/separator#dot-line",
+        "custom/github",
         "custom/separator#dot-line",
         "wireplumber",
         "custom/separator#dot-line",
