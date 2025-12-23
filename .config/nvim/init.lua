@@ -9,6 +9,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- Fix weird bug of having 2 lualines
+vim.api.nvim_create_autocmd("VimResized", {
+	callback = function()
+		vim.cmd("redraw!")
+		vim.cmd("call tpipeline#update()")
+	end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
