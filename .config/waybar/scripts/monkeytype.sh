@@ -1,6 +1,5 @@
 #!/bin/bash
 
-USER="MolyiEZ"
 CACHE="/tmp/monkeytype_stats_$$"
 INTERNET_MAX_RETRIES=30
 

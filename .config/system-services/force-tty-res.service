@@ -1,0 +1,11 @@
+[Unit]
+Description=Force TTY resolution to 1080p
+Before=ly@tty2.service
+After=systemd-vconsole-setup.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/fbset -g 1920 1080 1920 1080 32
+
+[Install]
+WantedBy=multi-user.target

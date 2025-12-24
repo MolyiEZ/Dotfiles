@@ -2,140 +2,216 @@
 set -euo pipefail
 trap 'echo -e "\n[x] Error on line $LINENO: $BASH_COMMAND" >&2' ERR
 
+### Variables ###
 REPO_URL="https://github.com/MolyiEZ/Dotfiles"
+SOURCE_DIR="$HOME/.config/system-services"
+DEST_DIR="/etc/systemd/system"
+WINDOW_MANAGER="bspwm" # Choose Hyprland / Niri / Sway / bspwm
 
-# Helpers
+### Helpers ###
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
 say() { printf "\033[1;32m[*]\033[0m %s\n" "$*"; }
 
-# Check root
-if [[ $EUID -ne 0 ]]; then
-    sudo -v || { echo "Need sudo to continue."; exit 1; }
-fi
+# Lower case
+WINDOW_MANAGER="${WINDOW_MANAGER,,}"
 
-# Refresh mirrors & system
-sudo pacman -Syyu --needed --noconfirm archlinux-keyring
+### Packages ###
 
-# Essentials
-sudo pacman -S --needed --noconfirm base-devel git curl wget rsync unzip tar xz xdg-user-dirs fbset
+PKGS_COMMON=(
+    base-devel git curl wget rsync tar xz fbset flatpak
+    7zip eza fd fzf ripgrep yq tmux nvim yazi npm unrar unzip gvfs jq xdg-user-dirs
+    zsh zsh-syntax-highlighting
+    ttf-jetbrains-mono ttf-jetbrains-mono-nerd otf-codenewroman-nerd 
+    vim-spell-en vim-spell-es
+    nwg-look
+    vlc vlc-plugins-all gimp xournalpp
+    thunar tumbler baobab pavucontrol
+    discord steam gamemode
+)
 
-# Uninstalling old apps
-sudo pacman -Rns kitty dolphin # Hyprland
-sudo pacman -Rns alacritty swaylock # Niri or Sway
-
-# yay (AUR helper)
-if ! have_cmd yay; then
-    say "Installing yay (AUR helper)…"
-    tmpdir="$(mktemp -d)"
-    pushd "$tmpdir" >/dev/null
-    git clone https://aur.archlinux.org/yay-bin.git
-    cd yay-bin
-    makepkg -si --noconfirm
-    popd >/dev/null
-    rm -rf "$tmpdir"
-fi
-
-# Packages (pacman + Flatpak + AUR via yay)
-AURPKGS=(
+AUR_COMMON=(
     zsh-theme-powerlevel10k-git
-    aseprite
     papirus-folders
-    awatcher-bundle-bin
-    swaylock-effects
+    awatcher-bundle
     zen-browser-bin
 )
 
-FLATPAKS=(
+FLATPAKS_COMMON=(
     org.gnome.Calculator
     org.vinegarhq.Vinegar
     org.vinegarhq.Sober
     com.stremio.Stremio
 )
 
-PKGS=(
-    # Core CLI
-    7zip eza fd fzf ripgrep yq tmux nvim yazi git npm unrar gvfs
-    # Shell + zsh
-    zsh zsh-syntax-highlighting
-    # Fonts / spelling
-    ttf-jetbrains-mono ttf-jetbrains-mono-nerd otf-codenewroman-nerd vim-spell-en vim-spell-es
+PKGS_WM=()
+AUR_WM=()
+PKGS_REMOVE=()
 
-    # Wayland apps / theming
-    foot fuzzel waybar nwg-look
-    # Media
-    vlc vlc-plugins-all
-    # Others
-    wl-clipboard
-    gimp
-    xournalpp
-    cargo
-    thunar tumbler baobab pavucontrol
-    discord steam gamemode
+case "$WINDOW_MANAGER" in
+    "bspwm")
+        PKGS_WM=(
+            bspwm
+            sxhkd alacritty rofi polybar feh maim
+            xdg-desktop-portal-gtk xclip xdotool 
+            xorg-server xorg-xev xorg-xinit xorg-xinput xorg-xset xorg-xsetroot
+            xss-lock
+        )
+        AUR_WM=( i3lock-color xidlehook )
+        ;;
 
-    # - SELECT ONE -
+    "sway")
+        PKGS_WM=( sway swww )
+        AUR_WM=( swaylock-effects )
+        PKGS_REMOVE=( alacritty swaylock )
+        ;;
 
-    # Hyprland
-    # hyprland hypridle hyprlock hyprpaper hyprshot meson cpio
+    "hyprland")
+        PKGS_WM=( hyprland hypridle hyprlock hyprpaper hyprshot meson cpio )
+        PKGS_REMOVE=( kitty dolphin )
+        ;;
+    
+    "niri")
+        PKGS_WM=( niri swww xwayland-satellite )
+        AUR_WM=( swaylock-effects )
+        PKGS_REMOVE=( alacritty swaylock )
+        ;;
+    *)
+        echo "Unknown WINDOW_MANAGER: $WINDOW_MANAGER | Change it to one of these options: 'Hyprland' / 'Niri' / 'Sway' / 'bspwm'"
+        exit 1
+        ;;
+esac
 
-    # Niri
-    # swww xwayland-satellite
+### Execution ###
 
-    # Sway
-    # swww
-)
-
-say "Installing packages via pacman..."
-sudo pacman -S --needed --noconfirm "${PKGS[@]}"
-
-say "Installing packages via yay (AUR)..."
-if ((${#AURPKGS[@]})); then
-    yay -S --needed --noconfirm "${AURPKGS[@]}"
+# Check if is root user
+if [[ $EUID -eq 0 ]]; then
+   echo "Error: Run as a normal user, not root (yay/makepkg will fail)."
+   exit 1
 fi
 
-# Check for flatpak
-if ! have_cmd flatpak; then
-    sudo pacman -S --needed --noconfirm flatpak
+# Request root
+sudo -v || { echo "Need sudo to continue."; exit 1; }
+
+# Refresh mirrors & update system
+say "Updating system..."
+sudo pacman -Syyu --needed --noconfirm archlinux-keyring
+
+# Remove packages
+if [ ${#PKGS_REMOVE[@]} -gt 0 ]; then
+    say "Removing packages for $WINDOW_MANAGER..."
+    if installed_pkgs=$(pacman -Qsq "${PKGS_REMOVE[@]}" 2>/dev/null); then
+        sudo pacman -Rns --noconfirm $installed_pkgs
+    fi
+fi
+
+# Install Yay
+if ! have_cmd yay; then
+    say "Installing yay..."
+    tmpdir="$(mktemp -d)"
+    git clone https://aur.archlinux.org/yay-bin.git "$tmpdir/yay-bin"
+    pushd "$tmpdir/yay-bin" >/dev/null
+    makepkg -si --noconfirm
+    popd >/dev/null
+    rm -rf "$tmpdir"
+fi
+
+# Install Packages
+say "Installing Common Packages..."
+sudo pacman -S --needed --noconfirm "${PKGS_COMMON[@]}"
+
+say "Installing $WINDOW_MANAGER Packages..."
+if [ ${#PKGS_WM[@]} -gt 0 ]; then
+    sudo pacman -S --needed --noconfirm "${PKGS_WM[@]}"
 fi
 
 say "Installing Flatpaks..."
-for app in "${FLATPAKS[@]}"; do
+for app in "${FLATPAKS_COMMON[@]}"; do
     flatpak install -y flathub "$app" || true
 done
 
-say "Installing rojo via cargo..."
-cargo install rojo --version ^7
+say "Installing AUR Packages..."
+ALL_AUR=("${AUR_COMMON[@]}" "${AUR_WM[@]}")
+yay -S --needed --noconfirm "${ALL_AUR[@]}"
 
-# Remove ~/.config and clone everything onto $HOME
-say "Removing ~/.config ..."
-rm -rf "$HOME/.config"
+# Tools
+if ! have_cmd rojo; then
+    say "Installing rojo..."
+    # Export cargo (It was just installed)
+    export PATH="$HOME/.cargo/bin:$PATH" 
+    cargo install rojo --version ^7
+fi
 
-say "Cloning repo and laying files into \$HOME ..."
+# Dotfiles
+say "Cloning dotfiles..."
 TMP_CLONE="$(mktemp -d)"
 git clone --depth=1 "$REPO_URL" "$TMP_CLONE"
 
-# Copy repo contents into $HOME
-rsync -a \
-    --exclude "README.md" --exclude "installer.zsh" \
-    "$TMP_CLONE"/ "$HOME"/
+say "Syncing config to $HOME..."
+rsync -av --exclude "installer.zsh" "$TMP_CLONE"/ "$HOME"/
 
 rm -rf "$TMP_CLONE"
 
+# Scripts
+say "Making scripts executable..."
+
+# Find any folder named 'scripts' (case insensitive) in .config
+# and make all files inside them executable.
+find "$HOME/.config" -type d -iname "scripts" -print0 | while IFS= read -r -d '' dir; do
+    say "  > +x files in: $dir"
+    chmod +x "$dir"/* 2>/dev/null || true
+done
+
+# Specific scripts per window manager
+case "$WINDOW_MANAGER" in
+    "bspwm")
+        say "  > +x bspwmrc, sxhkdrc & polybar launch"
+        chmod +x "$HOME/.config/bspwm/bspwmrc" 2>/dev/null || true
+        chmod +x "$HOME/.config/sxhkd/sxhkdrc" 2>/dev/null || true
+        chmod +x "$HOME/.config/polybar/launch.sh" 2>/dev/null || true
+        ;;
+esac
+
 # Tmux plugin manager
-say "Installing tmux plugin manager..."
-git clone "https://github.com/tmux-plugins/tpm" "~/.config/tmux/plugins/tpm"
-say "Tmux plugin manager installed, please use 'prefix+I' when using tmux for the first time to install the plugins."
+TPM_DIR="$HOME/.config/tmux/plugins/tpm"
+if [ ! -d "$TPM_DIR" ]; then
+    say "Installing tmux plugin manager..."
+    git clone "https://github.com/tmux-plugins/tpm" "$TPM_DIR"
+fi
 
 # Default shell -> zsh
-if [[ "${SHELL:-}" != *zsh ]]; then
-    chsh -s "$(command -v zsh)" "$USER" || true
+if [[ "${SHELL##*/}" != "zsh" ]]; then
+    say "Changing shell to zsh..."
+    chsh -s "$(command -v zsh)" "$USER"
 fi
 
 # Papirus dark folders
+say "Applying Papirus dark theme..."
 papirus-folders -C black --theme Papirus-Dark
 
-# ASK TO REBOOT
-read -r -p "Everything done. Reboot now? [Y/n] " ans
-case "${ans:-N}" in
-    n|N)   say "Done. You can reboot later." ;;
-    *) systemctl reboot ;;
-esac
+# Services
+if [ -d "$SOURCE_DIR" ]; then
+    say "Linking system services from $SOURCE_DIR..."
+    
+    # Enable services
+    find "$SOURCE_DIR" -name "*.service" | while read service_path; do
+        service_name=$(basename "$service_path")
+        
+        # Link
+        sudo ln -sf "$service_path" "$DEST_DIR/$service_name"
+        
+        # Enable
+        say "Enabling $service_name..."
+        sudo systemctl enable --now "$service_name"
+    done
+    
+    say "Reloading daemon..."
+    sudo systemctl daemon-reload
+else
+    say "WARNING: Service directory $SOURCE_DIR not found. Skipping services."
+fi
+
+# Reboot
+read -r -p "Setup complete. Reboot now? [Y/n] " ans
+if [[ "${ans:-N}" =~ ^[Yy]$ ]]; then
+    systemctl reboot
+fi

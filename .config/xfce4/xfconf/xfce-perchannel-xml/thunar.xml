@@ -18,6 +18,6 @@
   <property name="misc-thumbnail-mode" type="string" value="THUNAR_THUMBNAIL_MODE_ALWAYS"/>
   <property name="misc-symbolic-icons-in-sidepane" type="bool" value="false"/>
   <property name="last-renamer-dialog-maximized" type="bool" value="true"/>
-  <property name="last-window-width" type="int" value="1906"/>
-  <property name="last-window-height" type="int" value="1036"/>
+  <property name="last-window-width" type="int" value="673"/>
+  <property name="last-window-height" type="int" value="1037"/>
 </channel>
