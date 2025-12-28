@@ -64,6 +64,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias c='clear'
 alias y='yazi'
+alias rsv='rojo serve'
+alias rmap='rojo sourcemap --watch --output sourcemap.json'
 
 # vi mode
 bindkey -v

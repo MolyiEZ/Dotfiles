@@ -8,16 +8,18 @@ return {
 			events = { "BufWritePost", "BufReadPost", "InsertLeave" },
 			linters_by_ft = {
 				luau = { "selene" },
+				typescript = { "eslint" },
 			},
 			---@type table<string,table>
 			linters = {
-				-- selene = {
-				-- 	-- `condition` is another LazyVim extension that allows you to
-				-- 	-- dynamically enable/disable linters based on the context.
-				-- 	condition = function(ctx)
-				-- 		return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
-				-- 	end,
-				-- },
+				selene = {
+					-- `condition` is another LazyVim extension that allows you to
+					-- dynamically enable/disable linters based on the context.
+					condition = function(ctx)
+						return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
+					end,
+				},
+				eslint = {},
 			},
 		},
 		config = function(_, opts)

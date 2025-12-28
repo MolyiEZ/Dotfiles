@@ -52,6 +52,9 @@ bspc config pointer_follows_focus true
 bspc config pointer_follows_monitor true
 bspc config pointer_modifier mod4
 
+# Keep monitor on, it will be managed by the idle script.
+xset -dpms s off
+
 ### Rules/EnvVars ###
 
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
@@ -61,7 +64,6 @@ systemctl --user import-environment GTK_THEME VISUAL EDITOR XDG_CURRENT_DESKTOP
 dbus-update-activation-environment --systemd GTK_THEME VISUAL EDITOR XDG_CURRENT_DESKTOP=bspwm
 
 bspc rule -a Rofi state=floating center=on
-bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on

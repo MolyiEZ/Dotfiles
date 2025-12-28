@@ -26,10 +26,10 @@ super + f
 
 # Toggle polybar
 super + w
-    ~/.config/polybar/scripts/toggle.sh
+    ~/.config/polybar/scripts/toggle.sh &
 
 # Reload indicators
-super + shift + I
+super + shift + i
     kill -s SIGRTMIN+8 $(pgrep -u $UID -x polybar)
 
 # Close/kill window
@@ -42,7 +42,7 @@ super + m
 
 # Lock screen
 super + n
-	~/.config/bspwm/scripts/lock.sh
+	~/.config/bspwm/scripts/lock.sh &
 
 ### Screenshot ###
 

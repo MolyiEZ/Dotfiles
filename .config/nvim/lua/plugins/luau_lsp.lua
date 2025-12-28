@@ -24,8 +24,8 @@ return {
 				sourcemap_file = "sourcemap.json",
 			},
 			fflags = {
-				enable_new_solver = false,
-				sync = false,
+				enable_new_solver = true,
+				sync = true,
 			},
 		})
 	end,

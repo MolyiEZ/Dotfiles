@@ -45,6 +45,7 @@ require("lazy").setup({
 	-- require("plugins.autopair"),
 	-- require("plugins.tabout"),
 	require("plugins.conform"),
+	require("plugins.fugitive"),
 	require("plugins.luau_lsp"),
 	require("plugins.project"),
 	require("plugins.multicursor"),
@@ -57,7 +58,7 @@ require("lazy").setup({
 	require("plugins.indent"),
 	require("plugins.trouble"),
 	require("plugins.gitsigns"),
-	-- require("plugins.linter"),
+	require("plugins.linter"),
 	require("plugins.noice"),
 	require("plugins.yazi"),
 })
