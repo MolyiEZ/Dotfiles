@@ -16,7 +16,7 @@ trap "rm -f $CACHE" EXIT
 RETRIES=0
 
 # Wait for internet connection
-while ! ping -c 1 -W 1 8.8.8.8 &> /dev/null; do
+while ! ping -c 1 -W 1 8.8.8.8 &>/dev/null; do
     if [ "$RETRIES" -ge "$INTERNET_MAX_RETRIES" ]; then
         echo "{\"text\": \"OFFLINE\", \"tooltip\": \"Internet connection timed out (60s)\", \"class\": \"error\"}"
         exit 0
@@ -29,7 +29,7 @@ done
 QUERY='{"query": "query getUserProfile($username: String!) { matchedUser(username: $username) { submissionCalendar } }", "variables": {"username": "'"$USER"'"}}'
 
 # Fetch data
-if ! curl -sf -X POST -H "Content-Type: application/json" -d "$QUERY" "https://leetcode.com/graphql" > "$CACHE"; then
+if ! curl -sf -X POST -H "Content-Type: application/json" -d "$QUERY" "https://leetcode.com/graphql" >"$CACHE"; then
     echo "{\"text\": \"ERROR \", \"tooltip\": \"API Error\", \"class\": \"error\"}"
     exit 0
 fi

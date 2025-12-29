@@ -6,6 +6,8 @@ configuration {
     display-run: "❭ ";
     display-window: "❭ ";
     drun-display-format: "{name}";
+    sort: true;
+    sorting-method: "fzf";
 
     kb-remove-to-eol: "";
     kb-accept-entry: "Return,KP_Enter";
@@ -17,7 +19,7 @@ configuration {
     kb-page-prev: "Control+h";
     kb-page-next: "Control+l";
     kb-move-front: "Control+g";
-    kb-move-end: "Control+G"; /* Shift+g */
+    kb-move-end: "Control+G"; /* Ctrl+Shift+g */
     kb-cancel: "Escape";
     kb-remove-char-back: "BackSpace";
 }

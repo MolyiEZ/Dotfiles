@@ -5,3 +5,5 @@
 	name = Molyi
 [init]
 	defaultBranch = main
+[core]
+	editor = nvim
