@@ -1,9 +1,11 @@
 #!/bin/bash
 
-USER="MolyiDev"
-CACHE="/tmp/github_streak_${USER}_$$"
-INTERNET_MAX_RETRIES=30
+### Config ###
 
+# User
+USER="MolyiDev"
+
+# Colors
 COLOR_LINE="#ffffff"
 COLOR_0="#2d333b"
 COLOR_1="#033a16"
@@ -11,12 +13,17 @@ COLOR_2="#196c2e"
 COLOR_3="#2ea043"
 COLOR_4="#56d364"
 
+### Internal ###
+CACHE="/tmp/github_streak_${USER}_$$"
+INTERNET_MAX_RETRIES=${INTERNET_MAX_RETRIES:-30}
+TIME_OFFSET=${TIME_OFFSET:-0}
+
 # Cleanup on exit
 trap "rm -f $CACHE" EXIT
 
+# Wait for internet connection
 RETRIES=0
 
-# Wait for internet connection
 while ! ping -c 1 -W 1 8.8.8.8 &>/dev/null; do
     if [ "$RETRIES" -ge "$INTERNET_MAX_RETRIES" ]; then
         echo "%{F#ff0000}OFFLINE%{F-}"
@@ -40,11 +47,14 @@ if [ ! -s "$CACHE" ]; then
 fi
 
 OUTPUT=""
+NOW_TS=$(date +%s)
 
 # Loop = 2 days ago -> 1 day ago -> Today
 for i in 2 1 0; do
+    TARGET_TS=$((NOW_TS - (i * 86400) - TIME_OFFSET))
+
     # Github uses YYYY-MM-DD
-    DATE=$(date -d "$i days ago" '+%Y-%m-%d')
+    DATE=$(date -d "@$TARGET_TS" '+%Y-%m-%d')
 
     BLOCK=$(grep -A 2 "data-date=\"$DATE\"" "$CACHE")
 

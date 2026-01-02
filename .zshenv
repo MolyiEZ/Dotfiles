@@ -15,3 +15,7 @@ export PATH="$PATH:/home/molyi/.local/bin"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:$HOME/.pesde/bin"
+
+### Scripts Variables ###
+export TIME_OFFSET=-10800 # 3 Hours (The offset of GMT-3 with UTC. YOUR_TIME_ZONE - UTC = TIME_OFFSET)
+export INTERNET_MAX_RETRIES=30

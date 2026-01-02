@@ -1,14 +1,19 @@
 #!/bin/bash
 
-CACHE="/tmp/monkeytype_stats_$$"
-INTERNET_MAX_RETRIES=30
+### Config ###
 
+# Colors
 COLOR_LINE="#ffffff"
 COLOR_0="#323437"
 COLOR_1="#5E552E"
 COLOR_2="#8A7626"
 COLOR_3="#B6961D"
 COLOR_4="#E2B714"
+
+### Internal ###
+CACHE="/tmp/monkeytype_stats_$$"
+INTERNET_MAX_RETRIES=${INTERNET_MAX_RETRIES:-30}
+TIME_OFFSET=${TIME_OFFSET:-0}
 
 # Cleanup on exit
 trap "rm -f $CACHE" EXIT
@@ -19,9 +24,9 @@ if [ -z "$MONKEYTYPE_API_KEY" ]; then
     exit 0
 fi
 
+# Wait for internet connection
 RETRIES=0
 
-# Wait for internet connection
 while ! ping -c 1 -W 1 8.8.8.8 &>/dev/null; do
     if [ "$RETRIES" -ge "$INTERNET_MAX_RETRIES" ]; then
         echo "%{F#ff0000}OFFLINE%{F-}"
@@ -51,13 +56,13 @@ OUTPUT=""
 for i in 2 1 0; do
     TARGET_DATE=$(date -d "$i days ago" '+%Y-%m-%d')
 
-    COUNT=$(jq -r --arg TARGET "$TARGET_DATE" '
+    COUNT=$(jq -r --arg TARGET "$TARGET_DATE" --argjson OFFSET "$TIME_OFFSET" '
         .data as $d |
         $d.testsByDays as $arr |
         ($d.lastDay / 1000) as $last_ts |
         range(0; $arr | length) |
         . as $idx |
-        ($last_ts - (($arr|length) - 1 - $idx) * 86400) |
+        ($last_ts - (($arr|length) - 1 - $idx) * 86400 + $OFFSET) |
         strftime("%Y-%m-%d") as $date_str |
         select($date_str == $TARGET) |
         $arr[$idx]
