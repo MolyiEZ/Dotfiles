@@ -28,9 +28,9 @@ function Status:mode()
 
 	local style = self:style()
 	return ui.Line({
-		ui.Span(th.status.sep_left.open):fg(style.main.bg):bg("reset"),
+		ui.Span(th.status.sep_left.open):fg(style.main:bg()):bg("reset"),
 		ui.Span(" " .. mode .. " "):style(style.main),
-		ui.Span(th.status.sep_left.close):fg(style.main.bg):bg(style.alt.bg),
+		ui.Span(th.status.sep_left.close):fg(style.main:bg()):bg(style.alt:bg()),
 	})
 end
 
@@ -41,7 +41,7 @@ function Status:size()
 	local style = self:style()
 	return ui.Line({
 		ui.Span(" " .. ya.readable_size(size) .. " "):style(style.alt),
-		ui.Span(th.status.sep_left.close):fg(style.alt.bg):bg(th.status.overall.bg),
+		ui.Span(th.status.sep_left.close):fg(style.alt:bg()):bg(th.status.overall:bg()),
 	})
 end
 
@@ -63,7 +63,7 @@ function Status:percent()
 
 	local style = self:style()
 	return ui.Line({
-		ui.Span(" " .. th.status.sep_right.open):fg(style.alt.bg):bg(th.status.overall.bg),
+		ui.Span(" " .. th.status.sep_right.open):fg(style.alt:bg()):bg(th.status.overall:bg()),
 		ui.Span(percent):style(style.alt),
 	})
 end
@@ -72,12 +72,12 @@ function Status:name()
 	local h = self._current.hovered
 	if not h then
 		return ui.Line({
-			ui.Span(" "):bg(th.status.overall.bg),
+			ui.Span(" "):bg(th.status.overall:bg()),
 		})
 	end
 
 	return ui.Line({
-		ui.Span(" " .. h.name:gsub("\r", "?", 1) .. " "):bg(th.status.overall.bg),
+		ui.Span(" " .. h.name:gsub("\r", "?", 1) .. " "):bg(th.status.overall:bg()),
 	})
 end
 
@@ -93,8 +93,10 @@ function Status:perm()
 	end
 
 	local spans = {}
-	spans[#spans + 1] = ui.Span(" "):bg(th.status.overall.bg)
+	spans[#spans + 1] = ui.Span(" "):bg(th.status.overall:bg())
 
+	-- Note: Your loop starts at #spans + 1 (which is 2), so it skips the first char of 'perm'.
+	-- This assumes you intentionally want to hide the file type char (e.g. 'd' or '-').
 	for i = #spans + 1, #perm do
 		local c = perm:sub(i, i)
 		local style = th.status.perm_type
@@ -107,7 +109,7 @@ function Status:perm()
 		elseif c == "x" or c == "s" or c == "S" or c == "t" or c == "T" then
 			style = th.status.perm_exec
 		end
-		spans[i] = ui.Span(c):style(style):bg(th.status.overall.bg)
+		spans[i] = ui.Span(c):style(style):bg(th.status.overall:bg())
 	end
 
 	return ui.Line(spans)
