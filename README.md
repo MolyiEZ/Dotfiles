@@ -78,7 +78,8 @@ These are my personalized dotfiles for **Hyprland**/**Niri**/**Sway**/**bspwm**,
 - **[maim](https://github.com/naelstrof/maim)** - Screenshot tool.
 - **[polybar](https://github.com/polybar/polybar)** - Status bar.
 - **[rofi](https://github.com/davatorium/rofi)** - App launcher.
-- **[sxhkd](https://github.com/baskerville/sxhkd)** - Hokey daemon.
+- **[snixembed](https://git.sr.ht/~steef/snixembed)** - Tray icons.
+- **[sxhkd](https://github.com/baskerville/sxhkd)** - Hotkey daemon.
 - **[xclip](https://github.com/astrand/xclip)** - X11 clipboard.
 - **[xidlehook](https://github.com/jD91mZM2/xidlehook)** - Idle manager.
 
@@ -123,11 +124,13 @@ pavucontrol                 # GUI audio configuration.
 polybar                     # Status bar.
 ripgrep                     # Text searcher.
 rofi                        # App launcher.
+snixembed                   # Tray Icons.
 steam                       # Steam.
 stremio                     # Media Center.
 swayidle                    # Idle daemon.
 swaylock                    # Swaylock with effects.
 swww                        # Wayland wallpapers.
+sxhkd                       # Hotkey daemon.
 thunar                      # File manager.
 tumbler                     # Images preview for thunar.
 unrar                       # Unrar.

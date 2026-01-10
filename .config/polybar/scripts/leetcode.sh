@@ -16,7 +16,6 @@ COLOR_4="#56d364"
 ### Internal ###
 CACHE="/tmp/leetcode_streak_${USER}_$$"
 INTERNET_MAX_RETRIES=${INTERNET_MAX_RETRIES:-30}
-TIME_OFFSET=${TIME_OFFSET:-0}
 
 # Cleanup on exit
 trap "rm -f $CACHE" EXIT
@@ -54,13 +53,15 @@ OUTPUT=""
 
 # 2 days ago -> 1 day ago -> Today
 for i in 2 1 0; do
-    TARGET_DATE=$(date -d "$i days ago" '+%Y-%m-%d')
+    TARGET_DATE=$(date -u -d "$i days ago" '+%Y-%m-%d')
 
-    COUNT=$(echo "$CALENDAR_JSON" | jq -r --arg date "$TARGET_DATE" --argjson OFFSET "$TIME_OFFSET" '
+    COUNT=$(echo "$CALENDAR_JSON" | jq -r --arg date "$TARGET_DATE" '
         to_entries |
-        map(select((.key | tonumber + $OFFSET | strftime("%Y-%m-%d") == $date))) |
+        map(select((.key | tonumber | todate[0:10]) == $date)) |
         map(.value) | add // 0
     ')
+
+    if [ -z "$COUNT" ] || [ "$COUNT" = "null" ]; then COUNT=0; fi
 
     if [ "$COUNT" -eq 0 ]; then
         COL=$COLOR_0
@@ -70,7 +71,7 @@ for i in 2 1 0; do
         COL=$COLOR_2
     elif [ "$COUNT" -le 5 ]; then
         COL=$COLOR_3
-    else COL=$COLOR_4; fi
+else COL=$COLOR_4; fi
 
     if [ "$i" -eq 0 ]; then
         OUTPUT="${OUTPUT}%{u$COLOR_LINE}%{+u}%{F$COL}■%{F-}%{-u} "

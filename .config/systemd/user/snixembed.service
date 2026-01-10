@@ -1,0 +1,14 @@
+[Unit]
+Description=Snixembed
+After=graphical-session-pre.target
+PartOf=bspwm-session.target
+
+[Service]
+ExecStart=/usr/sbin/snixembed
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=bspwm-session.target

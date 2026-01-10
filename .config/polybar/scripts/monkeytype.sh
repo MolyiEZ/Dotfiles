@@ -13,7 +13,6 @@ COLOR_4="#E2B714"
 ### Internal ###
 CACHE="/tmp/monkeytype_stats_$$"
 INTERNET_MAX_RETRIES=${INTERNET_MAX_RETRIES:-30}
-TIME_OFFSET=${TIME_OFFSET:-0}
 
 # Cleanup on exit
 trap "rm -f $CACHE" EXIT
@@ -54,16 +53,16 @@ OUTPUT=""
 
 # Loop = 2 days ago -> 1 day ago -> Today
 for i in 2 1 0; do
-    TARGET_DATE=$(date -d "$i days ago" '+%Y-%m-%d')
+    TARGET_DATE=$(date -u -d "$i days ago" '+%Y-%m-%d')
 
-    COUNT=$(jq -r --arg TARGET "$TARGET_DATE" --argjson OFFSET "$TIME_OFFSET" '
+    COUNT=$(jq -r --arg TARGET "$TARGET_DATE" '
         .data as $d |
         $d.testsByDays as $arr |
         ($d.lastDay / 1000) as $last_ts |
         range(0; $arr | length) |
         . as $idx |
-        ($last_ts - (($arr|length) - 1 - $idx) * 86400 + $OFFSET) |
-        strftime("%Y-%m-%d") as $date_str |
+        ($last_ts - (($arr|length) - 1 - $idx) * 86400) |
+        todate[0:10] as $date_str |
         select($date_str == $TARGET) |
         $arr[$idx]
     ' "$CACHE")
@@ -86,5 +85,4 @@ for i in 2 1 0; do
         OUTPUT="${OUTPUT}%{F$COL}■%{F-} "
     fi
 done
-
 echo "${OUTPUT% }"

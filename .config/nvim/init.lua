@@ -9,11 +9,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Fix weird bug of having 2 lualines
-vim.api.nvim_create_autocmd("VimResized", {
+-- A more aggressive way to get lualine and tpipline not render 2 lualines.
+vim.opt.laststatus = 0
+vim.api.nvim_create_autocmd("OptionSet", {
+	group = vim.api.nvim_create_augroup("ForceLastStatusZero", { clear = true }),
+	pattern = "laststatus",
 	callback = function()
-		vim.cmd("redraw!")
-		vim.cmd("call tpipeline#update()")
+		if vim.opt.laststatus:get() ~= 0 then
+			vim.opt.laststatus = 0
+		end
 	end,
 })
 

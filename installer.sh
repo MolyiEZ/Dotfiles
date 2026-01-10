@@ -3,10 +3,9 @@ set -euo pipefail
 trap 'echo -e "\n[x] Error on line $LINENO: $BASH_COMMAND" >&2' ERR
 
 ### Variables ###
-REPO_URL="https://github.com/MolyiEZ/Dotfiles"
-SOURCE_DIR="$HOME/.config/system-services"
-DEST_DIR="/etc/systemd/system"
 WINDOW_MANAGER="bspwm" # Choose Hyprland / Niri / Sway / bspwm
+
+REPO_URL="https://github.com/MolyiEZ/Dotfiles"
 
 ### Helpers ###
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
@@ -21,7 +20,7 @@ PKGS_COMMON=(
     base-devel git curl wget rsync tar xz fbset flatpak
     7zip eza fd fzf ripgrep yq tmux nvim yazi npm unrar unzip gvfs jq xdg-user-dirs
     zsh zsh-syntax-highlighting
-    ttf-jetbrains-mono ttf-jetbrains-mono-nerd otf-codenewroman-nerd 
+    ttf-jetbrains-mono ttf-jetbrains-mono-nerd otf-codenewroman-nerd
     vim-spell-en vim-spell-es
     nwg-look
     vlc vlc-plugins-all gimp xournalpp
@@ -52,9 +51,9 @@ case "$WINDOW_MANAGER" in
         PKGS_WM=(
             bspwm
             sxhkd alacritty rofi polybar feh maim
-            xdg-desktop-portal-gtk xclip xdotool 
+            xdg-desktop-portal-gtk xclip xdotool
             xorg-server xorg-xev xorg-xinit xorg-xinput xorg-xset xorg-xsetroot
-            xss-lock
+            xss-lock snixembed
         )
         AUR_WM=( i3lock-color xidlehook )
         ;;
@@ -69,7 +68,7 @@ case "$WINDOW_MANAGER" in
         PKGS_WM=( hyprland hypridle hyprlock hyprpaper hyprshot meson cpio )
         PKGS_REMOVE=( kitty dolphin )
         ;;
-    
+
     "niri")
         PKGS_WM=( niri swww xwayland-satellite )
         AUR_WM=( swaylock-effects )
@@ -85,8 +84,8 @@ esac
 
 # Check if is root user
 if [[ $EUID -eq 0 ]]; then
-   echo "Error: Run as a normal user, not root (yay/makepkg will fail)."
-   exit 1
+    echo "Error: Run as a normal user, not root (yay/makepkg will fail)."
+    exit 1
 fi
 
 # Request root
@@ -137,7 +136,7 @@ yay -S --needed --noconfirm "${ALL_AUR[@]}"
 if ! have_cmd rojo; then
     say "Installing rojo..."
     # Export cargo (It was just installed)
-    export PATH="$HOME/.cargo/bin:$PATH" 
+    export PATH="$HOME/.cargo/bin:$PATH"
     cargo install rojo --version ^7
 fi
 
@@ -147,8 +146,20 @@ TMP_CLONE="$(mktemp -d)"
 git clone --depth=1 "$REPO_URL" "$TMP_CLONE"
 
 say "Syncing config to $HOME..."
-rsync -av --exclude "installer.zsh" "$TMP_CLONE"/ "$HOME"/
+rsync -av --exclude "installer.sh" "$TMP_CLONE"/ "$HOME"/
 
+# Services
+say "Executing services script..."
+service_script="$TMP_CLONE/services.sh"
+
+if [[ -f "$service_script" ]]; then
+    chmod +x "$service_script"
+    "$service_script"
+else
+    say "Services script not found, skipping."
+fi
+
+# Delete the dotfiles folder
 rm -rf "$TMP_CLONE"
 
 # Scripts
@@ -188,27 +199,6 @@ fi
 say "Applying Papirus dark theme..."
 papirus-folders -C black --theme Papirus-Dark
 
-# Services
-if [ -d "$SOURCE_DIR" ]; then
-    say "Linking system services from $SOURCE_DIR..."
-    
-    # Enable services
-    find "$SOURCE_DIR" -name "*.service" | while read service_path; do
-        service_name=$(basename "$service_path")
-        
-        # Link
-        sudo ln -sf "$service_path" "$DEST_DIR/$service_name"
-        
-        # Enable
-        say "Enabling $service_name..."
-        sudo systemctl enable --now "$service_name"
-    done
-    
-    say "Reloading daemon..."
-    sudo systemctl daemon-reload
-else
-    say "WARNING: Service directory $SOURCE_DIR not found. Skipping services."
-fi
 
 # Reboot
 read -r -p "Setup complete. Reboot now? [Y/n] " ans

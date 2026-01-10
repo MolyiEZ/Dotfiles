@@ -1,0 +1,14 @@
+[Unit]
+Description=ActivityWatch Bundle (awatcher)
+After=snixembed.service
+PartOf=bspwm-session.target
+
+[Service]
+ExecStart=/usr/sbin/awatcher-bundle
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=bspwm-session.target
