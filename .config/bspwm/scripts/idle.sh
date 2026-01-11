@@ -17,9 +17,9 @@ killall xidlehook 2>/dev/null
 xidlehook \
     --not-when-fullscreen \
     --not-when-audio \
-    --timer 600 \
+    --timer 3 \
     "$LOCK_CMD" \
     "" \
-    --timer 300 \
+    --timer 2 \
     "xset dpms force off" \
     "xset dpms force on" &
