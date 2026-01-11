@@ -15,7 +15,6 @@ say() { printf "\033[1;32m[*]\033[0m %s\n" "$*"; }
 WINDOW_MANAGER="${WINDOW_MANAGER,,}"
 
 ### Packages ###
-
 PKGS_COMMON=(
     base-devel git curl wget rsync tar xz fbset flatpak
     7zip eza fd fzf ripgrep yq tmux nvim yazi npm unrar unzip gvfs jq xdg-user-dirs
@@ -81,7 +80,6 @@ case "$WINDOW_MANAGER" in
 esac
 
 ### Execution ###
-
 # Check if is root user
 if [[ $EUID -eq 0 ]]; then
     echo "Error: Run as a normal user, not root (yay/makepkg will fail)."

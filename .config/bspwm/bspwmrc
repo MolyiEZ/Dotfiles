@@ -10,6 +10,20 @@ export FILE_MANAGER=thunar
 bspc monitor VGA-1 -d 1 2 3 4 5
 bspc monitor HDMI-1 -d 6 7 8 9 0
 
+### Rules/EnvVars ###
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+systemctl --user import-environment DISPLAY XAUTHORITY GTK_THEME VISUAL EDITOR XDG_CURRENT_DESKTOP
+systemctl --user start bspwm-session.target
+dbus-update-activation-environment --systemd GTK_THEME VISUAL EDITOR XDG_CURRENT_DESKTOP=bspwm
+
+bspc rule -a Rofi state=floating center=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
 ### Visual ###
 # Borders
 bspc config border_width 1
@@ -32,20 +46,6 @@ bspc config pointer_modifier mod4
 
 # Keep monitor on, it will be managed by the idle script.
 xset -dpms s off
-
-### Rules/EnvVars ###
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-
-systemctl --user import-environment DISPLAY XAUTHORITY GTK_THEME VISUAL EDITOR XDG_CURRENT_DESKTOP
-systemctl --user start bspwm-session.target
-dbus-update-activation-environment --systemd GTK_THEME VISUAL EDITOR XDG_CURRENT_DESKTOP=bspwm
-
-bspc rule -a Rofi state=floating center=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
 
 ### Other ###
 # Repeat delay 300ms and rate 75ms

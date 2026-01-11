@@ -9,6 +9,9 @@ xss-lock --transfer-sleep-lock -- $LOCK_CMD &
 # Kills all xidlehook instances
 killall xidlehook 2>/dev/null
 
+# If you killed xidlehook and your screen still turns off.
+# Then do: xset -dpms s off
+
 # 600s (10m) -> Lock the screen
 # +300s (total 15m) -> Screen off
 xidlehook \
